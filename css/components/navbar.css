@@ -1,0 +1,148 @@
+.navbar-toggler-icon {
+  cursor: pointer;
+}
+
+
+
+/* * * * * * NAVBAR * * * * * */
+
+nav {
+  background-color: var(--main-color-dark);
+  color: var(--main-color-white)!important;
+  position: sticky!important;
+  top: 0!important;
+  z-index: 190;
+  padding: 1rem!important;
+}
+nav a {
+  color: var(--main-color-white)!important;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--main-color-red)!important;
+  -moz-text-decoration-color: var(--main-color-red)!important;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+#navbar-toggler-button {
+  background-color: var(--main-color-white)!important;
+  
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='rgba%280, 0, 23, 49%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+  /* background-image: url('../img/icones/map.png')!important; */
+
+}
+
+.nav-sub-menu-separator {
+  line-height: 4px;
+  border-bottom: 1px dashed var(--main-color-white);
+  margin-bottom: 4px;
+}
+
+/* * * * * *NOS REFERENCES * * * * * * */
+/* Sous-menu caché / Affiché si survol de "Nos références". */
+
+
+#sub-nav-univers,
+#sub-nav-references-admin {
+  display: none;
+  background-color: var(--main-color-dark);
+  min-width: 200px;
+  z-index: 200;
+}
+
+#sub-nav-univers > li {
+  margin: 7px;
+}
+
+#nav-nos-references:hover ul,
+#nav-nos-references-admin:hover ul {
+  display: block;
+}
+
+
+#nav-ul {
+  margin: 0 auto;
+}
+
+#li-connexion {
+  margin-left : 8rem;
+}
+
+#facebook-icon {
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+
+  #li-connexion {
+    margin-left : 0;
+    margin-top: 1.5rem;
+    border-top: 0.1px solid #d6d6d6;
+  }
+
+  /* * * * * * * * SOUS-MENUS * * * * * * */
+    
+  #sub-nav-univers {
+    position: inherit;
+  }
+
+  /* #lien-form-devenir-partenaire-up {
+    display: inline;  
+  }
+  #lien-form-devenir-partenaire-down {
+    display: none;
+  } */
+
+  #update-partenaire-table button {
+    font-size: 0.8rem;
+    margin: 5px auto;
+  }
+
+  #logo {
+    /* display: none; */
+  }
+
+  nav {
+    flex-direction: row;
+    padding: 0.5rem!important;
+  }
+
+  .navbar {
+    align-items: flex-start;
+  }
+
+  nav .container-fluid {
+    flex: 4;
+  }
+
+  #logo2-div {
+    flex: 1;
+  }
+
+  #logo2-div {
+    /* display: flex; */
+  }
+
+  #nav-ul li:not(:last-child) {
+    border-right: none;
+  }
+
+
+  .navbar-toggler {
+    margin-top: 10px;
+  }
+
+  #facebook-icon, #instagram-icon {
+    margin-bottom: 1rem;
+  }
+
+  #facebook-icon {
+    margin-top: 1rem;
+  }
+
+}
