@@ -203,24 +203,89 @@ header .logo {
 * * * * * *ACCUEIL * * * * * *
 * * * * * * * * * * * * * * * * */
 
+#image-accueil {
+  background-color: red;
+  min-height: 400px;
+  background-image: url("../img/activites/actiform-plaisir.jpg");
+  background-position: center;
+}
+
 .accueil-text-boxes {
-  width: 45%;
-  max-width: 600px;
+  width: 98%;
+  max-width: 800px;
   padding: 1rem;
   margin: 0 1rem;
+  text-align: center;
 }
 
 .accueil-text-boxes h2 {
   font-size: 2rem;
   color: var(--main-color-dark);
   text-decoration: underline;
-  text-decoration-color: var(--main-color-accent2);
-  -moz-text-decoration-color: var(--main-color-accent2);
+  text-decoration-color: var(--main-color-red);
+  -moz-text-decoration-color: var(--main-color-red);
   text-underline-offset: 10px;
   text-decoration-thickness: 2px;
-
   margin-bottom: 1.5rem;
 }
+
+#accueil-sport-plaisir p {
+  background-color: var(--main-color-light);
+  
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 300px;
+  
+  border: 1px solid black;
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.2);
+
+  font-size: 1.2rem;
+  
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+
+#liste-activites-sportives {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+#liste-activites-sportives div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--main-color-dark);
+  color: var(--main-color-red);
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid silver;
+  
+  padding: 1rem;
+  margin: 1rem;
+  
+  min-width: 150px;
+  width: 100%;
+  max-width: 220px;
+  min-height: 150px;
+
+  border-radius:7px;
+  -webkit-border-radius:7px;
+  -moz-border-radius:7px;
+  -ms-border-radius:7px;
+  -o-border-radius:7px;
+
+}
+
 
 #div-qui-sommes-nous {
   width: 95%;
