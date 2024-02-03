@@ -8,11 +8,11 @@ ob_start();
 
 
 <div class="m-0 max-width-100vw">
-  <div id="image-accueil" class="box"></div>
+  <div id="div-image-accueil" class="box">Le sport plaisir</div>
   <div class="row max-width-100percent jcc wrap" id="accueil-text-boxes">
     
     <div class="accueil-text-boxes" id="accueil-sport-plaisir">
-      <h2>Le sport plaisir</h2>
+      <h2>Bienvenue chez Actiform</h2>
       <p>
         <b>Ouverture</b><br>
         7 jours sur 7 !<br>
@@ -34,24 +34,24 @@ ob_start();
       <h2>18 activit&eacute;s sportives</h2>
       <p>
         <div id="liste-activites-sportives">
-          <div>Acti Attack</div>
-          <div>Acti Combat</div>
-          <div>Acti Pump</div>
-          <div>Acti Ring</div>
-          <div>Bike</div>
-          <div>Body Sculpt</div>
-          <div>C.A.F.</div>
-          <div>Cross Training</div>
-          <div>Cross Training HIIT</div>
-          <div>Full Body</div>
-          <div>Gym Douce</div>
-          <div>HIIT-AF</div>
-          <div>Pilates</div>
-          <div>Step</div>
-          <div>Strech</div>
-          <div>Strong</div>
-          <div>Swiss Ball</div>
-          <div>Zumba</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Attack</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Combat</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Pump</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Ring</div>
+          <div style="background-image: url('img/activites/actiform-bike.jpg');">Bike</div>
+          <div style="background-image: url('img/activites/actiform-body-sculpt.jpg');">Body Sculpt</div>
+          <div style="background-image: url('img/activites/actiform-caf.jpg');">C.A.F.</div>
+          <div style="background-image: url('img/activites/actiform-cross-training.jpg');">Cross Training</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Cross Training HIIT</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Full Body</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Gym Douce</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">HIIT-AF</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Pilates</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Step</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Strech</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Strong</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Swiss Ball</div>
+          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Zumba</div>
         </div>
       </p>
     </div>

@@ -1,11 +1,13 @@
 <header>
     <div class="logo flex-1 tc">
-        <img 
-            id="logo" 
-            class="logo-large-screen" 
-            src="img/logo/actiform_logo_1276x800.jpg"
-            alt="Actiform Colombiers - Logo"
-        >
+        <a href="index.php?page=accueil">
+            <img 
+                id="logo" 
+                class="logo-large-screen" 
+                src="img/logo/actiform_logo_1276x800.jpg"
+                alt="Actiform Colombiers - Logo"
+            >
+        </a>
     </div>
     <div class="contacts flex-2 flex">
         <div class="flex flex-column gap-15 aic">
