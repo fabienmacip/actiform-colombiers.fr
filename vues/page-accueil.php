@@ -35,22 +35,22 @@ ob_start();
       <p>
         <div id="liste-activites-sportives">
           <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Attack</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Combat</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Pump</div>
+          <div style="background-image: url('img/activites/actiform-body-sculpt.jpg');">Acti Combat</div>
+          <div style="background-image: url('img/activites/actiform-caf.jpg');">Acti Pump</div>
           <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Acti Ring</div>
           <div style="background-image: url('img/activites/actiform-bike.jpg');">Bike</div>
           <div style="background-image: url('img/activites/actiform-body-sculpt.jpg');">Body Sculpt</div>
           <div style="background-image: url('img/activites/actiform-caf.jpg');">C.A.F.</div>
           <div style="background-image: url('img/activites/actiform-cross-training.jpg');">Cross Training</div>
           <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Cross Training HIIT</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Full Body</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Gym Douce</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">HIIT-AF</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Pilates</div>
+          <div style="background-image: url('img/activites/actiform-full-body.jpg');">Full Body</div>
+          <div style="background-image: url('img/activites/actiform-caf.jpg');">Gym Douce</div>
+          <div style="background-image: url('img/activites/actiform-cross-training.jpg');">HIIT-AF</div>
+          <div style="background-image: url('img/activites/actiform-pilates.jpg');">Pilates</div>
           <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Step</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Strech</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Strong</div>
-          <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Swiss Ball</div>
+          <div style="background-image: url('img/activites/actiform-full-body.jpg');">Strech</div>
+          <div style="background-image: url('img/activites/actiform-bike.jpg');">Strong</div>
+          <div style="background-image: url('img/activites/actiform-pilates.jpg');">Swiss Ball</div>
           <div style="background-image: url('img/activites/actiform-plaisir.jpg');">Zumba</div>
         </div>
       </p>

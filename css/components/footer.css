@@ -12,8 +12,12 @@ footer {
 
 }
 
+footer a {
+  color: var(--main-color-white);
+}
+
 footer a:hover {
-  color: var(--main-color-accent2);
+  color: var(--main-color-red);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -68,7 +72,7 @@ footer div:nth-child(3){
 #mentions-legales-div {
   text-align: left;
   padding: 20px;
-  margin: 0;
+  margin: 0 0 150px 0;
 }
 
 #mentions-legales-div ul {
@@ -92,7 +96,7 @@ footer div:nth-child(3){
 #cgu-div {
   text-align: left;
   padding: 20px;
-  margin: 0 0 500px 0;
+  margin: 0 0 150px 0;
 }
 
 #cgu-div ul {

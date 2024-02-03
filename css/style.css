@@ -27,11 +27,22 @@
   display: none;
 }
 
+a {
+  color: var(--main-color-black);
+}
+
+a:hover {
+  color: var(--main-color-red);
+}
 
 .link {
   font-weight: 700;
-  color: var(--main-color-accent);
+  color: var(--main-color-black);
   cursor: pointer;
+}
+
+.link:hover {
+  color: var(--main-color-red);
 }
 
 .popup{
