@@ -30,7 +30,7 @@ ob_start();
       </p>
     </div>
 
-    <div class="accueil-text-boxes">
+    <div id="accueil-activites" class="accueil-text-boxes">
       <h2>18 activit&eacute;s sportives</h2>
       <p>
         <div id="liste-activites-sportives">
@@ -55,12 +55,12 @@ ob_start();
         </div>
       </p>
     </div>
-
+    
     <div class="accueil-text-boxes" id="div-qui-sommes-nous">
       <h2>Qui sommes-nous ?</h2>
       <p>
         <h3>
-            Une &eacute;quipe exp&eacute;riment&eacute;e
+          Une &eacute;quipe exp&eacute;riment&eacute;e
         </h3>
         Lorem ipsum dolor sit amet consectetur adipisicing edivt. Facilis totam corporis laborum, similique quaerat fugit facere sapiente amet rerum nobis tenetur sit incidunt, sed natus quos reiciendis commodi eveniet vero!
       </p>
@@ -69,9 +69,9 @@ ob_start();
         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum neque laudantium minus tempore ullam odit explicabo at quia alias iste voluptates eligendi maiores eveniet beatae, debitis harum nulla aut sapiente.</div>
       </div>
     </div>
-
-
+    
   </div>
+
 </div>
 
 
