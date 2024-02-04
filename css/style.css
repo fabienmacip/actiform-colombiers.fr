@@ -292,7 +292,23 @@ header .logo {
   
 }
 
-#liste-activites-sportives div {
+#liste-activites-sportives .activite-card {
+  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid silver;
+
+  min-width: 150px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 400px;
+  
+  border-radius:7px;
+  -webkit-border-radius:7px;
+  -moz-border-radius:7px;
+  -ms-border-radius:7px;
+  -o-border-radius:7px;
+}
+
+#liste-activites-sportives .activite-img {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -305,22 +321,14 @@ header .logo {
     1px -1px 2px var(--main-color-white),               
     -1px 1px 2px var(--main-color-white),               
     -1px -1px 2px var(--main-color-white);
-  box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.2);
-  border: 3px solid silver;
+  
   padding: 1rem;
-  /*margin: 1rem;
-  */min-width: 150px;
-  width: 100%;
-  max-width: 400px;
+  
   min-height: 250px;
+  
   background-position: center;
   background-size: 100%;
   background-blend-mode: luminosity;
-  border-radius:7px;
-  -webkit-border-radius:7px;
-  -moz-border-radius:7px;
-  -ms-border-radius:7px;
-  -o-border-radius:7px;
   transition: all 1s ease 50ms;
   -webkit-transition: all 1s ease 50ms;
   -moz-transition: all 1s ease 50ms;
@@ -328,7 +336,12 @@ header .logo {
   -o-transition: all 1s ease 50ms;
 }
 
-#liste-activites-sportives div:hover {
+#liste-activites-sportives .activite-card-text {
+  padding: 1rem;
+  text-align: left;
+}
+
+#liste-activites-sportives .activite-img:hover {
   color: transparent;
   text-shadow: 0 0 0;
   background-blend-mode: unset;
