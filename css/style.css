@@ -1,4 +1,15 @@
 /* * * * * * * * GENERAL * * * * * * */
+h2 {
+  font-size: 2rem;
+  color: var(--main-color-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--main-color-red);
+  -moz-text-decoration-color: var(--main-color-red);
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
+  margin-bottom: 2.5rem;
+}
+
 input[type=text], input[type=email], input[type=number], select {
 
 /*   font-size: 1.1rem; */
@@ -75,7 +86,46 @@ input[type=text], input[type=email], input[type=number], select {
 
 
 
+/* --------------- T O A S T E R -------------------- */
 
+#toaster-decouverte-form {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--main-color-orange);
+  color: var(--main-color-white);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem auto;
+  max-width: 95%;
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+#toaster-decouverte-form-cross {
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border: 2px solid var(--main-color-white);
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  #toaster-decouverte-form {
+    padding-top: 3.5rem;
+    font-size: 1.3rem;
+  }
+}
+
+/* -------------------- F I N   T O A S T E R ------------------------ */
 
 
 
