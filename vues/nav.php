@@ -66,14 +66,13 @@
         </div>
         <!-- FIN ADDED -->
     </div>
-    <div id="logo2-div">
+    <!-- <div id="logo2-div">
         <img 
           id="logo2" 
           src="img/logo/logo-la-reference-350x311-transparent.png"
           class="logo-little-screen" 
           alt="La maison de l'habitat (by La Centrale de Financement) - Perpignan"
           >
-          <!-- src="img/logo/logo_lmh_perpignan.png"  -->
-    </div>
+    </div> -->
 
     </nav>

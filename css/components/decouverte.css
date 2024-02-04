@@ -3,3 +3,95 @@
   margin: 1rem auto;
   text-align: center;
 }
+
+#decouverte-div {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#video-actiform {
+  border: 1px solid var(--main-color-light);
+  margin: 2rem auto;
+}
+
+#div-form-decouverte {
+  background-color: black;
+  color: var(--main-color-white);
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+#formShortMail {
+  margin: 1rem auto;
+  text-align: center;
+  border: 1px solid black;
+  max-width: 400px;
+  padding-left: 2rem;
+
+}
+
+#fsm-contact-donnees,
+#short-contact-btn {
+  text-align: left;
+}
+
+#fsm-contact-coordonnees {
+  margin-left: 0.5rem;
+}
+
+#fsm-contact-coordonnees > div {
+  margin: 1rem auto;
+}
+
+#short-contact-btn {
+  display: flex;
+  flex-flow: row;
+  /* justify-content: center; */
+}
+
+.contact-form-error {
+  color: var(--error);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+/* --------------- T O A S T E R -------------------- */
+
+#toaster-decouverte-form {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--main-color-orange);
+  color: var(--main-color-white);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 95%;
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+#toaster-decouverte-form-cross {
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border: 2px solid var(--main-color-white);
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  #toaster-decouverte-form {
+    padding-top: 3.5rem;
+    font-size: 1.3rem;
+  }
+}
