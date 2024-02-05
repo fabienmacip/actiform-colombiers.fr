@@ -8,45 +8,13 @@
   padding: 0 1rem;
 }
 
-#resamania {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-#resamania > div {
-  width: 96%;
-  max-width: 400px;
-  min-height: 100px;
-  margin: 0 auto;
-  padding: 1rem;
-  border: 3px solid transparent;
-
-  transition:border 1s ease;
-  -webkit-transition:border 1s ease;
-  -moz-transition:border 1s ease;
-  -ms-transition:border 1s ease;
-  -o-transition:border 1s ease;
-  
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-}
-
-#resamania > div:hover {
-  border-color: var(--main-color-red);
-}
-
-
 #planning-grille {
   display: grid;
   margin: 0 auto;
   gap: 10px;
   justify-items: stretch;
   align-items: stretch;
-  grid-template-columns: 3fr 1fr 1fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr repeat(5, 1fr);
   grid-template-rows: repeat(31, 20px);
   text-align: center;
 }
@@ -130,11 +98,6 @@
   grid-row: 3 / 7;
 }
 
-.acti-ring {
-  grid-column: 1 / 2;
-  grid-row: 5 / 7;
-}
-
 .acti-pump1 {
   grid-column: 4 / 5;
   grid-row: 3 / 7;
@@ -149,6 +112,10 @@
   grid-row: 5 / 9;
 }
 
+.acti-ring {
+  grid-column: 1 / 2;
+  grid-row: 5 / 7;
+}
 
 .pilates1 {
   grid-column: 2 / 3;
@@ -244,11 +211,6 @@
   flex: 1;
 }
 
-.zumba > div:nth-child(2) {
-  border-left: 1px solid var(--main-color-light);
-  border-right: 1px solid var(--main-color-light);
-}
-
 .zumba > div:nth-child(3) {
   display: flex;
   flex-direction: column;
@@ -276,43 +238,12 @@
 
 .bike1 {
   grid-column: 4 / 5;
-  grid-row: 24 / 31;
-
-  display: flex;
-  flex-direction: row;
+  grid-row: 24 / 27;
 }
 
-.bike1-pilates3 {
-  flex: 1;
-  
-  display: flex;
-  flex-direction: column;
-}
-
-.bike1-pilates3 > div {
-  flex: 1;
-}
-
-.cross-training-chevauchant {
-  flex: 1;
-  border-left: 1px solid var(--main-color-light);
-  
-  display: flex;
-  flex-direction: column;
-}
-
-.cross-training-chevauchant > div:nth-child(1) {
-  flex: 1;
-  background-color: white;
-}
-
-.cross-training-chevauchant > div:nth-child(2) {
-  flex: 4;
-}
-
-.cross-training-chevauchant > div:nth-child(3) {
-  flex: 2;
-  background-color: white;
+.pilates3 {
+  grid-column: 4 / 5;
+  grid-row: 27 / 31;
 }
 
 .acti-attack {
@@ -329,133 +260,13 @@
 
 
 
-/* - - - - - - - M E D I A   Q U E R I E S - - - - - - */
-@media screen and (max-width: 991px) {
-  #planning-grille > .day {
-    font-size: 1rem;
-  }
-}
-
-/* On passe sur 2 fois 3 jours */
-@media screen and (max-width: 780px) {
-  #planning-grille {
-    display: grid;
-    margin: 0 auto;
-    gap: 10px;
-    justify-items: stretch;
-    align-items: stretch;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: repeat(64, 20px);
-    text-align: center;
-  }
-
-  .jeu {
-    grid-column: 1 / 2;
-    grid-row: 34 / 36;
-  }
-  
-  .ven {
-    grid-column: 2 / 3;
-    grid-row: 34 / 36;
-  }
-  
-  .dim {
-    grid-column: 3 / 4;
-    grid-row: 34 / 36;
-  }
-
-  .acti-pump1 {
-    grid-column: 1 / 2;
-    grid-row: 36 / 40;
-  }
-
-  .gym-douce {
-    grid-column: 2 / 3;
-    grid-row: 36 / 40;
-  }
-  
-  .acti-combat {
-    grid-column: 3 / 4;
-    grid-row: 38 / 42;
-  }
-    
-  .pilates2 {
-    grid-column: 3 / 4;
-    grid-row: 42 / 46;
-  }
-  
-  .stretch1 {
-    grid-column: 3 / 4;
-    grid-row: 46 / 50;
-  }
-
-  .jeu2 {
-    grid-column: 1 / 2;
-    grid-row: 50 / 52;
-  }
-  
-  .ven2 {
-    grid-column: 2 / 3;
-    grid-row: 50 / 52;
-  }
-  
-  .dim2 {
-    grid-column: 3 / 4;
-    grid-row: 50 / 52;
-  }
-  
-  .body-sculpt2 {
-    grid-column: 1 / 2;
-    grid-row: 52 / 55;
-  }
-  
-  .caf2 {
-    grid-column: 2 / 3;
-    grid-row: 52 / 54;
-  }
-  
-  .bike1 {
-    grid-column: 1 / 2;
-    grid-row: 55 / 62;
-  }
-  
-  .acti-attack {
-    grid-column: 2 / 3;
-    grid-row: 54 / 57;
-  }
-  
-  .bike3 {
-    grid-column: 2 / 3;
-    grid-row: 57 / 60;
-  }
-  
-}
 
 
 
-/* On passe sur 6 fois 1 jour */
-@media screen and (max-width: 488px) {
-  #planning-reservations-div h1 
-  {
-    font-size: 1.8rem;
-  }
+.midi {
+/*   grid-area: midi;
+  background-color: var(--main-color-light);
+  min-height: 30px;
+ */}
  
-  #resamania {
-    font-size: 1.3rem;
-  }
-  
-  #planning-grille {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .day2 {
-    display: none!important;
-  }
-
-  .day {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-top: 1.5rem;
-  }
-}
+ 

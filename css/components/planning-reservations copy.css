@@ -1,0 +1,235 @@
+#planning-reservations-div h1 
+{
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#planning-reservations-div {
+  padding: 0 1rem;
+}
+
+#planning-grille {
+  display: grid!important;
+  gap: 10px;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 50px;
+  grid-template-areas: 
+    "lun mar mer jeu ven dim"
+    "lun mar mer jeu ven dim"
+    "swiss-ball body-sculpt1 . acti-pump1 gym-douce ."
+    "swiss-ball body-sculpt1 . acti-pump1 gym-douce ."
+    "acti-ring body-sculpt1 . acti-pump1 gym-douce acti-combat"
+    "acti-ring body-sculpt1 . acti-pump1 gym-douce acti-combat"
+    ". pilates1 . . . acti-combat"
+    ". pilates1 . . . acti-combat"
+    ". pilates1 . . . pilates2"
+    ". pilates1 . . . pilates2"
+    ". . . . . pilates2"
+    ". . . . . pilates2"
+    ". . . . . ."
+    ". . . . . stretch1"
+    ". . . . . stretch1"
+    "full-body . hiit-af . . ."
+    "lun2 mar2 mer2 jeu2 ven2 dim2"
+    "lun2 mar2 mer2 jeu2 ven2 dim2"
+    "acti-pump2 caf1 acti-pump3 body-sculpt2 caf2 ."
+    "acti-pump2 caf1 acti-pump3 body-sculpt2 caf2 ."
+    "acti-pump2 caf1 acti-pump3 body-sculpt2 acti-attack ."
+    "acti-pump2 caf1 acti-pump3 bike1 acti-attack ."
+    "zumba-- step- strong- bike1 acti-attack ."
+    "zumba-- step- strong- bike1 bike3 ."
+    "zumba-- step- strong- pilates3 bike3 ."
+    "zumba-- step- strong- pilates3 bike3 ."
+    ". . . pilates3 . ."
+    ". . . pilates3 . ."
+    ;
+    text-align: center;
+}
+
+
+.lun {
+  grid-area: lun;
+}
+
+.mar {
+  grid-area: mar;
+}
+
+.mer {
+  grid-area: mer;
+}
+
+.jeu {
+  grid-area: jeu;
+}
+
+.ven {
+  grid-area: ven;
+}
+
+.dim {
+  grid-area: dim;
+}
+
+.lun2 {
+  grid-area: lun2;
+}
+
+.mar2 {
+  grid-area: mar2;
+}
+
+.mer2 {
+  grid-area: mer2;
+}
+
+.jeu2 {
+  grid-area: jeu2;
+}
+
+.ven2 {
+  grid-area: ven2;
+}
+
+.dim2 {
+  grid-area: dim2;
+}
+
+.swiss-ball {
+  grid-area: swiss-ball;
+}
+
+.body-sculpt1 {
+  grid-area: body-sculpt1;
+}
+
+.body-sculpt2 {
+  grid-area: body-sculpt2;
+}
+
+.acti-pump1 {
+  grid-area: acti-pump1;
+}
+
+.acti-pump2 {
+  grid-area: acti-pump2;
+}
+
+.acti-pump3 {
+  grid-area: acti-pump3;
+}
+
+.acti-attack {
+  grid-area: acti-attack;
+}
+
+.bike1 {
+  grid-area: bike1;
+}
+
+.bike3 {
+  grid-area: bike3;
+}
+
+.caf1 {
+  grid-area: caf1;
+}
+
+.caf2 {
+  grid-area: caf2;
+}
+
+.gym-douce {
+  grid-area: gym-douce;
+}
+
+.acti-combat {
+  grid-area: acti-combat;
+}
+
+.acti-ring {
+  grid-area: acti-ring;
+}
+
+.pilates1 {
+  grid-area: pilates1;
+}
+
+.pilates2 {
+  grid-area: pilates2;
+}
+
+.pilates3 {
+  grid-area: pilates3;
+}
+
+.full-body {
+  grid-area: full-body;
+}
+
+.hiit-af {
+  grid-area: hiit-af;
+}
+
+.stretch1 {
+  grid-area: stretch1;
+}
+
+.zumba-- {
+  grid-area: zumba--;
+}
+
+.step- {
+  grid-area: step-;
+}
+
+.strong- {
+  grid-area: strong-;
+}
+
+.midi {
+/*   grid-area: midi;
+  background-color: var(--main-color-light);
+  min-height: 30px;
+ */}
+ 
+ 
+ #planning-grille > div:not(.midi) {
+   font-weight: bold;
+ 
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   -ms-border-radius: 5px;
+   -o-border-radius: 5px;
+ }
+ 
+ #planning-grille > div:not(.day):not(.midi) {
+   color: white;
+   background-color: rgb(165, 13, 13);
+ }
+ 
+ #planning-grille > div:not(.day):not(.midi) {
+   border: 1px solid black;
+ }
+ 
+ #planning-grille > .day {
+   color: black;
+   background-color: var(--main-color-light);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.2rem;
+ 
+   text-shadow: #BBB 0px 0px 1px,
+                #BBB 0px 0px 2px, 
+                #BBB 0px 0px 15px,
+                red 0px 0px 20px,
+                red 0px 0px 30px,
+                red 0px 0px 40px,
+                red 0px 0px 50px,
+                red 0px 0px 75px;
+ 
+ }
