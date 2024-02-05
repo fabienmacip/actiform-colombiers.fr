@@ -184,7 +184,7 @@ a:hover {
 }
 
 /* TOASTER */
-
+/* 
 .toaster {
   background-color: var(--main-color-yellow);
   color: var(--main-color);
@@ -226,7 +226,7 @@ a:hover {
 
 .toaster div:nth-child(2) {
   text-align: left;
-}
+} */
 /* FORMULAIRE VISITEUR */
 
 #croixCloseFormVisiteur{
@@ -321,30 +321,33 @@ header .logo {
 * * * * * * * * * * * * * * * * */
 
 #div-image-accueil {
-  background-color: red;
+  font-size: 6rem;
+  
   min-height: 400px;
   background-image: url("../img/activites/actiform-plaisir.jpg");
   background-position: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   
-  font-size: 6rem;
   color: var(--main-color-white);
   text-shadow: 3px 3px 3px var(--main-color-red);
+  
+  margin-bottom: 1rem;
 
   transition-property: color;
   transition-delay: 100ms;
   transition-timing-function: ease;
   transition-duration: 1s;
-  
-  margin-bottom: 1rem;
 }
 
 #div-image-accueil:hover {
   color: var(--main-color-red);
   text-shadow: 3px 3px 3px var(--main-color-white);
 }
+
+/* - - - - - - - A C C U E I L   ---   T E X T   B O X E S - - - - - - - - - - */
 
 .accueil-text-boxes {
   width: 98%;
@@ -367,6 +370,14 @@ header .logo {
   text-underline-offset: 10px;
   text-decoration-thickness: 2px;
   margin-bottom: 2.5rem;
+}
+
+#image-accueil-text {
+  font-size: 1.5rem;
+}
+
+.span-br {
+  display: none;
 }
 
 #accueil-sport-plaisir {
@@ -666,9 +677,6 @@ header .logo {
   }
 
   
-
-  
-
   .contacts {
 /*     flex-direction: column;
     justify-content: space-around;
@@ -734,6 +742,13 @@ header .logo {
     font-size: 3rem;
   }
  
+  .span-br {
+    display: inline;
+  }
+
+  .span-dash {
+    display: none;
+  }
 
   .contacts div {
     font-size: 1rem;
@@ -777,6 +792,17 @@ header .logo {
   }
 }
 
+@media screen and (max-width : 320px) {
+  #image-accueil-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width : 280px) {
+  #image-accueil-text {
+    font-size: 1rem;
+  }
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * PRINT * * * * * * * * 

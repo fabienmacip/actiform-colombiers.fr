@@ -8,11 +8,26 @@ ob_start();
 
 
 <div class="m-0 max-width-100vw">
-  <div id="div-image-accueil" class="box">Le sport plaisir</div>
+  <div id="div-image-accueil" class="box">
+      Le sport plaisir
+  </div>
+
   <div class="row max-width-100percent jcc wrap" id="accueil-text-boxes">
     
     <div class="accueil-text-boxes" id="accueil-sport-plaisir">
       <h2>Bienvenue chez Actiform</h2>
+  
+      <div id="image-accueil-text">
+        Remise en forme<span class="span-dash"> - </span><span class="span-br"><br></span>
+        Suivi et coaching perso<br>
+        Musculation<span class="span-dash"> - </span><span class="span-br"><br></span>
+        Cross training<span class="span-dash"> - </span><span class="span-br"><br></span>
+        Biking<br>
+        Espace cardio<span class="span-dash"> - </span><span class="span-br"><br></span>
+        Cours collectifs
+      </div>
+
+
       <p>
         <b>Ouverture</b><br>
         7 jours sur 7 !<br>
