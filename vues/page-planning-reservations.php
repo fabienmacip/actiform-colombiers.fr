@@ -1,7 +1,10 @@
-<div id="planning-reservations-div">
+<div id="planning-reservations-div" class="tc">
     
     <h1>PLANNING & RESERVATIONS</h1>
-    
+    <a id="cgu-pdf" href="assets/doc/actiform-planning-2023-2024.pdf" target="_blank" class="link-to-pdf">
+        T&eacute;l&eacute;charger au format PDF
+    </a>
+
     <div id="resamania">
         R&eacute;servez votre cours avec RESAMANIA.<br>
         Cliquez sur le logo ci-dessous.<br><br>

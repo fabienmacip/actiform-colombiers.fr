@@ -1,6 +1,6 @@
 <footer class="text-center mt-5">
         <div class="flex-1">
-          <a href="index.php?page=cgu">CGU</a>&nbsp;|&nbsp;
+          <a href="index.php?page=cgu">CGV</a>&nbsp;|&nbsp;
           <a href="index.php?page=mentions-legales">Mentions L&eacute;gales</a>
         </div>
         <div class="flex-2" id="footer-partenaires">

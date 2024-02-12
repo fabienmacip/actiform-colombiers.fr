@@ -71,7 +71,7 @@ ob_start();
           </div>
  
           <div class="activite-card">
-            <div style="background-image: url('img/activites/actiform-caf.jpg');" class="activite-img">Acti Pump</div>
+            <div style="background-image: url('img/activites/actiform-acti-pump.jpg');" class="activite-img">Acti Pump</div>
             <div class="activite-card-text">
               <b>Acti Pump</b> redéfinit l'entraînement de <u>renforcement musculaire</u>. 
               Cette activité intense utilise des poids légers et répétitions rapides pour sculpter et 
@@ -174,7 +174,7 @@ ob_start();
           </div>
 
           <div class="activite-card">
-            <div style="background-image: url('img/activites/actiform-pilates.jpg');" class="activite-img">Pilates</div>
+            <div style="background-image: url('img/activites/actiform-stretch-pilates.jpg');" class="activite-img">Pilates</div>
             <div class="activite-card-text">
               <b>Pilates</b> est une discipline axée sur la <u>force</u>, la <u>flexibilité</u> et le <u>contrôle corporel</u>. 
               En se concentrant sur la respiration et des mouvements précis, cette pratique renforce 
@@ -195,7 +195,7 @@ ob_start();
           </div>
 
           <div class="activite-card">          
-            <div style="background-image: url('img/activites/actiform-full-body.jpg');" class="activite-img">Strech</div>
+            <div style="background-image: url('img/activites/actiform-stretch-pilates.jpg');" class="activite-img">Strech</div>
             <div class="activite-card-text">
               L'activité <b>Stretch</b> offre une <u>pause régénératrice</u> dans le monde du fitness. 
               Axée sur l'étirement musculaire et la flexibilité, cette pratique favorise la détente 
@@ -216,7 +216,7 @@ ob_start();
           </div>
 
           <div class="activite-card">          
-            <div style="background-image: url('img/activites/actiform-pilates.jpg');" class="activite-img">Swiss Ball</div>
+            <div style="background-image: url('img/activites/actiform-swiss-ball.jpg');" class="activite-img">Swiss Ball</div>
             <div class="activite-card-text">
               L'activité <b>Swiss Ball</b> intègre un <u>ballon de fitness pour un entraînement unique</u>. 
               Ciblant l'équilibre, la stabilité et la force du corps, cette discipline engage les muscles profonds. 
@@ -238,7 +238,7 @@ ob_start();
         </div>
       </p>
     </div>
-    
+<!--     
     <div class="accueil-text-boxes" id="div-qui-sommes-nous">
       <h2>Qui sommes-nous ?</h2>
       <p>
@@ -252,7 +252,7 @@ ob_start();
         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum neque laudantium minus tempore ullam odit explicabo at quia alias iste voluptates eligendi maiores eveniet beatae, debitis harum nulla aut sapiente.</div>
       </div>
     </div>
-    
+ -->    
   </div>
 
 </div>

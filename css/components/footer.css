@@ -90,38 +90,6 @@ footer div:nth-child(3){
   text-align: center;
 }
 
-/* * * * * CGU * * * * */
-
-
-#cgu-div {
-  text-align: left;
-  padding: 20px;
-  margin: 0 0 150px 0;
-}
-
-#cgu-div ul {
-  padding-left: 3rem;
-  margin-bottom: 1rem;
-}
-
-#cgu-div li {
-  list-style: disc;
-}
-
-#cgu-div h1 {
-  font-size: 35px;
-}
-
-#cgu-div h2 {
-  font-size: 28px;
-}
-
-#cgu-div h1, 
-#cgu-div h2 {
-  margin: 1rem auto;
-  text-align: center;
-}
-
 
 @media screen and (max-width: 732px) {
   footer div:nth-child(1) {

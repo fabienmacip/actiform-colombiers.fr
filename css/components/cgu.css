@@ -1,0 +1,45 @@
+#cgu-div > div:first-child {
+  padding: 20px;
+}
+
+#cgu-div > div:nth-child(2) {
+  text-align: center;
+  padding: 20px 0;
+  margin: 0 0 150px 0;
+}
+
+/* #cgu-div > div:nth-child(2) > a {
+  color: var(--main-color-red);
+  font-weight: bold;
+}
+
+#cgu-div > div:nth-child(2) > a:hover {
+  color: var(--main-color-black);
+  text-decoration: underline;
+  text-decoration-color: var(--main-color-red);
+  -moz-text-decoration-color: var(--main-color-red);
+}
+ */
+#cgu-div h1 {
+  font-size: 35px;
+}
+
+#cgu-div h1 {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+#cgu-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.cgu-box-img {
+  width: 100%;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 560px) {}

@@ -2,8 +2,12 @@
 
     <h1>NOS OFFRES & AVANTAGES</h1>
 
-    <div id="div-grille-tarifaire">
+    <div id="div-grille-tarifaire" class="tc">
         <h2>Grille Tarifaire</h2>
+        <a id="cgu-pdf" href="assets/doc/actiform-tarifs-2023-2024.pdf" target="_blank" class="link-to-pdf">
+          T&eacute;l&eacute;charger au format PDF
+        </a>
+
         <div id="div-grille-tarifaire-cards">
             <div class="tarif-card box">
                 <div class="tarif-card-title">

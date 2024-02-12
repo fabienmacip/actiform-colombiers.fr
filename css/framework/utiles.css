@@ -136,6 +136,19 @@ img {
   white-space: nowrap;
 }
 
+/* LINK */
+.link-to-pdf {
+  color: var(--main-color-red);
+  font-weight: bold;
+}
+
+.link-to-pdf:hover {
+  color: var(--main-color-black);
+  text-decoration: underline;
+  text-decoration-color: var(--main-color-red);
+  -moz-text-decoration-color: var(--main-color-red);
+}
+
 /* TYPE D'AFFICHAGE */
 
 .block {
