@@ -1,0 +1,41 @@
+#info-connected {
+  background-color: var(--main-color-green);
+  color: var(--main-color-white);
+  text-align: center;
+}
+
+#page-connected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#page-connected > div {
+  margin: 1rem auto;
+}
+
+#form-password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#password-form-buttons {
+  display: flex;
+}
+
+#messageConnexionError {
+  text-align: center;
+  color: red;
+  background-color: lightgoldenrodyellow;
+  width: 300px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-weight: bold;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}

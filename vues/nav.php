@@ -42,6 +42,23 @@
 
             </ul>
 
+
+            <div id="connect-icon">
+    
+<?php 
+        if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {?>
+          <a href="index.php?page=deconnexion">
+            <i id="connect-icon-disconnect" class="fa-regular fa-user"></i>
+<?php   } else { ?>
+          <a href="index.php?page=connect">
+            <i id="connect-icon-connect" class="fa-regular fa-user"></i>
+<?php   }
+?>
+
+
+
+                </a>
+            </div>
             <div id="facebook-icon">
                     <a href="https://www.facebook.com/actiform.fr" alt="actiform sur facebook" target="_blank">
                         <img

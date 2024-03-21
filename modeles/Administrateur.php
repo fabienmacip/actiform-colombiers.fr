@@ -10,13 +10,13 @@ class Administrateur
     private $mail;
     private $date_creation;
     private $mot_de_passe;
-    private $partenaire;
+    //private $partenaire;
     private $isadmin; // si NOT isAdmin, alors c'est un "partenaire"
     
     public function afficher($id)
     {
         if (!is_null($this->pdo)) {
-            $stmt = $this->pdo->prepare('SELECT * FROM administrateur WHERE id = ?');
+            $stmt = $this->pdo->prepare('SELECT * FROM actiform_administrateur WHERE id = ?');
         }
         $element = null;
         if ($stmt->execute([$id])) {
@@ -59,11 +59,11 @@ class Administrateur
         return $this->mot_de_passe;
     }
 
-    public function getPartenaire()
+/*     public function getPartenaire()
     {
         return $this->partenaire;
     }
-
+ */
     public function getIsAdmin() 
     {
         return $this->isadmin;

@@ -16,17 +16,20 @@
     crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="script/script.js"></script>
+    <script type="text/javascript" src="script/connexion.js"></script>
     
     
 
-<!-- <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico"> -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/icon/favicon-16x16.png">
-<link rel="manifest" href="img/icon/site.webmanifest">
-<link rel="mask-icon" href="img/icon/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icon/favicon-16x16.png">
+    <link rel="manifest" href="img/icon/site.webmanifest">
+    <link rel="mask-icon" href="img/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
+    <script src="https://kit.fontawesome.com/fa862581cb.js" type="text/javascript" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" type="text/javascript"></script>
 
 </head>

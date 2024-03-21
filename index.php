@@ -1,9 +1,51 @@
 <?php
+session_start();
 
+require_once('modeles/ConnectMe.php');
+require_once('controleurs/controleur.php');
+require_once('modeles/Modele.php');
+require_once('modeles/Administrateur.php');
+require_once('modeles/Administrateurs.php');
+
+$controleur = new Controleur($pdo);
+
+// PROCEDURE Connexion et Déconnexion
+if(isset($_POST['action']) && 'connexion' === $_POST['action']) {
+    ob_start();
+    $controleur->verifConnexion($_POST['connect-email'], $_POST['connect-passw']);
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
+}  
+
+elseif (isset($_GET['page']) && 'deconnexion' === $_GET['page']) {
+    ob_start();
+    $controleur->deconnexion();
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
+}
+
+// PASSWORD UPDATE
+if(isset($_POST['action']) && 'passwordUpdate' === $_POST['action']) {
+    ob_start();
+    $controleur->updatePassword($_POST['userid'],$_POST['password-passw']);
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
+}  
+
+
+
+// CONNECT
+elseif (isset($_GET['page']) && 'connect' === $_GET['page']) {
+    ob_start();
+    require_once('vues/page-connect.php');
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
+
+}
 
 
 // CGU
-if (isset($_GET['page']) && 'cgu' === $_GET['page']) {
+elseif (isset($_GET['page']) && 'cgu' === $_GET['page']) {
     ob_start();
     require_once('vues/page-cgu.php');
     $contenu = ob_get_clean();
@@ -71,6 +113,9 @@ elseif (isset($_GET['page']) && 'partenaires' === $_GET['page']){
 else {
     ob_start();
     require_once('vues/page-accueil.php');
+    
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
     //$contenu = ob_get_clean();
     //require_once('vues/layout.php');
 }

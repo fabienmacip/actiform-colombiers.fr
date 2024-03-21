@@ -1,7 +1,16 @@
-#form-connexion {
+#connect-div h1 {
+  margin: 1rem auto;
+  text-align: center;
+}
 
+#connexion-form {
+  padding: 30px;
+}
+
+#form-connexion {
   margin-bottom: 15vh;
 
+  width: 500px;
   max-width: 95%;
 
   border-radius: 15px;
@@ -11,14 +20,12 @@
   -o-border-radius: 15px;
 }
 
-#form-connexion,
-.lcf-form {
-  background-color: var(--main-color-accent-light)!important;
+#form-connexion {
+  background-color: var(--main-color-light);
 }
 
 #form-connexion label {
   font-weight: bold;
-  
 }
 
 #emailHelpInline,
@@ -26,12 +33,9 @@
   color: var(--main-color-black);
 }
 
-
-
-
 #form-connexion button,
 .lcf-button {
-  background-color: var(--main-color-accent);
+  background-color: var(--main-color-red);
   color: var(--main-color-white);
   font-weight: 600;
   letter-spacing: 1px;
@@ -54,15 +58,13 @@
   /* background-color: var(--main-color-orange-dark);
   border: 1px solid var(--main-color-orange-dark); */
   box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.2);
-  
-  
+
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
 }
-
 
 #title-se-connecter {
   padding: 1.2rem 0;

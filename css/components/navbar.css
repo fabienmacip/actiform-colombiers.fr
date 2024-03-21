@@ -2,41 +2,37 @@
   cursor: pointer;
 }
 
-
-
 /* * * * * * NAVBAR * * * * * */
 
 nav {
   background-color: var(--main-color-dark);
-  color: var(--main-color-white)!important;
-  position: sticky!important;
-  top: 0!important;
+  color: var(--main-color-white) !important;
+  position: sticky !important;
+  top: 0 !important;
   z-index: 190;
-  padding: 1rem!important;
+  padding: 1rem !important;
 
   font-size: 1.2rem;
 }
 nav a {
-  color: var(--main-color-white)!important;
+  color: var(--main-color-white) !important;
 }
 
 nav a:hover {
   text-decoration: underline;
-  text-decoration-color: var(--main-color-red)!important;
-  -moz-text-decoration-color: var(--main-color-red)!important;
+  text-decoration-color: var(--main-color-red) !important;
+  -moz-text-decoration-color: var(--main-color-red) !important;
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
 }
 
 #navbar-toggler-button {
-  background-color: var(--main-color-white)!important;
-  
+  background-color: var(--main-color-white) !important;
 }
 
 .navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='rgba%280, 0, 23, 49%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
   /* background-image: url('../img/icones/map.png')!important; */
-
 }
 
 .nav-sub-menu-separator {
@@ -47,7 +43,6 @@ nav a:hover {
 
 /* * * * * *NOS REFERENCES * * * * * * */
 /* Sous-menu caché / Affiché si survol de "Nos références". */
-
 
 #sub-nav-univers,
 #sub-nav-references-admin {
@@ -66,16 +61,28 @@ nav a:hover {
   display: block;
 }
 
-
 #nav-ul {
   margin: 0 auto;
 }
 
 #li-connexion {
-  margin-left : 8rem;
+  margin-left: 8rem;
 }
 
-#facebook-icon {
+#connect-icon > a > i {
+  font-size: 30px;
+}
+
+#connect-icon > a > i:hover {
+  color: var(--main-color-red);
+}
+
+#connect-icon-disconnect {
+  color: var(--main-color-green);
+}
+
+#facebook-icon,
+#connect-icon {
   margin-right: 1rem;
 }
 
@@ -92,19 +99,18 @@ nav a:hover {
 }
 
 @media screen and (max-width: 991px) {
-
   nav {
     font-size: 1.1rem;
   }
 
   #li-connexion {
-    margin-left : 0;
+    margin-left: 0;
     margin-top: 1.5rem;
     border-top: 0.1px solid #d6d6d6;
   }
 
   /* * * * * * * * SOUS-MENUS * * * * * * */
-    
+
   #sub-nav-univers {
     position: inherit;
   }
@@ -127,7 +133,7 @@ nav a:hover {
 
   nav {
     flex-direction: row;
-    padding: 0.5rem!important;
+    padding: 0.5rem !important;
   }
 
   .navbar {
@@ -150,23 +156,23 @@ nav a:hover {
     border-right: none;
   }
 
-
   .navbar-toggler {
     margin-top: 10px;
   }
 
-  #facebook-icon, #instagram-icon {
+  #facebook-icon,
+  #connect-icon,
+  #instagram-icon {
     margin-bottom: 1rem;
   }
 
-  #facebook-icon {
+  #facebook-icon,
+  #connect-icon {
     margin-top: 1rem;
   }
-
 }
 
 @media screen and (max-width: 280px) {
-
   nav {
     font-size: 1rem;
   }

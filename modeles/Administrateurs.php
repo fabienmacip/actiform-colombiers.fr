@@ -8,7 +8,7 @@ class Administrateurs
     public function lister()
     {
         if (!is_null($this->pdo)) {
-            $stmt = $this->pdo->query('SELECT * FROM administrateur');
+            $stmt = $this->pdo->query('SELECT * FROM actiform_administrateur');
         }
         $liste = [];
         while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
@@ -21,7 +21,7 @@ class Administrateurs
     public function listerPartenaires()
     {
         if (!is_null($this->pdo)) {
-            $stmt = $this->pdo->query('SELECT * FROM administrateur WHERE partenaire <> 0');
+            $stmt = $this->pdo->query('SELECT * FROM actiform_administrateur WHERE partenaire <> 0');
         }
         $liste = [];
         while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
@@ -36,7 +36,7 @@ class Administrateurs
         $id = intval($id);
         if (!is_null($this->pdo)) {
             //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
-            $sql = 'SELECT * FROM administrateur WHERE id = :id';
+            $sql = 'SELECT * FROM actiform_administrateur WHERE id = :id';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $id]);
         }
@@ -57,7 +57,7 @@ class Administrateurs
                 $today = date("Y-m-d");
                 $pass = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO administrateur (nom, prenom, mail, date_creation, mot_de_passe) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe)";
+                $sql = "INSERT INTO actiform_administrateur (nom, prenom, mail, date_creation, mot_de_passe) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe)";
                 $res = $this->pdo->prepare($sql);
                 $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":date_creation"=>$today, "mot_de_passe"=>$pass));
                 if($exec){
@@ -80,11 +80,11 @@ class Administrateurs
                 if($mot_de_passe != '') {
                     $pass = password_hash($mot_de_passe, PASSWORD_DEFAULT);
                     // Requête mysql pour insérer des données
-                    $sql = "UPDATE administrateur SET nom = (:nom), prenom = (:prenom), mail = (:mail), mot_de_passe = (:mot_de_passe) WHERE id = (:id)";
+                    $sql = "UPDATE actiform_administrateur SET nom = (:nom), prenom = (:prenom), mail = (:mail), mot_de_passe = (:mot_de_passe) WHERE id = (:id)";
                     $res = $this->pdo->prepare($sql);
                     $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, "mot_de_passe"=>$pass, ":id"=>$id));
                 } else { // Sinon, on met tout à jour sauf le mot de passe
-                    $sql = "UPDATE administrateur SET nom = (:nom), prenom = (:prenom), mail = (:mail) WHERE id = (:id)";
+                    $sql = "UPDATE actiform_administrateur SET nom = (:nom), prenom = (:prenom), mail = (:mail) WHERE id = (:id)";
                     $res = $this->pdo->prepare($sql);
                     $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":id"=>$id));
                 }
@@ -100,6 +100,31 @@ class Administrateurs
         return $tupleUpdated;
     }
 
+    // UPDATE PASSWORD
+    public function updatePassword($id, $mot_de_passe) {
+        if (!is_null($this->pdo)) {
+            try {
+                // Si le mot de passe a été modifié (donc non vide)
+                if($mot_de_passe != '') {
+                    $pass = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+                    // Requête mysql pour insérer des données
+                    $sql = "UPDATE actiform_administrateur SET mot_de_passe = (:mot_de_passe) WHERE id = (:id)";
+                    $res = $this->pdo->prepare($sql);
+                    $exec = $res->execute(array("mot_de_passe"=>$pass, ":id"=>$id));
+                }
+                if($exec){
+                    $tupleUpdated = "Votre mot de passe a bien été modifié.";
+                }
+            }
+            catch(Exception $e) {
+                $tupleUpdated = "Votre mot de passe n'a pas pu être modifié.<br/><br/>".$e;
+            }
+        }
+        
+        return $tupleUpdated;
+    }
+
+    
 
     // DELETE
     //Supprime 1 administrateur de la BDD.
@@ -107,7 +132,7 @@ class Administrateurs
     {
         if (!is_null($this->pdo)) {
             try{
-                $sql = 'DELETE FROM administrateur WHERE id = :id';
+                $sql = 'DELETE FROM actiform_administrateur WHERE id = :id';
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute(['id' => $id]);
                 //$this->pdo->query('DELETE FROM administrateur WHERE id = '.$id.'');
@@ -125,7 +150,7 @@ class Administrateurs
     public function verifConnexion($mail,$password) 
     {
         if (!is_null($this->pdo)) {
-            $sql = 'SELECT * FROM administrateur WHERE mail = :mail';
+            $sql = 'SELECT * FROM actiform_administrateur WHERE mail = :mail';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['mail' => $mail]);
         }
@@ -133,16 +158,15 @@ class Administrateurs
         
         //return ($reponse && password_verify($password, $reponse->getMotDePasse()));
         if(($reponse && password_verify($password, $reponse->getMotDePasse()))){
-            $_SESSION['partenaire'] = $reponse->getPartenaire();
+            //$_SESSION['partenaire'] = $reponse->getPartenaire();
             $_SESSION['datepartenaire'] = $reponse->getDateCreation();
             $_SESSION['role'] = $reponse->getRole();
+            $_SESSION['userid'] = $reponse->getId();
             if($reponse->getRole() == 1) {
-                $_SESSION['admin'] = $reponse->getId();
                 $_SESSION['role-libelle'] = 'Administrateur';
             }
             else {
                 $_SESSION['role-libelle'] = 'Partenaire';
-                $_SESSION['idadminpart'] = $reponse->getId();
             }
             $_SESSION['nom'] = $reponse->getNom();
             $_SESSION['prenom'] = $reponse->getPrenom();

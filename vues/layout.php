@@ -15,6 +15,13 @@
     require_once('nav.php');
     ?>
 
+<?php 
+    if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
+        echo "<div id='info-connected'>Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom'].", vous êtes connecté(e).</div>";
+    }    
+?>
+
+
     <?= $contenu ?>
 </section>
 

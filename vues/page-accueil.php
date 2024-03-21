@@ -1,8 +1,8 @@
 <?php
 
-$titre = 'ACTIFORM COLOMBIERS';
+//$titre = 'ACTIFORM COLOMBIERS';
 
-ob_start();
+//ob_start();
 ?>
 
 
@@ -153,7 +153,7 @@ ob_start();
           </div>
 
           <div class="activite-card">
-            <div style="background-image: url('img/activites/actiform-caf.jpg');" class="activite-img">Gym Douce</div>
+            <div style="background-image: url('img/activites/actiform-caf-ancien.jpg');" class="activite-img">Gym Douce</div>
             <div class="activite-card-text">
               La <b>Gym Douce</b> privilégie une <u>approche en douceur</u> pour améliorer la condition physique. 
               Axée sur la souplesse, le renforcement musculaire léger et la relaxation, cette activité 
@@ -259,5 +259,5 @@ ob_start();
 
 
 <?php
-$contenu = ob_get_clean();
-require_once('layout.php');
+//$contenu = ob_get_clean();
+//require_once('layout.php');
