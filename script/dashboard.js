@@ -73,9 +73,111 @@ function askConfirmDeleteClient(id, prenom, nom) {
       });
   }
 }
+
+function addLineInClientsTable(id, prenom, nom, mail) {
+  const newLine = `<tr id="cli-${id}">
+                    <td>
+                      ${id}
+                    </td>
+                    <td>
+                      ${prenom}
+                    </td>
+                    <td>
+                      ${nom}
+                    </td>
+                    <td>
+                      ${mail}
+                    </td>
+                    <td>
+                      <button onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">Mod.</button>
+                    </td>
+                    <td>
+                      <button onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">Sup.</button>
+                    </td>
+                  </tr>`;
+
+  //$("#clients-list-table").prepend(newLine);
+  $("#clients-list-table-first-row").after(newLine);
+}
+
+function updateLineInClientsTable(id, prenom, nom, mail) {
+  const updatedLine = `<tr id="cli-${id}">
+                    <td>
+                      ${id}
+                    </td>
+                    <td>
+                      ${prenom}
+                    </td>
+                    <td>
+                      ${nom}
+                    </td>
+                    <td>
+                      ${mail}
+                    </td>
+                    <td>
+                      <button onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">Mod.</button>
+                    </td>
+                    <td>
+                      <button onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">Sup.</button>
+                    </td>
+                  </tr>`;
+
+  $("#cli-" + id).replaceWith(updatedLine);
+}
+
+// AJAX CLIENT Add or Update
 function confirmClientUpdate() {
+  let reqType = "";
+
   if (confirm("Enregistrer ?")) {
-    console.log("record-it");
+    if ($("#clientid").val().length > 0) {
+      reqType = "update";
+    } else {
+      reqType = "add";
+    }
+
+    const id = $("#clientid").val();
+    const prenom = $("#prenom").val();
+    const nom = $("#nom").val();
+    const mail = $("#mail").val();
+
+    axios
+      .post("controleurs/ajax.php", {
+        id: id,
+        prenom: prenom,
+        nom: nom,
+        mail: mail,
+        req: reqType,
+        table: "client",
+      })
+      .then(function (res) {
+        if (res.data.success) {
+          $("#btn-client-reset").trigger("click");
+
+          if (reqType === "add") {
+            addLineInClientsTable(res.data.success, prenom, nom, mail);
+
+            alert(
+              "Le client " +
+                prenom +
+                " " +
+                nom +
+                " a été ajouté.\nID: " +
+                res.data.success
+            );
+          } else if (reqType === "update") {
+            updateLineInClientsTable(id, prenom, nom, mail);
+            alert("Le client " + prenom + " " + nom + " a été modifié.");
+          }
+        } else {
+          alert(
+            "Erreur lors de la création du client : " + prenom + " " + nom + "."
+          );
+        }
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   } else {
     console.log("cancelled");
   }

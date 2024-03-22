@@ -46,7 +46,8 @@ elseif (isset($_GET['page']) && 'connect' === $_GET['page']) {
 // CONNECTED (TABLEAU DE BORD)
 elseif (isset($_GET['page']) && 'dashboard' === $_GET['page'] && isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
     ob_start();
-    require_once('vues/connected/page-connected.php');
+    $controleur->pageConnected();
+    //require_once('vues/connected/page-connected.php');
     $contenu = ob_get_clean();
     require_once('vues/layout.php');
 

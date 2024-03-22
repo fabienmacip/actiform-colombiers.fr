@@ -29,7 +29,7 @@
       <inpyt type="hidden" name="pwd" id="pwd" value="totototo">
   
       <div id="client-form-buttons">
-        <button type="reset" class="button CTAButton" tabindex="5" onclick="emptyClientId()">Reset</button>
+        <button type="reset" class="button CTAButton" tabindex="5" onclick="emptyClientId()" id="btn-client-reset">Reset</button>
         <button type="button" class="button CTAButton btn-inactive" disabled tabindex="6" id="btn-client-update" onclick="confirmClientUpdate()">Envoyer</button>
       </div>
   
@@ -37,7 +37,7 @@
   </div>
   <div id="clients-list">
     <table id="clients-list-table">
-      <tr>
+      <tr id="clients-list-table-first-row">
         <th>
           id
         </th>

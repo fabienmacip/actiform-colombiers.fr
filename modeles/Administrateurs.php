@@ -64,22 +64,23 @@ class Administrateurs
 
 
     // CREATE
-    public function create($nom, $prenom, $mail, $mot_de_passe) {
+    public function create($nom, $prenom, $mail, $mot_de_passe, $isadmin = 2) {
         if (!is_null($this->pdo)) {
             try {
                 // Requête mysql pour insérer des données
                 $today = date("Y-m-d");
                 $pass = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO actiform_administrateur (nom, prenom, mail, date_creation, mot_de_passe) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe)";
+                $sql = "INSERT INTO actiform_administrateur (nom, prenom, mail, date_creation, mot_de_passe, isadmin) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe, :isadmin)";
                 $res = $this->pdo->prepare($sql);
-                $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":date_creation"=>$today, "mot_de_passe"=>$pass));
+                $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":date_creation"=>$today, "mot_de_passe"=>$pass, "isadmin"=>$isadmin));
                 if($exec){
-                    $tupleCreated = "L'administrateur <b>".$nom." ".$prenom."</b> a bien été ajouté.";
+                    $lastid = $this->pdo->lastInsertId();
+                    $tupleCreated = $lastid ?? true;
                 }
             }
             catch(Exception $e) {
-                $tupleCreated = "L'administrateur <b>".$nom." ".$prenom."</b> n'a pas pu être ajouté.<br/><br/>".$e;
+                $tupleCreated = false;
             }
         }
         $res->closeCursor();
@@ -87,7 +88,7 @@ class Administrateurs
     }
 
     // UPDATE
-    public function update($id,$nom, $prenom, $mail, $mot_de_passe) {
+    public function update($id,$nom, $prenom, $mail, $mot_de_passe = '') {
         if (!is_null($this->pdo)) {
             try {
                 // Si le mot de passe a été modifié (donc non vide)
@@ -103,11 +104,11 @@ class Administrateurs
                     $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":id"=>$id));
                 }
                 if($exec){
-                    $tupleUpdated = "L'administrateur <b>".$nom." ".$prenom."</b> a bien été modifié.";
+                    $tupleUpdated = true;
                 }
             }
             catch(Exception $e) {
-                $tupleUpdated = "L'administrateur <b>".$nom." ".$prenom."</b> n'a pas pu être modifié.<br/><br/>".$e;
+                $tupleUpdated = false;
             }
         }
         
