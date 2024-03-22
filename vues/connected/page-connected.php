@@ -1,21 +1,43 @@
 <div id="page-connected">
-  <h1>Vous êtes connecté</h1>
-  <div>
-    Ici, vous pouvez modifier votre mot de passe et gérer les programmes de fitness.
-  </div>
+  <h1>Tableau de bord</h1>
 
   <?php if(isset($administrateurToUpdate) && $administrateurToUpdate <> '') {
-    echo '<div>'.$administrateurToUpdate.'</div>';
+    echo '<div id="messagePasswordUpdated">'.$administrateurToUpdate.'</div>';
   }
   ?>
-
 
   <?php
-  // Gestion des messages d'absence
+  // Affichage du DASHBOARD
   if (isset($_SESSION['admin']) && $_SESSION['admin'] > 0) {
-    //require_once('messagesAbsence.php');
-    require_once('passwordModify.php');
-  }
   ?>
+
+  <div id="dashboard-tabs">
+    <div class="dashboard-tab-title dashboard-tab-title-active dashboard-link" id="dashboard-link-programs" onclick="displayPrograms()">
+      Programmes
+    </div>
+    <div class="dashboard-tab-title dashboard-link" id="dashboard-link-clients" onclick="displayClients()">
+      Clients
+    </div>
+    <div class="dashboard-tab-title dashboard-link" id="dashboard-link-password" onclick="displayPasswordUpdate()">
+        Mon mot de passe
+    </div>
+  </div>
+
+  <!-- DIV masquées par défaut, sauf la 1ère au démarrage -->
+  <div class="dashboard-tab-content dashboard-tab-content-active" id="dashboard-tab-programs">
+    <?php require_once('managePrograms.php'); ?>
+  </div>
+  <div class="dashboard-tab-content dashboard-tab-content-inactive" id="dashboard-tab-clients">
+    <?php require_once('manageClients.php'); ?>
+  </div>
+  <div class="dashboard-tab-content dashboard-tab-content-inactive" id="dashboard-tab-password">
+    <?php require_once('passwordModify.php'); ?>
+  </div>
+
+</div>
+  
+  <?php } ?>
+
+
 </div>
 

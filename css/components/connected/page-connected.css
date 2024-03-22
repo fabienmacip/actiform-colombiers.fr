@@ -14,6 +14,71 @@
   margin: 1rem auto;
 }
 
+.dashboard-tab-content > h1 {
+  text-align: center;
+}
+/* - - - - C L I E N T S - - - - */
+
+#form-add-client-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.client-form-error-message {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+#div-manage-clients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-add-client {
+  /*  background-color: #ddd; */
+  padding: 10px;
+  margin: 20px auto;
+}
+
+.form-add-client-new {
+  background-color: lightgreen;
+}
+
+.form-add-client-update {
+  background-color: lightcoral;
+}
+
+.form-client-input {
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #eee;
+}
+
+.form-client-input > label {
+}
+
+.form-client-input > input {
+}
+
+#clients-list-table th,
+#clients-list-table td {
+  border: 1px solid black;
+  padding: 2px 4px;
+}
+
+#clients-list-table th {
+  text-align: center;
+}
+
+#client-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* - - - - P A S S W O R D - - - -  */
+
 #form-password {
   display: flex;
   flex-direction: column;
@@ -38,4 +103,75 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+
+#messagePasswordUpdated {
+  text-align: center;
+  color: green;
+  background-color: lightgrey;
+  width: 300px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-weight: bold;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.password-form-error {
+  color: red;
+  font-weight: bold;
+}
+
+#dashboard-tabs {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 1000px;
+  max-width: 96%;
+}
+
+.dashboard-tab {
+  border: 2px solid orange;
+}
+
+.dashboard-tab-content {
+  display: none;
+  width: 1000px;
+  max-width: 96%;
+}
+
+.dashboard-tab-content-active {
+  display: block;
+}
+
+.dashboard-tab-content-inactive {
+  /* display: none; */
+}
+
+.dashboard-tab-title {
+  background-color: rgba(211, 211, 211, 0.486);
+  padding: 3px 1rem;
+  font-size: 14px;
+  border: 1px solid gray;
+}
+
+.dashboard-tab-title-active {
+  background-color: lightgray;
+  border: 1px solid orange;
+}
+
+.dashboard-link {
+  cursor: pointer;
+  color: var(--main-color-red);
+}
+
+.dashboard-link:hover {
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: black;
+  -moz-text-decoration-color: black;
 }

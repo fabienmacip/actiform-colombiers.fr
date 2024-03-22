@@ -31,6 +31,20 @@ class Administrateurs
         return $liste;
     }
 
+    public function listerClients()
+    {
+        if (!is_null($this->pdo)) {
+            $stmt = $this->pdo->query('SELECT * FROM actiform_administrateur WHERE isadmin = 2 ORDER BY prenom, nom');
+        }
+        $liste = [];
+        while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
+            $liste[] = $element;
+        }
+        $stmt->closeCursor();
+        return $liste;
+    }
+
+
     public function listerId($id)
     {
         $id = intval($id);
@@ -140,6 +154,25 @@ class Administrateurs
             }
             catch(Exception $e) {
                 $tupleDeleted = "L'administrateur <b>".$nom." ".$prenom."</b> n'a pas pu être supprimé.<br/><br/>".$e;
+            }
+        }
+        
+        return $tupleDeleted;
+    }
+
+    //Supprime 1 administrateur de la BDD.
+    public function deleteWithIdOnly($id)
+    {
+        if (!is_null($this->pdo)) {
+            try{
+                $sql = 'DELETE FROM actiform_administrateur WHERE id = :id';
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute(['id' => $id]);
+                //$this->pdo->query('DELETE FROM administrateur WHERE id = '.$id.'');
+                $tupleDeleted = true;
+            }
+            catch(Exception $e) {
+                $tupleDeleted = false;
             }
         }
         

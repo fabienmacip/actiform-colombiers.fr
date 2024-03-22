@@ -17,8 +17,16 @@
 
     <script type="text/javascript" src="script/script.js"></script>
     <script type="text/javascript" src="script/connexion.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" type="module"></script>
     
-    
+    <?php
+      if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
+    ?>
+        <script type="text/javascript" src="script/dashboard.js"></script>
+    <?php
+    }
+    ?>
+
 
     <!-- <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.ico"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-touch-icon.png">
@@ -30,6 +38,5 @@
     <meta name="theme-color" content="#ffffff">
 
     <script src="https://kit.fontawesome.com/fa862581cb.js" type="text/javascript" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" type="text/javascript"></script>
 
 </head>

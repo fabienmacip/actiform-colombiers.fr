@@ -47,6 +47,9 @@
     
 <?php 
         if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {?>
+          <a href="index.php?page=dashboard">
+            <img src="img/icones/dashboard.png" alt="dashboard" class="contacts-icon" id="dashboard-img">
+          </a>
           <a href="index.php?page=deconnexion">
             <i id="connect-icon-disconnect" class="fa-regular fa-user"></i>
 <?php   } else { ?>

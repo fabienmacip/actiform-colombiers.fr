@@ -69,8 +69,14 @@ nav a:hover {
   margin-left: 8rem;
 }
 
+#connect-icon {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
 #connect-icon > a > i {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 #connect-icon > a > i:hover {

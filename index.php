@@ -25,7 +25,7 @@ elseif (isset($_GET['page']) && 'deconnexion' === $_GET['page']) {
 }
 
 // PASSWORD UPDATE
-if(isset($_POST['action']) && 'passwordUpdate' === $_POST['action']) {
+if(isset($_POST['action']) && 'passwordUpdate' === $_POST['action']  && isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
     ob_start();
     $controleur->updatePassword($_POST['userid'],$_POST['password-passw']);
     $contenu = ob_get_clean();
@@ -43,6 +43,14 @@ elseif (isset($_GET['page']) && 'connect' === $_GET['page']) {
 
 }
 
+// CONNECTED (TABLEAU DE BORD)
+elseif (isset($_GET['page']) && 'dashboard' === $_GET['page'] && isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
+    ob_start();
+    require_once('vues/connected/page-connected.php');
+    $contenu = ob_get_clean();
+    require_once('vues/layout.php');
+
+}
 
 // CGU
 elseif (isset($_GET['page']) && 'cgu' === $_GET['page']) {

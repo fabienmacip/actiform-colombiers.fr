@@ -61,6 +61,8 @@ class Controleur {
     }
     
     public function pageConnected() {
+        $administrateurs = new Administrateurs($this->pdo);
+        $clients = $administrateurs->listerClients();
         require_once('vues/connected/page-connected.php');
     }
 
