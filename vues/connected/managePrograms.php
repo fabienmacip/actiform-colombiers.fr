@@ -1,4 +1,7 @@
 <h1>GESTION DES PROGRAMMES</h1>
-<div>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quaerat quo est vitae, dolores nemo, cumque exercitationem quas amet obcaecati, molestiae pariatur aperiam eos soluta ullam reiciendis necessitatibus temporibus voluptates architecto? Nostrum quaerat cumque mollitia vitae suscipit eligendi architecto enim nihil voluptatibus tempora! Atque quia, veritatis odio at velit tenetur officiis suscipit ipsum omnis! Dolorem, quidem! Veniam reiciendis autem qui natus provident, quia eum ab officia cumque deserunt maxime in cum veritatis illum voluptas alias illo. Consequuntur alias, amet quam est recusandae perferendis nihil atque quos quae fuga? Soluta veritatis dolores cupiditate tenetur nesciunt facere iste odio! Expedita, possimus numquam?
+<div id="div-choose-clients">
+  <form id="form-choose-client">
+    <input type="text" id="client-search" name="client-search" placeholder="Chercher un client...">
+    <div id="search-menu-container"></div>
+  </form>
 </div>

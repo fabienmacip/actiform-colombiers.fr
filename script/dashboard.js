@@ -4,23 +4,82 @@ let dashboardTabPassword = $("#dashboard-tab-password");
 
 function displayPrograms() {
   $("#dashboard-tab-programs").show();
+  $("#dashboard-link-programs").addClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").hide();
+  $("#dashboard-link-clients").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-password").hide();
+  $("#dashboard-link-password").removeClass("dashboard-tab-title-active");
 }
 
 function displayClients() {
   $("#dashboard-tab-programs").hide();
+  $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").show();
+  $("#dashboard-link-clients").addClass("dashboard-tab-title-active");
   $("#dashboard-tab-password").hide();
+  $("#dashboard-link-password").removeClass("dashboard-tab-title-active");
 }
 
 function displayPasswordUpdate() {
   $("#dashboard-tab-programs").hide();
+  $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").hide();
+  $("#dashboard-link-clients").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-password").show();
+  $("#dashboard-link-password").addClass("dashboard-tab-title-active");
 }
 
-function closeDashboardMessage() {}
+/* - - - - P R O G R A M S - t a b - - - - */
+let menuContainer;
+
+window.addEventListener("click", () => {
+  menuContainer.innerHTML = "";
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  menuContainer = document.querySelector("#search-menu-container");
+  menuContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  let searchInput = document.querySelector("#client-search");
+  let ref;
+  searchInput.addEventListener("input", (e) => {
+    const value = e.target.value;
+    if (ref) {
+      clearTimeout(ref);
+    }
+
+    ref = setTimeout(() => {
+      axios
+        .get("controleurs/ajax.php?table=client&search=" + value)
+        .then((response) => {
+          menuContainer.innerHTML = response.data["result"];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 1000);
+  });
+});
+
+function clientChosenForProgram(id, prenom, nom, mail) {
+  console.log(id);
+  console.log(prenom);
+  console.log(nom);
+  console.log(mail);
+
+  $("#search-menu").remove();
+
+  const divInfosClient = `<div id="infos-client">
+                          <input type="hidden" id="id-client" name="id-client" value="${id}">
+                            ${prenom} ${nom} - ${mail}
+                          </div>`;
+
+  $("#div-choose-clients").after(divInfosClient);
+}
+
+/* - - - - C L I E N T S - t a b - - - - */
 
 function preFillClientForm(id, prenom, nom, mail) {
   console.log(id + " " + prenom + " " + nom + " " + mail);
@@ -221,3 +280,6 @@ function checkClientFormFields() {
     $("#btn-client-update").addClass("btn-inactive");
   }
 }
+
+/* - - - - P A S S W O R D - t a b - - - - */
+function closeDashboardMessage() {}

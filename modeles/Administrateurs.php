@@ -62,6 +62,24 @@ class Administrateurs
         return $liste;
     }
 
+    public function searchClients($search = '')
+    {
+        if (!is_null($this->pdo)) {
+            //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
+            $sql = 'SELECT * FROM actiform_administrateur WHERE prenom LIKE \'%'.$search.'%\' OR nom LIKE \'%'.$search.'%\' OR mail LIKE \'%'.$search.'%\'';
+            $stmt = $this->pdo->prepare($sql);
+            //$stmt->execute(['search' => $search]);
+            $stmt->execute();
+        }
+        $liste = [];
+        while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
+            $liste[] = $element;
+        }
+        $stmt->closeCursor();
+        return $liste;
+    }
+
+
 
     // CREATE
     public function create($nom, $prenom, $mail, $mot_de_passe, $isadmin = 2) {

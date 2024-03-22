@@ -17,6 +17,69 @@
 .dashboard-tab-content > h1 {
   text-align: center;
 }
+
+/* - - - - P R O G R A M S - - - - */
+#div-choose-clients {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-choose-client {
+  background-color: #eee;
+  padding: 10px 20px;
+  margin: 20px auto;
+}
+
+#search-menu-container {
+  position: relative;
+}
+
+#search-menu {
+  position: absolute;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 1;
+  top: 20px;
+  left: 0px;
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.search-menu-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+
+.search-menu-item:hover {
+  background-color: #eee;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -ms-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+
+#infos-client {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 /* - - - - C L I E N T S - - - - */
 
 #form-add-client-subtitle {

@@ -31,29 +31,58 @@ class ControleurAjax {
     return $administrateurs->deleteWithIdOnly($id);
   }
 
+  public function searchClients($search) {
+    $administrateurs = new Administrateurs($this->pdo);
+    return $administrateurs->searchClients($search);
+  }
+
 }
 
 $controllerAjax = new ControleurAjax($pdo);
 
 // CREATE CLIENT
-if($data['req'] === 'add' && $data['table'] === 'client') {
+if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client') {
   $data['success'] = $controllerAjax->createClient($data['prenom'],$data['nom'],$data['mail']);
   echo json_encode($data);
   return;
 }
 
 // UPDATE CLIENT
-if($data['req'] === 'update' && $data['table'] === 'client') {
+if(isset($data['req']) && $data['req'] === 'update' && $data['table'] === 'client') {
   $data['success'] = $controllerAjax->updateClient(intval($data['id']),$data['nom'],$data['prenom'],$data['mail']);
   echo json_encode($data);
   return;
 }
 
 // DELETE CLIENT
-if($data['req'] === 'delete' && $data['table'] === 'client' && $data['id'] <> '' && intval($data['id']) > 0) {
+if(isset($data['req']) && $data['req'] === 'delete' && $data['table'] === 'client' && $data['id'] !== '' && intval($data['id']) > 0) {
   $data['success'] = $controllerAjax->deleteClient(intval($data['id']));
   echo json_encode($data);
   return;
 }
 
 
+// SEARCH CLIENT
+if(isset($_GET['table']) && $_GET['table'] === 'client' && isset($_GET['search']) && $_GET['search'] !== '') {
+  $request = $controllerAjax->searchClients($_GET['search']);
+  $titi = $controllerAjax->searchClients($_GET['search']);
+  $data['success'] = $request !== '' && count($request) > 0;
+  
+  $resultHTML = '';
+  if(!empty($request) && count($request) > 0) {
+    $resultHTML .= "<div id='search-menu'>";
+
+    foreach($request as $response) {
+      $resultHTML .= "<a class='search-menu-item' onclick='clientChosenForProgram(".$response->getId().",\"".$response->getPrenom()."\",\"".$response->getNom()."\",\"".$response->getMail()."\")'>";
+      $resultHTML .= $response->getPrenom()." ".$response->getNom()." ".$response->getMail()."</a>";
+    };
+
+    $resultHTML .= "</div>";
+  } else {
+    $resultHTML .= "<div id='search-menu'>Aucun r&eacute;sultat...</div>";
+  }
+
+  $data['result'] = $resultHTML;
+
+  echo json_encode($data);
+}
