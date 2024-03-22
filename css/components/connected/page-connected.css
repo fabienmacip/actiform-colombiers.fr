@@ -80,6 +80,110 @@
   flex-direction: row;
   justify-content: center;
 }
+
+/* - - - - P R O G R A M - D E T A I L (T A B L E) - - - - */
+#div-program-cardio {
+  width: 1000px;
+  max-width: 100%;
+
+  border: 1px solid black;
+
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.program-title {
+  width: 1000px;
+  max-width: 100%;
+  text-align: center;
+  background-color: #eee;
+  margin-bottom: 10px;
+}
+
+.program-subtitle {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  text-align: center;
+}
+
+.program-subtitle > div:first-child {
+  width: 35%;
+  border: 1px solid black;
+}
+.program-subtitle > div:not(first-child) {
+  width: 13%;
+  border: 1px solid black;
+}
+
+.cardio-big-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardio-nom-machines {
+  display: flex;
+  flex-direction: row;
+
+  width: 35%;
+  padding: 0;
+}
+
+.cardio-img {
+  border: 1px solid black;
+  padding: 10px 10px;
+  width: 40%;
+  text-align: center;
+}
+
+.cardio-img > img {
+  width: 70px;
+  max-height: 57px;
+}
+
+.cardio-nom {
+  flex: auto;
+  text-align: center;
+  border: 1px solid black;
+  padding-top: 12px;
+  font-weight: bold;
+  font-size: 14px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardio-parametres {
+  width: 13%;
+}
+
+.cardio-parametres > div {
+  border: 1px solid black;
+  padding: 2px;
+}
+
+.cardio-seance {
+  width: 13%;
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cardio-seance > div {
+  border: 1px solid black;
+  flex: 1;
+
+  padding: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* - - - - C L I E N T S - - - - */
 
 #form-add-client-subtitle {

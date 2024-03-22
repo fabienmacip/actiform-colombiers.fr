@@ -63,6 +63,18 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function ajaxClientProgram(clientId) {
+  axios
+    .get("controleurs/ajax.php?table=program-client&clientid=" + clientId)
+    .then((res) => {
+      console.log(res.data.result);
+      $("#div-program-cardio").html(res.data.result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
 function clientChosenForProgram(id, prenom, nom, mail) {
   console.log(id);
   console.log(prenom);
@@ -76,7 +88,13 @@ function clientChosenForProgram(id, prenom, nom, mail) {
                             ${prenom} ${nom} - ${mail}
                           </div>`;
 
-  $("#div-choose-clients").after(divInfosClient);
+  if ($("#infos-client").length) {
+    $("#infos-client").replaceWith(divInfosClient);
+  } else {
+    $("#div-choose-clients").after(divInfosClient);
+  }
+
+  ajaxClientProgram(id);
 }
 
 /* - - - - C L I E N T S - t a b - - - - */

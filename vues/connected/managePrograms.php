@@ -5,3 +5,11 @@
     <div id="search-menu-container"></div>
   </form>
 </div>
+<div id="div-display-programs">
+  <div id="div-program-cardio">
+
+  </div>
+  <div id="div-program-musculation">
+    
+  </div>
+</div>
