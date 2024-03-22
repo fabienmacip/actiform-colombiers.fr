@@ -15,6 +15,8 @@ require_once(dirname(__FILE__,2).'/modeles/Administrateurs.php');
 
 require_once(dirname(__FILE__,2).'/modeles/ProgramCardio.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramCardios.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramMusculation.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramMusculations.php');
 
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientCardio.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientCardios.php');
@@ -56,6 +58,8 @@ class ControleurAjax {
     return $administrateurs->searchClients($search);
   }
 
+  // Liste de fonctions pour affichage du programmes pour un client
+
   public function programClientCardioRead($clientId) {
     $programClientCardios = new ProgramClientCardios($this->pdo);
     return $programClientCardios->listerPourUnClient($clientId);
@@ -64,8 +68,18 @@ class ControleurAjax {
   public function readAllCardios() {
     $programCardios = new ProgramCardios($this->pdo);
     return $programCardios->lister();
-
   }
+
+  public function programClientMusculationRead($clientId) {
+    $programClientMusculations = new ProgramClientMusculations($this->pdo);
+    return $programClientMusculations->listerPourUnClient($clientId);
+  }
+
+  public function readAllMusculations() {
+    $programMusculations = new ProgramMusculations($this->pdo);
+    return $programMusculations->lister();
+  }
+
 
 
 } // FIN CLASSE CONTROLEURAJAX
@@ -134,10 +148,14 @@ if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['
 
   $resultHTML = '';
   require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientCardio.php');
-
+  
   // PROGRAMME CLIENT MUSCULATION
+  $requestMuscu = $controllerAjax->programClientMusculationRead($_GET['clientid']);
+  $requestMusculations = $controllerAjax->readAllMusculations();
+  $data['success-musculation'] = $requestMuscu !== '' && count($requestMuscu) > 0;
 
-
+  $resultHTMLMuscu = '';
+  require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientMusculation.php');
 
   // PROGRAMME CLIENT ABDOMINAUX...
 
@@ -145,6 +163,7 @@ if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['
 
   // FIN
   $data['result'] = $resultHTML;
+  $data['resultMuscu'] = $resultHTMLMuscu;
   echo json_encode($data);
   return;
 }

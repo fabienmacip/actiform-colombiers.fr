@@ -67,8 +67,8 @@ function ajaxClientProgram(clientId) {
   axios
     .get("controleurs/ajax.php?table=program-client&clientid=" + clientId)
     .then((res) => {
-      console.log(res.data.result);
       $("#div-program-cardio").html(res.data.result);
+      $("#div-program-musculation").html(res.data.resultMuscu);
     })
     .catch((err) => {
       console.log(err);
@@ -76,11 +76,6 @@ function ajaxClientProgram(clientId) {
 }
 
 function clientChosenForProgram(id, prenom, nom, mail) {
-  console.log(id);
-  console.log(prenom);
-  console.log(nom);
-  console.log(mail);
-
   $("#search-menu").remove();
 
   const divInfosClient = `<div id="infos-client">
