@@ -79,7 +79,7 @@ class Administrateur
         if($this->getIsAdmin() == 1) {
             $role = 1; //admin
         } else {
-            $role = 2; //partenaire
+            $role = 2; //client
         }
         return $role;
     }

@@ -92,6 +92,13 @@ function clientChosenForProgram(id, prenom, nom, mail) {
   ajaxClientProgram(id);
 }
 
+function updateCardioCells(id) {
+  id1 = parseInt(id);
+  id2 = id1 + 1;
+  id3 = id2 + 1;
+  id4 = id3 + 1;
+}
+
 /* - - - - C L I E N T S - t a b - - - - */
 
 function preFillClientForm(id, prenom, nom, mail) {

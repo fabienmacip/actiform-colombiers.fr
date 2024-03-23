@@ -141,6 +141,11 @@ if(isset($_GET['table']) && $_GET['table'] === 'client' && isset($_GET['search']
 
 // LISTER PROGRAM-CLIENT
 if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['clientid'])) {
+  // Role par défaut, ADMIN = 1. !!! A modifier lors de la création de l'accès par un CLIENT.
+  // Ou bien, charger un autre controller-non-admin
+  $role = 1;
+  $clientId = $_GET['clientid'];
+  
   // PROGRAMME CLIENT CARDIO
   $request = $controllerAjax->programClientCardioRead($_GET['clientid']);
   $requestCardios = $controllerAjax->readAllCardios();

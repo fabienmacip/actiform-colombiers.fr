@@ -96,7 +96,24 @@
   flex-direction: column;
 }
 
+#div-display-programs input[type="text"] {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
 #div-program-cardio {
+}
+
+.form-cardio {
+  display: contents;
 }
 
 .program-title {

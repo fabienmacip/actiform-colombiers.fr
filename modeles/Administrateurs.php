@@ -218,7 +218,7 @@ class Administrateurs
                 $_SESSION['role-libelle'] = 'Administrateur';
             }
             else {
-                $_SESSION['role-libelle'] = 'Partenaire';
+                $_SESSION['role-libelle'] = 'Client';
             }
             $_SESSION['nom'] = $reponse->getNom();
             $_SESSION['prenom'] = $reponse->getPrenom();
