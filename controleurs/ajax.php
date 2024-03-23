@@ -80,6 +80,11 @@ class ControleurAjax {
     return $programMusculations->lister();
   }
 
+  // UPDATE CLIENTS PROGRAMS
+  function updateClientCardio($array) {
+    $programClientCardios = new ProgramClientCardios($this->pdo);
+    return $programClientCardios->updateClientCardio($array);
+  }
 
 
 } // FIN CLASSE CONTROLEURAJAX
@@ -173,3 +178,13 @@ if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['
   return;
 }
 
+// UPDATE PROGRAM-CLIENT-CARDIO-UN-EXERCICE
+if(isset($data['req']) && $data['req'] === 'updateClientCardio') {
+  $datas = str_replace('\\',"",$data['datas']);
+  unset($data['datas']);
+  $datasArray = json_decode($datas, true);
+
+  $data['success'] = $controllerAjax->updateClientCardio($datasArray);  
+
+  echo json_encode($data);
+}

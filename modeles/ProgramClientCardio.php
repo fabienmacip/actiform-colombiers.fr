@@ -5,9 +5,9 @@ class ProgramClientCardio
     use Modele;
 
     private $id;
-    private $idClient;
-    private $idCardio;
-    private $numSeance;
+    private $idclient;
+    private $idcardio;
+    private $numseance;
     private $temps;
     private $niveau;
     private $resistance;
@@ -35,17 +35,17 @@ class ProgramClientCardio
 
     public function getIdClient()
     {
-        return $this->idClient;
+        return $this->idclient;
     }
 
     public function getIdCardio()
     {
-        return $this->idCardio;
+        return $this->idcardio;
     }
 
     public function getNumSeance()
     {
-        return $this->numSeance;
+        return $this->numseance;
     }
 
     public function getTemps()

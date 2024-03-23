@@ -46,6 +46,67 @@ class ProgramClientCardios
         return $tupleCreated;
     }
 
+    function updateClientCardio($array){
+        
+        $id1 = intval($array['id-client-cardio-first']);
+        $id2 = $id1 + 1;
+        $id3 = $id2 + 1;
+        $id4 = $id3 + 1;
+        
 
+        $tupleUpdated = true;
+
+        if (!is_null($this->pdo)) {
+            try {
+                    $sql1 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
+                    $res1 = $this->pdo->prepare($sql1);
+                    $exec1 = $res1->execute(array(":temps"=>$array['cardio-temps-1'], ":niveau"=>$array['cardio-niveau-1'], ":resistance"=>$array['cardio-resistance-1'], ":id"=>$id1));
+                
+                if($exec1){
+                    try{
+                        $sql2 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
+                        $res2 = $this->pdo->prepare($sql2);
+                        $exec2 = $res2->execute(array(":temps"=>$array['cardio-temps-2'], ":niveau"=>$array['cardio-niveau-2'], ":resistance"=>$array['cardio-resistance-2'], ":id"=>$id2));
+                        
+                        if($exec2){
+                            try{
+                                $sql3 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
+                                $res3 = $this->pdo->prepare($sql3);
+                                $exec3 = $res3->execute(array(":temps"=>$array['cardio-temps-3'], ":niveau"=>$array['cardio-niveau-3'], ":resistance"=>$array['cardio-resistance-3'], ":id"=>$id3));
+
+                                if($exec3){
+                                    try{
+                                        $sql4 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
+                                        $res4 = $this->pdo->prepare($sql4);
+                                        $exec4 = $res4->execute(array(":temps"=>$array['cardio-temps-4'], ":niveau"=>$array['cardio-niveau-4'], ":resistance"=>$array['cardio-resistance-4'], ":id"=>$id4));
+                    
+                                    }
+                                    catch(Exception $e4){
+                                        $tupleUpdated = false;        
+                                    }
+                
+                                }
+                    
+                            }
+                            catch(Exception $e3){
+                                $tupleUpdated = false;        
+                            }
+        
+                        }
+            
+                    }
+                    catch(Exception $e2){
+                        $tupleUpdated = false;        
+                    }
+
+                }
+            }
+            catch(Exception $e1) {
+                $tupleUpdated = false;
+            }
+        }
+        
+        return $tupleUpdated;
+    }
 
 }

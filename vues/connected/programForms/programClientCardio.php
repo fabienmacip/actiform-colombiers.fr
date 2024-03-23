@@ -19,14 +19,17 @@ if(!empty($request) && count($request) > 0 && !empty($requestCardios)) {
       $inputMaxLength = 20;  
 
       foreach($request as $line) {
+        
+
         // $idsCardioSeance : concaténation de l'ID de l'exercice + le numéro de séance
         $idsCardioSeance = $line->getIdCardio()."-".$line->getNumSeance();
         $idForm = $clientId."-".$idsCardioSeance;
         
         if($cptCol === 0){
-
+          //action='controleurs/ajax.php' onsubmit='return false'
           $resultHTML .= "<div class='cardio-big-line'>";
           $resultHTML .= "<form action='' method='post' id='form-cardio-".$line->getId()."' class='form-cardio'>";
+          $resultHTML .= "<input type='hidden' name='id-client-cardio-first' value='".$line->getId()."'>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
           $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$line->getId()."')>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
@@ -34,15 +37,14 @@ if(!empty($request) && count($request) > 0 && !empty($requestCardios)) {
           $cptLine++;
         }
     
-        $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps-".$idsCardioSeance."' name='cardio-temps-".$idsCardioSeance."' value='".$line->getTemps()."'></div>";
-        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau-".$idsCardioSeance."' name='cardio-niveau-".$idsCardioSeance."' value='".$line->getNiveau()."'></div>";
-        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance-".$idsCardioSeance."' name='cardio-resistance-".$idsCardioSeance."' value='".$line->getResistance()."'></div></div>";
+        $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps-".$idsCardioSeance."' name='cardio-temps-".$line->getNumSeance()."' value='".$line->getTemps()."'></div>";
+        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau-".$idsCardioSeance."' name='cardio-niveau-".$line->getNumSeance()."' value='".$line->getNiveau()."'></div>";
+        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance-".$idsCardioSeance."' name='cardio-resistance-".$line->getNumSeance()."' value='".$line->getResistance()."'></div></div>";
 
 
         if($cptCol === 3) {
           $resultHTML .= "<input type='hidden' name='action' id='action' value='clientCardioUpdate'>";
           $resultHTML .= "<input type='hidden' name='clientid' id='clientid' value='".$clientId."'>";
-          $resultHTML .= "<input type='hidden' name='id-client-cardio' value='".$line->getId()."'>";
           $resultHTML .= "<input type='hidden' id='ids-cardio-seance-".$idsCardioSeance."' name='ids-cardio-seance-".$idsCardioSeance."' value='".$idsCardioSeance."'>";
           $resultHTML .= "</form>";
           $resultHTML .= "</div>";

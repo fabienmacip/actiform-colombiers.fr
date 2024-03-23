@@ -18,6 +18,7 @@ function displayClients() {
   $("#dashboard-link-clients").addClass("dashboard-tab-title-active");
   $("#dashboard-tab-password").hide();
   $("#dashboard-link-password").removeClass("dashboard-tab-title-active");
+  $("#clientid").val(null);
 }
 
 function displayPasswordUpdate() {
@@ -92,11 +93,53 @@ function clientChosenForProgram(id, prenom, nom, mail) {
   ajaxClientProgram(id);
 }
 
+/* - - - - SOUMISSION Formulaire CARDIO - - - - */
+// The jQuery function for converting the form input values into a json object.
+$.fn.serializeObject = function () {
+  var o = {};
+  var a = this.serializeArray();
+  $.each(a, function () {
+    if (o[this.name] !== undefined) {
+      if (!o[this.name].push) {
+        o[this.name] = [o[this.name]];
+      }
+      o[this.name].push(this.value || "");
+    } else {
+      o[this.name] = this.value || "";
+    }
+  });
+  return o;
+};
+
 function updateCardioCells(id) {
-  id1 = parseInt(id);
-  id2 = id1 + 1;
-  id3 = id2 + 1;
-  id4 = id3 + 1;
+  const id1 = parseInt(id);
+  const id2 = id1 + 1;
+  const id3 = id2 + 1;
+  const id4 = id3 + 1;
+
+  const form = $("#form-cardio-" + id);
+
+  const action = "updateClientCardio";
+
+  const objToSend = JSON.stringify(form.serializeObject());
+  console.log(objToSend);
+
+  axios
+    .post("controleurs/ajax.php", {
+      req: action,
+      table: "client-cardio",
+      datas: objToSend,
+    })
+    .then(function (res) {
+      if (res.data.success) {
+        alert("CARDIO - Données modifiées avec SUCCES");
+      } else {
+        alert("CARDIO - ERREUR lors de la modificaiton des données");
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 /* - - - - C L I E N T S - t a b - - - - */
@@ -209,7 +252,7 @@ function confirmClientUpdate() {
   let reqType = "";
 
   if (confirm("Enregistrer ?")) {
-    if ($("#clientid").val().length > 0) {
+    if ($("#clientid").val().length > 0 && parseInt($("#clientid").val()) > 0) {
       reqType = "update";
     } else {
       reqType = "add";

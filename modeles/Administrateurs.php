@@ -66,7 +66,7 @@ class Administrateurs
     {
         if (!is_null($this->pdo)) {
             //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
-            $sql = 'SELECT * FROM actiform_administrateur WHERE prenom LIKE \'%'.$search.'%\' OR nom LIKE \'%'.$search.'%\' OR mail LIKE \'%'.$search.'%\'';
+            $sql = 'SELECT * FROM actiform_administrateur WHERE isadmin = 2 AND (prenom LIKE \'%'.$search.'%\' OR nom LIKE \'%'.$search.'%\' OR mail LIKE \'%'.$search.'%\')';
             $stmt = $this->pdo->prepare($sql);
             //$stmt->execute(['search' => $search]);
             $stmt->execute();
