@@ -15,7 +15,7 @@ if(!empty($requestMusculations)) {
     $inputMaxLength = 20;  
 
     $cptIdMuscu = 1;
-    $_ID_MAX_MUSCU = 7; // Nb de lignes dans la table actiform_program_musculation
+    $_ID_MAX_MUSCU = 11; // Nb de lignes dans la table actiform_program_musculation
 
     $requestIndex = 0;
     /* foreach($request as $line) { */
@@ -69,14 +69,14 @@ if(!empty($requestMusculations)) {
           $requestIndex++;
         }
 
-
+        $numeroAppareil = intval($requestMusculations[$cptLine]->getNumeroAppareil()) <> 0 ? '<br>N°'.$requestMusculations[$cptLine]->getNumeroAppareil() : '';
         // Colonne TITRES
         $resultHTMLMuscu .= "<div class='cardio-big-line'>";
         $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idMuscu."' class='form-cardio'>";
         $resultHTMLMuscu .= "<input type='hidden' name='id-client-musculation' value='".$idClientMuscu."'>";
         $resultHTMLMuscu .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."' onclick=updateMusculationCells('".$idMuscu."')>";
-        $resultHTMLMuscu .= "</div><div class='cardio-nom'>".$requestMusculations[$cptLine]->getNom()."</div></div>";
+        $resultHTMLMuscu .= "</div><div class='cardio-nom'>".$requestMusculations[$cptLine]->getNom().$numeroAppareil."</div></div>";
         $resultHTMLMuscu .= "<div class='cardio-parametres'><div>Poids</div><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>R&eacute;cup&eacute;ration</div></div>";
         $cptLine++;
         
