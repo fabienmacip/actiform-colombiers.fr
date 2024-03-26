@@ -37,12 +37,7 @@ window.addEventListener("click", () => {
   menuContainer.innerHTML = "";
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-  menuContainer = document.querySelector("#search-menu-container");
-  menuContainer.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
+function searchClientListener() {
   let searchInput = document.querySelector("#client-search");
   let ref;
   searchInput.addEventListener("input", (e) => {
@@ -62,6 +57,39 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }, 1000);
   });
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ * DEBUT
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+function eventListenerClientCardioForm() {
+  let cardioForms = document.getElementsByClassName("form-cardio");
+  for (let i = 0; i < cardioForms.length; i++) {
+    cardioForms[i].addEventListener("change", function () {
+      console.log("change");
+    });
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *
+ *
+ *FIN
+ *
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
+
+window.addEventListener("DOMContentLoaded", () => {
+  menuContainer = document.querySelector("#search-menu-container");
+  menuContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  searchClientListener();
+  //updateProgramFormsListener();
 });
 
 function ajaxClientProgram(clientId) {
@@ -70,6 +98,9 @@ function ajaxClientProgram(clientId) {
     .then((res) => {
       $("#div-program-cardio").html(res.data.result);
       $("#div-program-musculation").html(res.data.resultMuscu);
+      $("#div-program-abdos").html(res.data.resultAbdos);
+      $("#div-program-fessiers").html(res.data.resultFessiers);
+      eventListenerClientCardioForm();
     })
     .catch((err) => {
       console.log(err);
@@ -91,6 +122,9 @@ function clientChosenForProgram(id, prenom, nom, mail) {
   }
 
   ajaxClientProgram(id);
+  /*   $(document).ready(function () {
+    updateProgramFormsListener();
+  }); */
 }
 
 /* - - - - SOUMISSION Formulaire CARDIO - - - - */

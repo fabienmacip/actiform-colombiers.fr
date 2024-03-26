@@ -174,12 +174,16 @@ if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['
   require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientMusculation.php');
 
   // PROGRAMME CLIENT ABDOMINAUX...
+  $resultHTMLAbdos = '';
 
   // PROGRAMME CLIENT FESSIERS...
+  $resultHTMLFessiers = '';
 
   // FIN
   $data['result'] = $resultHTML;
   $data['resultMuscu'] = $resultHTMLMuscu;
+  $data['resultAbdos'] = $resultHTMLAbdos;
+  $data['resultFessiers'] = $resultHTMLFessiers;
   echo json_encode($data);
   return;
 }

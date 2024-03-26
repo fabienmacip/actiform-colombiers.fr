@@ -72,7 +72,7 @@ if(!empty($requestMusculations)) {
         $numeroAppareil = intval($requestMusculations[$cptLine]->getNumeroAppareil()) <> 0 ? '<br>N°'.$requestMusculations[$cptLine]->getNumeroAppareil() : '';
         // Colonne TITRES
         $resultHTMLMuscu .= "<div class='cardio-big-line'>";
-        $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idMuscu."' class='form-cardio'>";
+        $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idMuscu."' class='form-musculation'>";
         $resultHTMLMuscu .= "<input type='hidden' name='id-client-musculation' value='".$idClientMuscu."'>";
         $resultHTMLMuscu .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."' onclick=updateMusculationCells('".$idMuscu."')>";

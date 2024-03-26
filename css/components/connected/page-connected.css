@@ -110,7 +110,8 @@
 #div-program-cardio {
 }
 
-.form-cardio {
+.form-cardio,
+.form-musculation {
   display: contents;
 }
 
