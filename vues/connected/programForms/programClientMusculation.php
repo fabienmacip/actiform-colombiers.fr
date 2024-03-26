@@ -22,6 +22,7 @@ if(!empty($requestMusculations)) {
       
       while($cptIdMuscu <= $_ID_MAX_MUSCU){
 
+        $idMuscu = $cptIdMuscu;
         $idClientMuscu = "0";
         $poids1 = "";
         $series1 = "";
@@ -71,41 +72,43 @@ if(!empty($requestMusculations)) {
 
         // Colonne TITRES
         $resultHTMLMuscu .= "<div class='cardio-big-line'>";
-        $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idClientMuscu."' class='form-cardio'>";
+        $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idMuscu."' class='form-cardio'>";
         $resultHTMLMuscu .= "<input type='hidden' name='id-client-musculation' value='".$idClientMuscu."'>";
         $resultHTMLMuscu .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
-        $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."' onclick=updateCardioCells('".$idClientMuscu."')>";
+        $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."' onclick=updateMusculationCells('".$idMuscu."')>";
         $resultHTMLMuscu .= "</div><div class='cardio-nom'>".$requestMusculations[$cptLine]->getNom()."</div></div>";
         $resultHTMLMuscu .= "<div class='cardio-parametres'><div>Poids</div><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>R&eacute;cup&eacute;ration</div></div>";
         $cptLine++;
         
         // Colonne SEANCE 1
-        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-poids1-".$idClientMuscu."' name='cardio-poids1-".$idClientMuscu."' value='".$poids1."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-series1-".$idClientMuscu."' name='cardio-series1-".$idClientMuscu."' value='".$series1."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-repetitions1-".$idClientMuscu."' name='cardio-repetitions1-".$idClientMuscu."' value='".$repetitions1."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-recuperation1-".$idClientMuscu."' name='cardio-recuperation1-".$idClientMuscu."' value='".$recuperation1."'></div></div>";
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='musculation-poids1-".$idClientMuscu."' name='musculation-poids1' value='".$poids1."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-series1-".$idClientMuscu."' name='musculation-series1' value='".$series1."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-repetitions1-".$idClientMuscu."' name='musculation-repetitions1' value='".$repetitions1."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-recuperation1-".$idClientMuscu."' name='musculation-recuperation1' value='".$recuperation1."'></div></div>";
 
         // Colonne SEANCE 2 
-        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-poids2-".$idClientMuscu."' name='cardio-poids2-".$idClientMuscu."' value='".$poids2."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-series2-".$idClientMuscu."' name='cardio-series2-".$idClientMuscu."' value='".$series2."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-repetitions2-".$idClientMuscu."' name='cardio-repetitions2-".$idClientMuscu."' value='".$repetitions2."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-recuperation2-".$idClientMuscu."' name='cardio-recuperation2-".$idClientMuscu."' value='".$recuperation2."'></div></div>";
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='musculation-poids2' name='musculation-poids2' value='".$poids2."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-series2-".$idClientMuscu."' name='musculation-series2' value='".$series2."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-repetitions2-".$idClientMuscu."' name='musculation-repetitions2' value='".$repetitions2."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-recuperation2-".$idClientMuscu."' name='musculation-recuperation2' value='".$recuperation2."'></div></div>";
 
         // Colonne SEANCE 3
-        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-poids3-".$idClientMuscu."' name='cardio-poids3-".$idClientMuscu."' value='".$poids3."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-series3-".$idClientMuscu."' name='cardio-series3-".$idClientMuscu."' value='".$series3."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-repetitions3-".$idClientMuscu."' name='cardio-repetitions3-".$idClientMuscu."' value='".$repetitions3."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-recuperation3-".$idClientMuscu."' name='cardio-recuperation3-".$idClientMuscu."' value='".$recuperation3."'></div></div>";
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='musculation-poids3-".$idClientMuscu."' name='musculation-poids3' value='".$poids3."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-series3-".$idClientMuscu."' name='musculation-series3' value='".$series3."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-repetitions3-".$idClientMuscu."' name='musculation-repetitions3' value='".$repetitions3."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-recuperation3-".$idClientMuscu."' name='musculation-recuperation3' value='".$recuperation3."'></div></div>";
 
         // Colonne SEANCE 4
-        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-poids4-".$idClientMuscu."' name='cardio-poids4-".$idClientMuscu."' value='".$poids4."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-series4-".$idClientMuscu."' name='cardio-series4-".$idClientMuscu."' value='".$series4."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-repetitions4-".$idClientMuscu."' name='cardio-repetitions4-".$idClientMuscu."' value='".$repetitions4."'></div>";
-        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-recuperation4-".$idClientMuscu."' name='cardio-recuperation4-".$idClientMuscu."' value='".$recuperation4."'></div></div>";
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='musculation-poids4' name='musculation-poids4' value='".$poids4."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-series4-".$idClientMuscu."' name='musculation-series4' value='".$series4."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-repetitions4-".$idClientMuscu."' name='musculation-repetitions4' value='".$repetitions4."'></div>";
+        $resultHTMLMuscu .= "<div><input type='text' maxlength='".$inputMaxLength."' id='musculation-recuperation4-".$idClientMuscu."' name='musculation-recuperation4' value='".$recuperation4."'></div></div>";
         
         // FIN du FORMULAIRE
         $resultHTMLMuscu .= "<input type='hidden' name='action' id='action' value='clientMusculationUpdate'>";
         $resultHTMLMuscu .= "<input type='hidden' name='clientid' id='clientid' value='".$clientId."'>";
+        $resultHTMLMuscu .= "<input type='hidden' name='musculationid' id='musculationid' value='".$idMuscu."'>";
+        $resultHTMLMuscu .= "<input type='hidden' name='clientmusculationid' id='clientmusculationid' value='".$idClientMuscu."'>";
         $resultHTMLMuscu .= "</form>";
         $resultHTMLMuscu .= "</div>";
 

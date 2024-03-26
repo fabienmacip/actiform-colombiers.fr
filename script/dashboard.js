@@ -112,11 +112,6 @@ $.fn.serializeObject = function () {
 };
 
 function updateCardioCells(id) {
-  const id1 = parseInt(id);
-  const id2 = id1 + 1;
-  const id3 = id2 + 1;
-  const id4 = id3 + 1;
-
   const form = $("#form-cardio-" + id);
 
   const action = "updateClientCardio";
@@ -132,9 +127,35 @@ function updateCardioCells(id) {
     })
     .then(function (res) {
       if (res.data.success) {
-        alert("CARDIO - Données modifiées avec SUCCES");
+        alert("CARDIO - Données mises à jour avec SUCCES");
       } else {
-        alert("CARDIO - ERREUR lors de la modificaiton des données");
+        alert("CARDIO - ERREUR lors de la modification des données");
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function updateMusculationCells(id) {
+  const form = $("#form-musculation-" + id);
+
+  const action = "updateClientMusculation";
+
+  const objToSend = JSON.stringify(form.serializeObject());
+  console.log(objToSend);
+
+  axios
+    .post("controleurs/ajax.php", {
+      req: action,
+      table: "musculation-cardio",
+      datas: objToSend,
+    })
+    .then(function (res) {
+      if (res.data.success) {
+        alert("MUSCULATION - Données mises à jour avec SUCCES");
+      } else {
+        alert("MUSCULATION - ERREUR lors de la modification des données");
       }
     })
     .catch(function (err) {

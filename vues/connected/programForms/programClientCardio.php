@@ -22,7 +22,8 @@ $resultHTML .= "</div>";
       /* foreach($request as $line) { */
         
         while($cptIdCardio <= $_ID_MAX_CARDIO){
-
+          
+          $idCardio = $cptIdCardio;
           $idClientCardio = "0";
           $temps1 = "";
           $niveau1 = "";
@@ -64,37 +65,39 @@ $resultHTML .= "</div>";
 
           // Colonne TITRES
           $resultHTML .= "<div class='cardio-big-line'>";
-          $resultHTML .= "<form action='' method='post' id='form-cardio-".$idClientCardio."' class='form-cardio'>";
+          $resultHTML .= "<form action='' method='post' id='form-cardio-".$idCardio."' class='form-cardio'>";
           $resultHTML .= "<input type='hidden' name='id-client-cardio' value='".$idClientCardio."'>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
-          $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$idClientCardio."')>";
+          $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$idCardio."')>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
           $resultHTML .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
           $cptLine++;
           
           // Colonne SEANCE 1
-          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps1-".$idClientCardio."' name='cardio-temps1-".$idClientCardio."' value='".$temps1."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau1-".$idClientCardio."' name='cardio-niveau1-".$idClientCardio."' value='".$niveau1."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance1-".$idClientCardio."' name='cardio-resistance1-".$idClientCardio."' value='".$resistance1."'></div></div>";
-  
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps1-".$idClientCardio."' name='cardio-temps1' value='".$temps1."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau1-".$idClientCardio."' name='cardio-niveau1' value='".$niveau1."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance1-".$idClientCardio."' name='cardio-resistance1' value='".$resistance1."'></div></div>";
+
           // Colonne SEANCE 2 
-          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps2-".$idClientCardio."' name='cardio-temps2-".$idClientCardio."' value='".$temps2."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau2-".$idClientCardio."' name='cardio-niveau2-".$idClientCardio."' value='".$niveau2."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance2-".$idClientCardio."' name='cardio-resistance2-".$idClientCardio."' value='".$resistance2."'></div></div>";
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps2' name='cardio-temps2' value='".$temps2."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau2-".$idClientCardio."' name='cardio-niveau2' value='".$niveau2."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance2-".$idClientCardio."' name='cardio-resistance2' value='".$resistance2."'></div></div>";
   
           // Colonne SEANCE 3
-          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps3-".$idClientCardio."' name='cardio-temps3-".$idClientCardio."' value='".$temps3."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau3-".$idClientCardio."' name='cardio-niveau3-".$idClientCardio."' value='".$niveau3."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance3-".$idClientCardio."' name='cardio-resistance3-".$idClientCardio."' value='".$resistance3."'></div></div>";
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps3' name='cardio-temps3' value='".$temps3."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau3-".$idClientCardio."' name='cardio-niveau3' value='".$niveau3."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance3-".$idClientCardio."' name='cardio-resistance3' value='".$resistance3."'></div></div>";
   
           // Colonne SEANCE 4
-          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps4-".$idClientCardio."' name='cardio-temps4-".$idClientCardio."' value='".$temps4."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau4-".$idClientCardio."' name='cardio-niveau4-".$idClientCardio."' value='".$niveau4."'></div>";
-          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance4-".$idClientCardio."' name='cardio-resistance4-".$idClientCardio."' value='".$resistance4."'></div></div>";
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps4' name='cardio-temps4' value='".$temps4."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau4-".$idClientCardio."' name='cardio-niveau4' value='".$niveau4."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance4-".$idClientCardio."' name='cardio-resistance4' value='".$resistance4."'></div></div>";
   
           // FIN du FORMULAIRE
           $resultHTML .= "<input type='hidden' name='action' id='action' value='clientCardioUpdate'>";
           $resultHTML .= "<input type='hidden' name='clientid' id='clientid' value='".$clientId."'>";
+          $resultHTML .= "<input type='hidden' name='cardioid' id='cardioid' value='".$idCardio."'>";
+          $resultHTML .= "<input type='hidden' name='clientcardioid' id='clientcardioid' value='".$idClientCardio."'>";
           $resultHTML .= "</form>";
           $resultHTML .= "</div>";
   

@@ -32,7 +32,7 @@ class ControleurAjax {
     return $administrateurs->create($nom, $prenom, $mail, $pwd);
   }
 
-  public function createClientProgramEmpty($clientId) {
+/*   public function createClientProgramEmpty($clientId) {
     $programClientCardios = new ProgramClientCardios($this->pdo);
     $checkCardio = $programClientCardios->createAllEmpty($clientId);
 
@@ -42,7 +42,7 @@ class ControleurAjax {
     return $checkCardio && $checkMusculation;
 
   }
-
+ */
   public function updateClient($id, $nom, $prenom, $mail) {
     $administrateurs = new Administrateurs($this->pdo);
     return $administrateurs->update($id, $nom, $prenom, $mail);
@@ -86,6 +86,12 @@ class ControleurAjax {
     return $programClientCardios->updateClientCardio($array);
   }
 
+  // UPDATE CLIENTS MUSCULATION
+  function updateClientMusculation($array) {
+    $programClientMusculations = new ProgramClientMusculations($this->pdo);
+    return $programClientMusculations->updateClientMusculation($array);
+  }
+
 
 } // FIN CLASSE CONTROLEURAJAX
 
@@ -95,10 +101,10 @@ $controllerAjax = new ControleurAjax($pdo);
 if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client') {
   $data['success'] = $controllerAjax->createClient($data['prenom'],$data['nom'],$data['mail']);
 
-  if($data['success'] !== false && $data['success'] > 0){
+/*   if($data['success'] !== false && $data['success'] > 0){
     $data['success-initialize-client-program'] = $controllerAjax->createClientProgramEmpty($data['success']);
   }
-
+ */
   echo json_encode($data);
   return;
 }
@@ -185,6 +191,17 @@ if(isset($data['req']) && $data['req'] === 'updateClientCardio') {
   $datasArray = json_decode($datas, true);
 
   $data['success'] = $controllerAjax->updateClientCardio($datasArray);  
+
+  echo json_encode($data);
+}
+
+// UPDATE PROGRAM-CLIENT-MUSCULATION-UN-EXERCICE
+if(isset($data['req']) && $data['req'] === 'updateClientMusculation') {
+  $datas = str_replace('\\',"",$data['datas']);
+  unset($data['datas']);
+  $datasArray = json_decode($datas, true);
+
+  $data['success'] = $controllerAjax->updateClientMusculation($datasArray);  
 
   echo json_encode($data);
 }
