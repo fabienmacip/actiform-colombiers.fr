@@ -5,11 +5,8 @@ $resultHTML .= "<div class='program-subtitle'>";
 $resultHTML .= "<div>Nom machines</div><div>S&eacute;ances</div><div>1</div><div>2</div><div>3</div><div>4</div>";
 $resultHTML .= "</div>";
 
-if(!empty($request) && count($request) > 0 && !empty($requestCardios)) {
-  // IMPORTANT : lors de la création d'un nouveau client, l'application crée en même temps,
-  // tous les tuples concernant ce client, dans les tables actiform_program_client_cardio,
-  // actiform_program_client_musculation, etc. Avec des champs vides par défaut, sauf pour :
-    // idclient, idcardio (ou idmusculation, etc), numseance.
+//if(!empty($request) && count($request) > 0 && !empty($requestCardios)) {
+  if(!empty($requestCardios)) {
     
     $cptLine = 0;
     $cptCol = 0;
@@ -18,39 +15,94 @@ if(!empty($request) && count($request) > 0 && !empty($requestCardios)) {
     if($role === 1){
       $inputMaxLength = 20;  
 
-      foreach($request as $line) {
-        
+      $cptIdCardio = 1;
+      $_ID_MAX_CARDIO = 7; // Nb de lignes dans la table actiform_program_cardio
 
-        // $idsCardioSeance : concaténation de l'ID de l'exercice + le numéro de séance
-        $idsCardioSeance = $line->getIdCardio()."-".$line->getNumSeance();
-        $idForm = $clientId."-".$idsCardioSeance;
+      $requestIndex = 0;
+      /* foreach($request as $line) { */
         
-        if($cptCol === 0){
-          //action='controleurs/ajax.php' onsubmit='return false'
+        while($cptIdCardio <= $_ID_MAX_CARDIO){
+
+          $idClientCardio = "0";
+          $temps1 = "";
+          $niveau1 = "";
+          $resistance1 = "";
+          $temps2 = "";
+          $niveau2 = "";
+          $resistance2 = "";
+          $temps3 = "";
+          $niveau3 = "";
+          $resistance3 = "";
+          $temps4 = "";
+          $niveau4 = "";
+          $resistance4 = "";
+
+          // Si la ligne existe en BDD.
+          if(!empty($request) && count($request) >= 0 && count($request) > $requestIndex && intval($request[$requestIndex]->getIdCardio()) === $cptIdCardio) {
+            $line = $request[$requestIndex];
+
+            $idCardio = $line->getIdCardio();
+            $idForm = $clientId."-".$idCardio;
+            
+            $idClientCardio = $line->getId();
+            $temps1 = $line->getTemps1();
+            $niveau1 = $line->getNiveau1();
+            $resistance1 = $line->getResistance1();
+            $temps2 = $line->getTemps2();
+            $niveau2 = $line->getNiveau2();
+            $resistance2 = $line->getResistance2();
+            $temps3 = $line->getTemps3();
+            $niveau3 = $line->getNiveau3();
+            $resistance3 = $line->getResistance3();
+            $temps4 = $line->getTemps4();
+            $niveau4 = $line->getNiveau4();
+            $resistance4 = $line->getResistance4();
+
+            $requestIndex++;
+          }
+
+
+          // Colonne TITRES
           $resultHTML .= "<div class='cardio-big-line'>";
-          $resultHTML .= "<form action='' method='post' id='form-cardio-".$line->getId()."' class='form-cardio'>";
-          $resultHTML .= "<input type='hidden' name='id-client-cardio-first' value='".$line->getId()."'>";
+          $resultHTML .= "<form action='' method='post' id='form-cardio-".$idClientCardio."' class='form-cardio'>";
+          $resultHTML .= "<input type='hidden' name='id-client-cardio' value='".$idClientCardio."'>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
-          $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$line->getId()."')>";
+          $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$idClientCardio."')>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
           $resultHTML .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
           $cptLine++;
-        }
-    
-        $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps-".$idsCardioSeance."' name='cardio-temps-".$line->getNumSeance()."' value='".$line->getTemps()."'></div>";
-        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau-".$idsCardioSeance."' name='cardio-niveau-".$line->getNumSeance()."' value='".$line->getNiveau()."'></div>";
-        $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance-".$idsCardioSeance."' name='cardio-resistance-".$line->getNumSeance()."' value='".$line->getResistance()."'></div></div>";
-
-
-        if($cptCol === 3) {
+          
+          // Colonne SEANCE 1
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps1-".$idClientCardio."' name='cardio-temps1-".$idClientCardio."' value='".$temps1."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau1-".$idClientCardio."' name='cardio-niveau1-".$idClientCardio."' value='".$niveau1."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance1-".$idClientCardio."' name='cardio-resistance1-".$idClientCardio."' value='".$resistance1."'></div></div>";
+  
+          // Colonne SEANCE 2 
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps2-".$idClientCardio."' name='cardio-temps2-".$idClientCardio."' value='".$temps2."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau2-".$idClientCardio."' name='cardio-niveau2-".$idClientCardio."' value='".$niveau2."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance2-".$idClientCardio."' name='cardio-resistance2-".$idClientCardio."' value='".$resistance2."'></div></div>";
+  
+          // Colonne SEANCE 3
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps3-".$idClientCardio."' name='cardio-temps3-".$idClientCardio."' value='".$temps3."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau3-".$idClientCardio."' name='cardio-niveau3-".$idClientCardio."' value='".$niveau3."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance3-".$idClientCardio."' name='cardio-resistance3-".$idClientCardio."' value='".$resistance3."'></div></div>";
+  
+          // Colonne SEANCE 4
+          $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps4-".$idClientCardio."' name='cardio-temps4-".$idClientCardio."' value='".$temps4."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau4-".$idClientCardio."' name='cardio-niveau4-".$idClientCardio."' value='".$niveau4."'></div>";
+          $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance4-".$idClientCardio."' name='cardio-resistance4-".$idClientCardio."' value='".$resistance4."'></div></div>";
+  
+          // FIN du FORMULAIRE
           $resultHTML .= "<input type='hidden' name='action' id='action' value='clientCardioUpdate'>";
           $resultHTML .= "<input type='hidden' name='clientid' id='clientid' value='".$clientId."'>";
-          $resultHTML .= "<input type='hidden' id='ids-cardio-seance-".$idsCardioSeance."' name='ids-cardio-seance-".$idsCardioSeance."' value='".$idsCardioSeance."'>";
           $resultHTML .= "</form>";
           $resultHTML .= "</div>";
+  
+          $cptIdCardio++;
+
+
         }
-        $cptCol = ($cptCol + 1) % 4;
-      };
+      
     
 
       

@@ -8,7 +8,7 @@ class ProgramClientCardios
     public function listerPourUnClient($clientId)
     {
         if (!is_null($this->pdo)) {
-            $sql = 'SELECT * FROM actiform_program_client_cardio WHERE idclient = :idclient ORDER BY idcardio, numseance';
+            $sql = 'SELECT * FROM actiform_program_client_cardio WHERE idclient = :idclient ORDER BY idcardio';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['idclient' => $clientId]);
         }
@@ -48,60 +48,27 @@ class ProgramClientCardios
 
     function updateClientCardio($array){
         
-        $id1 = intval($array['id-client-cardio-first']);
-        $id2 = $id1 + 1;
-        $id3 = $id2 + 1;
-        $id4 = $id3 + 1;
-        
-
+        $id = intval($array['id-client-cardio']);
         $tupleUpdated = true;
 
         if (!is_null($this->pdo)) {
             try {
-                    $sql1 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
-                    $res1 = $this->pdo->prepare($sql1);
-                    $exec1 = $res1->execute(array(":temps"=>$array['cardio-temps-1'], ":niveau"=>$array['cardio-niveau-1'], ":resistance"=>$array['cardio-resistance-1'], ":id"=>$id1));
+                    $sql = "UPDATE actiform_program_client_cardio 
+                            SET temps1 = (:temps1), niveau1 = (:niveau1), resistance1 = (:resistance1),
+                                temps2 = (:temps2), niveau2 = (:niveau2), resistance2 = (:resistance2),
+                                temps3 = (:temps3), niveau3 = (:niveau3), resistance3 = (:resistance3),
+                                temps4 = (:temps4), niveau4 = (:niveau4), resistance4 = (:resistance4)  
+                                WHERE id = (:id)";
+                    $res = $this->pdo->prepare($sql);
+                    $exec = $res->execute(array(":temps1"=>$array['cardio-temps1'], ":niveau1"=>$array['cardio-niveau1'], ":resistance1"=>$array['cardio-resistance1'],
+                                                ":temps2"=>$array['cardio-temps2'], ":niveau2"=>$array['cardio-niveau2'], ":resistance2"=>$array['cardio-resistance2'],
+                                                ":temps3"=>$array['cardio-temps3'], ":niveau3"=>$array['cardio-niveau3'], ":resistance3"=>$array['cardio-resistance3'],
+                                                ":temps4"=>$array['cardio-temps4'], ":niveau4"=>$array['cardio-niveau4'], ":resistance4"=>$array['cardio-resistance4'],                                                
+                                                ":id"=>$id));
                 
-                if($exec1){
-                    try{
-                        $sql2 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
-                        $res2 = $this->pdo->prepare($sql2);
-                        $exec2 = $res2->execute(array(":temps"=>$array['cardio-temps-2'], ":niveau"=>$array['cardio-niveau-2'], ":resistance"=>$array['cardio-resistance-2'], ":id"=>$id2));
-                        
-                        if($exec2){
-                            try{
-                                $sql3 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
-                                $res3 = $this->pdo->prepare($sql3);
-                                $exec3 = $res3->execute(array(":temps"=>$array['cardio-temps-3'], ":niveau"=>$array['cardio-niveau-3'], ":resistance"=>$array['cardio-resistance-3'], ":id"=>$id3));
-
-                                if($exec3){
-                                    try{
-                                        $sql4 = "UPDATE actiform_program_client_cardio SET temps = (:temps), niveau = (:niveau), resistance = (:resistance) WHERE id = (:id)";
-                                        $res4 = $this->pdo->prepare($sql4);
-                                        $exec4 = $res4->execute(array(":temps"=>$array['cardio-temps-4'], ":niveau"=>$array['cardio-niveau-4'], ":resistance"=>$array['cardio-resistance-4'], ":id"=>$id4));
-                    
-                                    }
-                                    catch(Exception $e4){
-                                        $tupleUpdated = false;        
-                                    }
-                
-                                }
-                    
-                            }
-                            catch(Exception $e3){
-                                $tupleUpdated = false;        
-                            }
-        
-                        }
-            
-                    }
-                    catch(Exception $e2){
-                        $tupleUpdated = false;        
-                    }
-
-                }
+                $tupleCreated = $exec;
             }
-            catch(Exception $e1) {
+            catch(Exception $e) {
                 $tupleUpdated = false;
             }
         }

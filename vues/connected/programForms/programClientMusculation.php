@@ -22,7 +22,7 @@ if(!empty($requestMuscu) && count($requestMuscu) > 0 && !empty($requestMusculati
       $cptLine++;
     }
 
-    $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$line->getPoids()."</div><div>".$line->getSeries()."</div><div>".$line->getRepetitions()."</div><div>".$line->getRecuperation()."</div></div>";
+    $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$line->getPoids1()."</div><div>".$line->getSeries1()."</div><div>".$line->getRepetitions1()."</div><div>".$line->getRecuperation1()."</div></div>";
     if($cptCol === 3) {
       $resultHTMLMuscu .= "</div>";
     }

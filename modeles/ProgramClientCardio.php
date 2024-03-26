@@ -7,10 +7,18 @@ class ProgramClientCardio
     private $id;
     private $idclient;
     private $idcardio;
-    private $numseance;
-    private $temps;
-    private $niveau;
-    private $resistance;
+    private $temps1;
+    private $niveau1;
+    private $resistance1;
+    private $temps2;
+    private $niveau2;
+    private $resistance2;
+    private $temps3;
+    private $niveau3;
+    private $resistance3;
+    private $temps4;
+    private $niveau4;
+    private $resistance4;
     
     public function afficher($id)
     {
@@ -43,24 +51,64 @@ class ProgramClientCardio
         return $this->idcardio;
     }
 
-    public function getNumSeance()
+     public function getTemps1()
     {
-        return $this->numseance;
+        return $this->temps1;
     }
 
-    public function getTemps()
+    public function getNiveau1()
     {
-        return $this->temps;
+        return $this->niveau1;
     }
 
-    public function getNiveau()
+    public function getResistance1()
     {
-        return $this->niveau;
+        return $this->resistance1;
     }
 
-    public function getResistance()
+    public function getTemps2()
     {
-        return $this->resistance;
+        return $this->temps2;
+    }
+
+    public function getNiveau2()
+    {
+        return $this->niveau2;
+    }
+
+    public function getResistance2()
+    {
+        return $this->resistance2;
+    }
+
+    public function getTemps3()
+    {
+        return $this->temps3;
+    }
+
+    public function getNiveau3()
+    {
+        return $this->niveau3;
+    }
+
+    public function getResistance3()
+    {
+        return $this->resistance3;
+    }
+
+    public function getTemps4()
+    {
+        return $this->temps4;
+    }
+
+    public function getNiveau4()
+    {
+        return $this->niveau4;
+    }
+
+    public function getResistance4()
+    {
+        return $this->resistance4;
     }
 
 

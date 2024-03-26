@@ -8,7 +8,7 @@ class ProgramClientMusculations
     public function listerPourUnClient($clientId)
     {
         if (!is_null($this->pdo)) {
-            $sql = 'SELECT * FROM actiform_program_client_musculation WHERE idclient = :idclient ORDER BY idmusculation';
+            $sql = 'SELECT * FROM actiform_program_client_musculation WHERE idclient = :idclient ORDER BY idcardio, numseance';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['idclient' => $clientId]);
         }
@@ -24,7 +24,7 @@ class ProgramClientMusculations
     public function createAllEmpty($idClient) {
         if (!is_null($this->pdo)) {
             try {
-                $sql = "INSERT INTO actiform_program_client_musculation (idclient, idmusculation, numseance) 
+                $sql = "INSERT INTO actiform_program_client_musculation (idclient, idcardio, numseance) 
                             VALUES (:idclient, 1, 1),(:idclient, 1, 2),(:idclient, 1, 3),(:idclient, 1, 4),
                                    (:idclient, 2, 1),(:idclient, 2, 2),(:idclient, 2, 3),(:idclient, 2, 4),
                                    (:idclient, 3, 1),(:idclient, 3, 2),(:idclient, 3, 3),(:idclient, 3, 4),
