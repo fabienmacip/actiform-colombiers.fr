@@ -17,11 +17,20 @@ require_once(dirname(__FILE__,2).'/modeles/ProgramCardio.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramCardios.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramMusculation.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramMusculations.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramAbdos.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramAbdoss.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramFessiers.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramFessierss.php');
 
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientCardio.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientCardios.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientMusculation.php');
 require_once(dirname(__FILE__,2).'/modeles/ProgramClientMusculations.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramClientAbdos.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramClientAbdoss.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramClientFessiers.php');
+require_once(dirname(__FILE__,2).'/modeles/ProgramClientFessierss.php');
+
 
 
 class ControleurAjax {
@@ -135,10 +144,6 @@ $controllerAjax = new ControleurAjax($pdo);
 if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client') {
   $data['success'] = $controllerAjax->createClient($data['prenom'],$data['nom'],$data['mail']);
 
-/*   if($data['success'] !== false && $data['success'] > 0){
-    $data['success-initialize-client-program'] = $controllerAjax->createClientProgramEmpty($data['success']);
-  }
- */
   echo json_encode($data);
   return;
 }

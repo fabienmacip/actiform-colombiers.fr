@@ -111,7 +111,9 @@
 }
 
 .form-cardio,
-.form-musculation {
+.form-musculation,
+.form-abdos,
+.form-fessiers {
   display: contents;
 }
 
@@ -153,10 +155,17 @@
 }
 
 .cardio-img {
+  cursor: pointer;
+
   border: 1px solid black;
   padding: 10px 10px;
   width: 40%;
   text-align: center;
+}
+
+.cardio-img:hover {
+  border: 1px solid lightsalmon;
+  background-color: lightseagreen;
 }
 
 .cardio-img > img {

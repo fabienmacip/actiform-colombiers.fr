@@ -1,6 +1,6 @@
 <?php
 
-class ProgramClientFessiers
+class ProgramClientFessierss
 {
     use Modele;
 
@@ -34,11 +34,11 @@ class ProgramClientFessiers
                         $res = $this->pdo->prepare($sql);
 
                         
-                        $exec = $res->execute(array(":idclient"=>$array['clientid'], "idfessiers"=>$array['abdosid'],
-                                                    ":series1"=>$array['abdos-series1'], ":repetitions1"=>$array['abdos-repetitions1'], ":charge1"=>$array['abdos-charge1'], 
-                                                    ":series2"=>$array['abdos-series2'], ":repetitions2"=>$array['abdos-repetitions2'], ":charge2"=>$array['abdos-charge2'], 
-                                                    ":series3"=>$array['abdos-series3'], ":repetitions3"=>$array['abdos-repetitions3'], ":charge3"=>$array['abdos-charge3'], 
-                                                    ":series4"=>$array['abdos-series4'], ":repetitions4"=>$array['abdos-repetitions4'], ":charge4"=>$array['abdos-charge4']));
+                        $exec = $res->execute(array(":idclient"=>$array['clientid'], "idfessiers"=>$array['fessiersid'],
+                                                    ":series1"=>$array['fessiers-series1'], ":repetitions1"=>$array['fessiers-repetitions1'], ":charge1"=>$array['fessiers-charge1'], 
+                                                    ":series2"=>$array['fessiers-series2'], ":repetitions2"=>$array['fessiers-repetitions2'], ":charge2"=>$array['fessiers-charge2'], 
+                                                    ":series3"=>$array['fessiers-series3'], ":repetitions3"=>$array['fessiers-repetitions3'], ":charge3"=>$array['fessiers-charge3'], 
+                                                    ":series4"=>$array['fessiers-series4'], ":repetitions4"=>$array['fessiers-repetitions4'], ":charge4"=>$array['fessiers-charge4']));
                     
                         if($exec) {
                             //$tupleCreated = $exec;
@@ -63,10 +63,10 @@ class ProgramClientFessiers
                                     series4 = (:series4), repetitions4 = (:repetitions4), charge4 = (:charge4)
                                     WHERE id = (:id)";
                         $res = $this->pdo->prepare($sql);
-                        $exec = $res->execute(array(":series1"=>$array['abdos-series1'], ":repetitions1"=>$array['abdos-repetitions1'], ":charge1"=>$array['abdos-charge1'], 
-                                                    ":series2"=>$array['abdos-series2'], ":repetitions2"=>$array['abdos-repetitions2'], ":charge2"=>$array['abdos-charge2'], 
-                                                    ":series3"=>$array['abdos-series3'], ":repetitions3"=>$array['abdos-repetitions3'], ":charge3"=>$array['abdos-charge3'], 
-                                                    ":series4"=>$array['abdos-series4'], ":repetitions4"=>$array['abdos-repetitions4'], ":charge4"=>$array['abdos-charge4'], 
+                        $exec = $res->execute(array(":series1"=>$array['fessiers-series1'], ":repetitions1"=>$array['fessiers-repetitions1'], ":charge1"=>$array['fessiers-charge1'], 
+                                                    ":series2"=>$array['fessiers-series2'], ":repetitions2"=>$array['fessiers-repetitions2'], ":charge2"=>$array['fessiers-charge2'], 
+                                                    ":series3"=>$array['fessiers-series3'], ":repetitions3"=>$array['fessiers-repetitions3'], ":charge3"=>$array['fessiers-charge3'], 
+                                                    ":series4"=>$array['fessiers-series4'], ":repetitions4"=>$array['fessiers-repetitions4'], ":charge4"=>$array['fessiers-charge4'], 
                                                     ":id"=>$id));
                     
                     $tupleUpdated = $exec;

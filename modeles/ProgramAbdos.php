@@ -10,6 +10,8 @@ class ProgramAbdos
     
     public function afficher($id)
     {
+
+        
         if (!is_null($this->pdo)) {
             $stmt = $this->pdo->prepare('SELECT * FROM actiform_program_abdos WHERE id = ?');
         }

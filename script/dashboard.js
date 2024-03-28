@@ -204,7 +204,7 @@ function updateCardioCells(id) {
   const action = "updateClientCardio";
 
   const objToSend = JSON.stringify(form.serializeObject());
-  //console.log(objToSend);
+
   let flagRemoveUpdateClass = false;
   axios
     .post("controleurs/ajax.php", {
@@ -214,7 +214,6 @@ function updateCardioCells(id) {
     })
     .then(function (res) {
       if (res.data.successCardio === true) {
-        //console.log("CARDIO - Données mises à jour avec SUCCES");
         flagRemoveUpdateClass = true;
       } else if (res.data.successCardio === false) {
         alert("CARDIO - ERREUR lors de la modification des données");
@@ -223,9 +222,6 @@ function updateCardioCells(id) {
           res.data.successCardio
         );
         flagRemoveUpdateClass = true;
-        /* console.log(
-          "CARDIO - Données ajoutées avec SUCCES " + res.data.successCardio
-        ); */
       }
       if (flagRemoveUpdateClass) {
         let inputToUpdate = Array.from(
@@ -235,7 +231,6 @@ function updateCardioCells(id) {
           $(el).removeClass("input-to-update");
         });
         console.log(inputToUpdate);
-        //$(e.target).removeClass("input-to-update");
       }
     })
     .catch(function (err) {
@@ -249,19 +244,35 @@ function updateMusculationCells(id) {
   const action = "updateClientMusculation";
 
   const objToSend = JSON.stringify(form.serializeObject());
-  console.log(objToSend);
 
+  console.log("UPDATE MUSCU ID " + id);
+
+  let flagRemoveUpdateClass = false;
   axios
     .post("controleurs/ajax.php", {
       req: action,
-      table: "musculation-cardio",
+      table: "client-musculation",
       datas: objToSend,
     })
     .then(function (res) {
-      if (res.data.success) {
-        console.log("MUSCULATION - Données mises à jour avec SUCCES");
-      } else {
+      if (res.data.successMusculation === true) {
+        flagRemoveUpdateClass = true;
+      } else if (res.data.successMusculation === false) {
         alert("MUSCULATION - ERREUR lors de la modification des données");
+      } else if (parseInt(res.data.successMusculation) > 0) {
+        $("#form-musculation-" + id + " #id-client-musculation").val(
+          res.data.successMusculation
+        );
+        flagRemoveUpdateClass = true;
+      }
+      if (flagRemoveUpdateClass) {
+        let inputToUpdate = Array.from(
+          $("#form-musculation-" + id + " .input-to-update")
+        );
+        inputToUpdate.forEach((el) => {
+          $(el).removeClass("input-to-update");
+        });
+        //console.log(inputToUpdate);
       }
     })
     .catch(function (err) {
@@ -270,10 +281,80 @@ function updateMusculationCells(id) {
 }
 
 function updateAbdosCells(id) {
-  console.log("updateAbdosCells called with id = " + id);
+  const form = $("#form-abdos-" + id);
+
+  const action = "updateClientAbdos";
+
+  const objToSend = JSON.stringify(form.serializeObject());
+
+  let flagRemoveUpdateClass = false;
+  axios
+    .post("controleurs/ajax.php", {
+      req: action,
+      table: "client-abdos",
+      datas: objToSend,
+    })
+    .then(function (res) {
+      if (res.data.successAbdos === true) {
+        flagRemoveUpdateClass = true;
+      } else if (res.data.successAbdos === false) {
+        alert("ABDOS - ERREUR lors de la modification des données");
+      } else if (parseInt(res.data.successAbdos) > 0) {
+        $("#form-abdos-" + id + " #id-client-abdos").val(res.data.successAbdos);
+        flagRemoveUpdateClass = true;
+      }
+      if (flagRemoveUpdateClass) {
+        let inputToUpdate = Array.from(
+          $("#form-abdos-" + id + " .input-to-update")
+        );
+        inputToUpdate.forEach((el) => {
+          $(el).removeClass("input-to-update");
+        });
+        console.log(inputToUpdate);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 function updateFessiersCells(id) {
-  console.log("updateFessiersCells called with id = " + id);
+  const form = $("#form-fessiers-" + id);
+
+  const action = "updateClientFessiers";
+
+  const objToSend = JSON.stringify(form.serializeObject());
+
+  let flagRemoveUpdateClass = false;
+  axios
+    .post("controleurs/ajax.php", {
+      req: action,
+      table: "client-fessiers",
+      datas: objToSend,
+    })
+    .then(function (res) {
+      if (res.data.successFessiers === true) {
+        flagRemoveUpdateClass = true;
+      } else if (res.data.successFessiers === false) {
+        alert("FESSIERS - ERREUR lors de la modification des données");
+      } else if (parseInt(res.data.successFessiers) > 0) {
+        $("#form-fessiers-" + id + " #id-client-fessiers").val(
+          res.data.successFessiers
+        );
+        flagRemoveUpdateClass = true;
+      }
+      if (flagRemoveUpdateClass) {
+        let inputToUpdate = Array.from(
+          $("#form-fessiers-" + id + " .input-to-update")
+        );
+        inputToUpdate.forEach((el) => {
+          $(el).removeClass("input-to-update");
+        });
+        //console.log(inputToUpdate);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 /* - - - - C L I E N T S - t a b - - - - */
