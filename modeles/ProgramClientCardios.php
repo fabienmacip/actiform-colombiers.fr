@@ -50,9 +50,10 @@ class ProgramClientCardios
         
         $id = intval($array['id-client-cardio']);
         $tupleUpdated = true;
-
+        //var_dump("ID CLIENT CARDIO -> ".$id);
         // Pas d'ID, alors INSERT
         if($id === 0) {
+            //echo("PASSE PAR INSERT");
             if (!is_null($this->pdo)) {
                 try {
                         $sql = "INSERT INTO actiform_program_client_cardio (idclient, idcardio, temps1, niveau1, resistance1, temps2, niveau2, resistance2, temps3, niveau3, resistance3, temps4, niveau4, resistance4) 
@@ -67,7 +68,11 @@ class ProgramClientCardios
                                                     ":temps3"=>$array['cardio-temps3'], ":niveau3"=>$array['cardio-niveau3'], ":resistance3"=>$array['cardio-resistance3'],
                                                     ":temps4"=>$array['cardio-temps4'], ":niveau4"=>$array['cardio-niveau4'], ":resistance4"=>$array['cardio-resistance4']));
                     
-                    $tupleCreated = $exec;
+                    if($exec) {
+                        //$tupleCreated = $exec;
+                        $lastid = $this->pdo->lastInsertId();
+                        $tupleUpdated = $lastid ?? true;
+                    }
                 }
                 catch(Exception $e) {
                     var_dump($e);
@@ -78,6 +83,7 @@ class ProgramClientCardios
         } else {
             
             if (!is_null($this->pdo)) {
+                //echo("PASSE PAR UPDATE");
                 try {
                         $sql = "UPDATE actiform_program_client_cardio 
                                 SET temps1 = (:temps1), niveau1 = (:niveau1), resistance1 = (:resistance1),
@@ -92,7 +98,7 @@ class ProgramClientCardios
                                                     ":temps4"=>$array['cardio-temps4'], ":niveau4"=>$array['cardio-niveau4'], ":resistance4"=>$array['cardio-resistance4'],                                                
                                                     ":id"=>$id));
                     
-                    $tupleCreated = $exec;
+                    $tupleUpdated = $exec;
                 }
                 catch(Exception $e) {
                     var_dump($e);

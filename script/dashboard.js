@@ -66,10 +66,68 @@ function searchClientListener() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
 function eventListenerClientCardioForm() {
-  let cardioForms = document.getElementsByClassName("form-cardio");
-  for (let i = 0; i < cardioForms.length; i++) {
-    cardioForms[i].addEventListener("change", function () {
-      console.log("change");
+  let allForms = [];
+  allForms = Array.from(document.getElementsByClassName("form-cardio"));
+  allForms = allForms.concat(
+    Array.from(document.getElementsByClassName("form-musculation"))
+  );
+  allForms = allForms.concat(
+    Array.from(document.getElementsByClassName("form-abdos"))
+  );
+  allForms = allForms.concat(
+    Array.from(document.getElementsByClassName("form-fessiers"))
+  );
+
+  let ref;
+  let arrayFormsToUpdate = [];
+  for (let i = 0; i < allForms.length; i++) {
+    allForms[i].addEventListener("keyup", function (e) {
+      const theForm = e.currentTarget;
+      const theFormId = theForm.id;
+      if (!arrayFormsToUpdate.includes(theFormId)) {
+        arrayFormsToUpdate.push(theFormId);
+      }
+      console.log(arrayFormsToUpdate);
+
+      let tempoArray = []; // Exemple : ['form-cardio-1', 'form-musculation-3]
+      let kindOfForm = ""; // Exemple : cardio
+      let formId = ""; // Exemple : 1
+      arrayFormsToUpdate.forEach((el) => {
+        tempoArray = el.split("-");
+        kindOfForm = tempoArray[1];
+        formId = tempoArray[2];
+        switch (kindOfForm) {
+          case "cardio":
+            updateCardioCells(formId);
+            break;
+          case "musculation":
+            updateMusculationCells(formId);
+            break;
+          case "abdos":
+            updateAbdosCells(formId);
+            break;
+          case "fessiers":
+            updateFessiersCells(formId);
+            break;
+          default:
+            console.log("nada");
+        }
+      });
+
+      if (ref) {
+        clearTimeout(ref);
+      }
+      ref = setTimeout(() => {
+        console.log("SEND Axios");
+        /*         axios
+          .get("controleurs/ajax.php?table=client&search=" + value)
+          .then((response) => {
+            menuContainer.innerHTML = response.data["result"];
+          })
+          .catch((err) => {
+            console.log(err);
+          }); */
+      }, 1000);
     });
   }
 }
@@ -160,10 +218,21 @@ function updateCardioCells(id) {
       datas: objToSend,
     })
     .then(function (res) {
-      if (res.data.success) {
-        alert("CARDIO - Données mises à jour avec SUCCES");
-      } else {
+      if (res.data.successCardio === true) {
+        console.log("CARDIO - Données mises à jour avec SUCCES");
+      } else if (res.data.successCardio === false) {
         alert("CARDIO - ERREUR lors de la modification des données");
+      } else if (parseInt(res.data.successCardio) > 0) {
+        $("#form-cardio-" + id + " #id-client-cardio").val(
+          res.data.successCardio
+        );
+        console.log(
+          "CARDIO - Données ajoutées avec SUCCES " + res.data.successCardio
+        );
+      } else {
+        alert(
+          "CARDIO - ERREUR lors de la modification des données. successCardio non identifié."
+        );
       }
     })
     .catch(function (err) {
@@ -187,7 +256,7 @@ function updateMusculationCells(id) {
     })
     .then(function (res) {
       if (res.data.success) {
-        alert("MUSCULATION - Données mises à jour avec SUCCES");
+        console.log("MUSCULATION - Données mises à jour avec SUCCES");
       } else {
         alert("MUSCULATION - ERREUR lors de la modification des données");
       }
@@ -195,6 +264,13 @@ function updateMusculationCells(id) {
     .catch(function (err) {
       console.log(err);
     });
+}
+
+function updateAbdosCells(id) {
+  console.log("updateAbdosCells called with id = " + id);
+}
+function updateFessiersCells(id) {
+  console.log("updateFessiersCells called with id = " + id);
 }
 
 /* - - - - C L I E N T S - t a b - - - - */

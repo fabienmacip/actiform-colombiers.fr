@@ -194,7 +194,7 @@ if(isset($data['req']) && $data['req'] === 'updateClientCardio') {
   unset($data['datas']);
   $datasArray = json_decode($datas, true);
 
-  $data['success'] = $controllerAjax->updateClientCardio($datasArray);  
+  $data['successCardio'] = $controllerAjax->updateClientCardio($datasArray);  
 
   echo json_encode($data);
 }
@@ -205,7 +205,7 @@ if(isset($data['req']) && $data['req'] === 'updateClientMusculation') {
   unset($data['datas']);
   $datasArray = json_decode($datas, true);
 
-  $data['success'] = $controllerAjax->updateClientMusculation($datasArray);  
+  $data['successMusculation'] = $controllerAjax->updateClientMusculation($datasArray);  
 
   echo json_encode($data);
 }

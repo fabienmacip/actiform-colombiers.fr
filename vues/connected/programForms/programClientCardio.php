@@ -66,7 +66,7 @@ $resultHTML .= "</div>";
           // Colonne TITRES
           $resultHTML .= "<div class='cardio-big-line'>";
           $resultHTML .= "<form action='' method='post' id='form-cardio-".$idCardio."' class='form-cardio'>";
-          $resultHTML .= "<input type='hidden' name='id-client-cardio' value='".$idClientCardio."'>";
+          $resultHTML .= "<input type='hidden' id='id-client-cardio' name='id-client-cardio' value='".$idClientCardio."'>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
           $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$idCardio."')>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
