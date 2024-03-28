@@ -65,6 +65,8 @@ function searchClientListener() {
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
+const TIME_BEFORE_UPDATE_BDD = 3000; // Temps (millisecondes) avant mise à jour BDD automatique
+
 function eventListenerClientCardioForm() {
   let allForms = [];
   allForms = Array.from(document.getElementsByClassName("form-cardio"));
@@ -119,7 +121,7 @@ function eventListenerClientCardioForm() {
                 console.log("nada");
             }
           });
-        }, 3000);
+        }, TIME_BEFORE_UPDATE_BDD);
       }
     });
   }

@@ -132,11 +132,3 @@ $resultHTML .= "</div>";
 }
 
 
-/* 
-$response->getId();
-$response->getIdClient();
-$response->getIdCardio();
-$response->getNumSeance();
-$response->getTemps();
-$response->getNiveau();
-$response->getResistance(); */

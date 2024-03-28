@@ -20,31 +20,6 @@ class ProgramClientCardios
         return $liste;
     }
 
-    // CREATE
-    public function createAllEmpty($idClient) {
-        if (!is_null($this->pdo)) {
-            try {
-                $sql = "INSERT INTO actiform_program_client_cardio (idclient, idcardio, numseance) 
-                            VALUES (:idclient, 1, 1),(:idclient, 1, 2),(:idclient, 1, 3),(:idclient, 1, 4),
-                                   (:idclient, 2, 1),(:idclient, 2, 2),(:idclient, 2, 3),(:idclient, 2, 4),
-                                   (:idclient, 3, 1),(:idclient, 3, 2),(:idclient, 3, 3),(:idclient, 3, 4),
-                                   (:idclient, 4, 1),(:idclient, 4, 2),(:idclient, 4, 3),(:idclient, 4, 4),
-                                   (:idclient, 5, 1),(:idclient, 5, 2),(:idclient, 5, 3),(:idclient, 5, 4),
-                                   (:idclient, 6, 1),(:idclient, 6, 2),(:idclient, 6, 3),(:idclient, 6, 4),
-                                   (:idclient, 7, 1),(:idclient, 7, 2),(:idclient, 7, 3),(:idclient, 7, 4)";
-                $res = $this->pdo->prepare($sql);
-                $exec = $res->execute(array(":idclient"=>$idClient));
-                if($exec){
-                    $tupleCreated = true;
-                }
-            }
-            catch(Exception $e) {
-                $tupleCreated = false;
-            }
-        }
-        $res->closeCursor();
-        return $tupleCreated;
-    }
 
     function updateClientCardio($array){
         
@@ -68,11 +43,11 @@ class ProgramClientCardios
                                                     ":temps3"=>$array['cardio-temps3'], ":niveau3"=>$array['cardio-niveau3'], ":resistance3"=>$array['cardio-resistance3'],
                                                     ":temps4"=>$array['cardio-temps4'], ":niveau4"=>$array['cardio-niveau4'], ":resistance4"=>$array['cardio-resistance4']));
                     
-                    if($exec) {
-                        //$tupleCreated = $exec;
-                        $lastid = $this->pdo->lastInsertId();
-                        $tupleUpdated = $lastid ?? true;
-                    }
+                        if($exec) {
+                            //$tupleCreated = $exec;
+                            $lastid = $this->pdo->lastInsertId();
+                            $tupleUpdated = $lastid ?? true;
+                        }
                 }
                 catch(Exception $e) {
                     var_dump($e);

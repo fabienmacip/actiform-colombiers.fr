@@ -15,7 +15,7 @@ if(!empty($requestMusculations)) {
     $inputMaxLength = 20;  
 
     $cptIdMuscu = 1;
-    $_ID_MAX_MUSCU = 11; // Nb de lignes dans la table actiform_program_musculation
+    $_ID_MAX_MUSCU = 28; // Nb de lignes dans la table actiform_program_musculation
 
     $requestIndex = 0;
     /* foreach($request as $line) { */

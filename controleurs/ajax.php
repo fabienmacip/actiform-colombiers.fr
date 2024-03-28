@@ -80,7 +80,29 @@ class ControleurAjax {
     return $programMusculations->lister();
   }
 
-  // UPDATE CLIENTS PROGRAMS
+  public function programClientAbdosRead($clientId) {
+    $programClientAbdoss = new ProgramClientAbdoss($this->pdo);
+    return $programClientAbdoss->listerPourUnClient($clientId);
+  }
+
+  public function readAllAbdoss() {
+    $programAbdoss = new ProgramAbdoss($this->pdo);
+    return $programAbdoss->lister();
+  }
+
+  public function programClientFessiersRead($clientId) {
+    $programClientFessierss = new ProgramClientFessierss($this->pdo);
+    return $programClientFessierss->listerPourUnClient($clientId);
+  }
+
+  public function readAllFessierss() {
+    $programFessierss = new ProgramFessierss($this->pdo);
+    return $programFessierss->lister();
+  }
+
+
+
+  // UPDATE CLIENTS CARDIO
   function updateClientCardio($array) {
     $programClientCardios = new ProgramClientCardios($this->pdo);
     return $programClientCardios->updateClientCardio($array);
@@ -92,6 +114,18 @@ class ControleurAjax {
     return $programClientMusculations->updateClientMusculation($array);
   }
 
+    // UPDATE CLIENTS ABDOS
+    function updateClientAbdos($array) {
+      $programClientAbdoss = new ProgramClientAbdoss($this->pdo);
+      return $programClientAbdoss->updateClientAbdos($array);
+    }
+      // UPDATE CLIENTS FESSIERS
+    function updateClientFessiers($array) {
+      $programClientFessierss = new ProgramClientFessierss($this->pdo);
+      return $programClientFessierss->updateClientFessiers($array);
+    }
+
+  
 
 } // FIN CLASSE CONTROLEURAJAX
 
@@ -174,10 +208,22 @@ if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['
   require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientMusculation.php');
 
   // PROGRAMME CLIENT ABDOMINAUX...
+  $requestAbdos = $controllerAjax->programClientAbdosRead($_GET['clientid']);
+  $requestAbdoss = $controllerAjax->readAllAbdoss();
+  $data['success-abdos'] = $requestAbdos !== '' && count($requestAbdos) > 0;
+
   $resultHTMLAbdos = '';
+  require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientAbdos.php');
+
 
   // PROGRAMME CLIENT FESSIERS...
+  $requestFessiers = $controllerAjax->programClientFessiersRead($_GET['clientid']);
+  $requestFessierss = $controllerAjax->readAllFessierss();
+  $data['success-fessiers'] = $requestFessiers !== '' && count($requestFessiers) > 0;
+
   $resultHTMLFessiers = '';
+  require_once(dirname(__FILE__,2).'/vues/connected/programForms/programClientFessiers.php');
+
 
   // FIN
   $data['result'] = $resultHTML;
@@ -206,6 +252,28 @@ if(isset($data['req']) && $data['req'] === 'updateClientMusculation') {
   $datasArray = json_decode($datas, true);
 
   $data['successMusculation'] = $controllerAjax->updateClientMusculation($datasArray);  
+
+  echo json_encode($data);
+}
+
+// UPDATE PROGRAM-CLIENT-ABDOS-UN-EXERCICE
+if(isset($data['req']) && $data['req'] === 'updateClientAbdos') {
+  $datas = str_replace('\\',"",$data['datas']);
+  unset($data['datas']);
+  $datasArray = json_decode($datas, true);
+
+  $data['successAbdos'] = $controllerAjax->updateClientAbdos($datasArray);  
+
+  echo json_encode($data);
+}
+
+// UPDATE PROGRAM-CLIENT-FESSIERS-UN-EXERCICE
+if(isset($data['req']) && $data['req'] === 'updateClientFessiers') {
+  $datas = str_replace('\\',"",$data['datas']);
+  unset($data['datas']);
+  $datasArray = json_decode($datas, true);
+
+  $data['successFessiers'] = $controllerAjax->updateClientFessiers($datasArray);  
 
   echo json_encode($data);
 }
