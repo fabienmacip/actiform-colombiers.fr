@@ -205,6 +205,11 @@
   text-overflow: ellipsis;
 }
 
+.input-to-update {
+  color: red;
+  background-color: lightsalmon;
+}
+
 /* - - - - C L I E N T S - - - - */
 
 #form-add-client-subtitle {
