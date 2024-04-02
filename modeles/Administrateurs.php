@@ -189,6 +189,27 @@ class Administrateurs
 
     }
 
+    function getRoleFromToken($token){
+        if (!is_null($this->pdo)) {
+            //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
+            $sql = 'SELECT isadmin FROM actiform_administrateur WHERE token = :token';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['token' => $token]);
+        }
+        $liste = [];
+        while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
+            $liste[] = $element;
+        }
+        $stmt->closeCursor();
+        
+        if(is_array($liste) && count($liste) > 0) {
+            return $liste[0]->getIsAdmin();
+        } else {
+            return false;
+        }
+
+    }
+
 
     // UPDATE PASSWORD
     public function updatePassword($id, $mot_de_passe) {

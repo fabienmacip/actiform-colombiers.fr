@@ -106,28 +106,93 @@ if(!empty($requestFessierss)) {
 
       }
     
-  
-
-    
-  
+ 
   
   } else {
-    foreach($request as $line) {
-      if($cptCol === 0){
-        $resultHTMLFessiers .= "<div class='cardio-big-line'><div class='cardio-nom-machines'><div class='cardio-img'>";
-        $resultHTMLFessiers .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."'>";
-        $resultHTMLFessiers .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
-        $resultHTMLFessiers .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-        $cptLine++;
-      }
-  
-      $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$line->getTemps()."</div><div>".$line->getNiveau()."</div><div>".$line->getResistance()."</div></div>";
+    $cptIdFessiers = 1;
+    $_ID_MAX_FESSIERS = 12; // Nb de lignes dans la table actiform_program_abdos
 
-      if($cptCol === 3) {
+    $requestIndex = 0;
+    /* foreach($request as $line) { */
+      
+      while($cptIdFessiers <= $_ID_MAX_FESSIERS){
+
+/*         $IdFessiers = $cptIdFessiers;
+        $idClientFessiers = "0";
+ */        $series1 = "";
+        $repetitions1 = "";
+        $charge1 = "";
+        $series2 = "";
+        $repetitions2 = "";
+        $charge2 = "";
+        $series3 = "";
+        $repetitions3 = "";
+        $charge3 = "";
+        $series4 = "";
+        $repetitions4 = "";
+        $charge4 = "";
+
+        // Si la ligne existe en BDD.
+        if(!empty($requestFessiers) && count($requestFessiers) >= 0 && count($requestFessiers) > $requestIndex && intval($requestFessiers[$requestIndex]->getIdFessiers()) === $cptIdFessiers) {
+          $line = $requestFessiers[$requestIndex];
+
+/*           $IdFessiers = $line->getIdFessiers();
+          $idForm = $clientId."-".$IdFessiers;
+          
+          $idClientFessiers = $line->getId();
+ */          $series1 = $line->getSeries1();
+          $repetitions1 = $line->getRepetitions1();
+          $charge1 = $line->getCharge1();
+          $series2 = $line->getSeries2();
+          $repetitions2 = $line->getRepetitions2();
+          $charge2 = $line->getCharge2();
+          $series3 = $line->getSeries3();
+          $repetitions3 = $line->getRepetitions3();
+          $charge3 = $line->getCharge3();
+          $series4 = $line->getSeries4();
+          $repetitions4 = $line->getRepetitions4();
+          $charge4 = $line->getCharge4();
+          
+          $requestIndex++;
+        }
+
+        
+        // Colonne TITRES
+        $resultHTMLFessiers .= "<div class='cardio-big-line'>";
+        $resultHTMLFessiers .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
+        $resultHTMLFessiers .= "<img src='img/program/".$requestFessierss[$cptLine]->getImg()."'>";
+        $resultHTMLFessiers .= "</div><div class='cardio-nom'>".$requestFessierss[$cptLine]->getNom()."</div></div>";
+        $resultHTMLFessiers .= "<div class='cardio-parametres'><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>Charge</div></div>";
+        $cptLine++;
+        
+        // Colonne SEANCE 1
+        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series1."</div>";
+        $resultHTMLFessiers .= "<div>".$repetitions1."</div>";
+        $resultHTMLFessiers .= "<div>".$charge1."</div></div>";
+
+        // Colonne SEANCE 2 
+        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series2."</div>";
+        $resultHTMLFessiers .= "<div>".$repetitions2."</div>";
+        $resultHTMLFessiers .= "<div>".$charge2."</div></div>";
+
+        // Colonne SEANCE 3
+        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series3."</div>";
+        $resultHTMLFessiers .= "<div>".$repetitions3."</div>";
+        $resultHTMLFessiers .= "<div>".$charge3."</div></div>";
+
+        // Colonne SEANCE 4
+        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series4."</div>";
+        $resultHTMLFessiers .= "<div>".$repetitions4."</div>";
+        $resultHTMLFessiers .= "<div>".$charge4."</div></div>";
+        
         $resultHTMLFessiers .= "</div>";
+
+        $cptIdFessiers++;
+
+
       }
-      $cptCol = ($cptCol + 1) % 4;
-    };
+    
+
   }  
 }
 

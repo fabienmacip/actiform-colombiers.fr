@@ -9,15 +9,30 @@
   <?php
   // Affichage du DASHBOARD
   if (isset($_SESSION['admin']) && $_SESSION['admin'] > 0) {
+  // ADMIN : ROLE == 1
+  // CLIENT : ROLE == 2
   ?>
 
   <div id="dashboard-tabs">
-    <div class="dashboard-tab-title dashboard-tab-title-active dashboard-link" id="dashboard-link-programs" onclick="displayPrograms()">
-      Programmes
-    </div>
+    
+    <?php if($_SESSION['role'] == 1) {?>
+      <div class="dashboard-tab-title dashboard-tab-title-active dashboard-link" id="dashboard-link-programs" onclick="displayPrograms()">
+        Programmes
+      </div>
+    <?php } ?>
+    <?php if($_SESSION['role'] == 2) {
+      $theToken = $_SESSION['token']; 
+      $theClientId = $_SESSION['userid']  ;
+    ?>
+      <div class="dashboard-tab-title dashboard-tab-title-active dashboard-link" id="dashboard-link-programs" onclick="displayPrograms('<?= $theClientId ?>', '<?= $theToken ?>')">
+        Mon programme
+      </div>
+    <?php } ?>
+    <?php if($_SESSION['role'] == 1) {?>
     <div class="dashboard-tab-title dashboard-link" id="dashboard-link-clients" onclick="displayClients()">
       Clients
     </div>
+    <?php } ?>
     <div class="dashboard-tab-title dashboard-link" id="dashboard-link-password" onclick="displayPasswordUpdate()">
         Mon mot de passe
     </div>

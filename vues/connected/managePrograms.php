@@ -1,4 +1,7 @@
-<h1>GESTION DES PROGRAMMES</h1>
+<?php $manageProgramsTitle = $_SESSION['role'] == 1 ? "GESTION DES PROGRAMMES" : "MON PROGRAMME"; ?>
+
+<h2 id="mon-program-title"><?= $manageProgramsTitle; ?></h2>
+<?php if($_SESSION['role'] == 1) {?>
 <div id="div-choose-clients">
 
   <form id="form-choose-client">
@@ -8,6 +11,10 @@
     <div id="search-menu-container"></div>
   </form>
 </div>
+<?php } ?>
+
+<?php if($_SESSION['role'] == 2) {?>
+<?php } ?>
 <div id="div-display-programs">
   <div id="div-program-cardio">
 

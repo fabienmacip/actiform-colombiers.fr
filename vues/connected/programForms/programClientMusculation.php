@@ -124,22 +124,101 @@ if(!empty($requestMusculations)) {
   
   
   } else {
-    foreach($request as $line) {
-      if($cptCol === 0){
-        $resultHTMLMuscu .= "<div class='cardio-big-line'><div class='cardio-nom-machines'><div class='cardio-img'>";
-        $resultHTMLMuscu .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."'>";
-        $resultHTMLMuscu .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
-        $resultHTMLMuscu .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-        $cptLine++;
-      }
-  
-      $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$line->getTemps()."</div><div>".$line->getNiveau()."</div><div>".$line->getResistance()."</div></div>";
+    $cptIdMuscu = 1;
+    $_ID_MAX_MUSCU = 30; // Nb de lignes dans la table actiform_program_musculation
 
-      if($cptCol === 3) {
+    $requestIndex = 0;
+    /* foreach($request as $line) { */
+      
+      while($cptIdMuscu <= $_ID_MAX_MUSCU){
+
+        /* $idMuscu = $cptIdMuscu;
+        $idClientMuscu = "0"; */
+        $poids1 = "";
+        $series1 = "";
+        $repetitions1 = "";
+        $recuperation1 = "";
+        $poids2 = "";
+        $series2 = "";
+        $repetitions2 = "";
+        $recuperation2 = "";
+        $poids3 = "";
+        $series3 = "";
+        $repetitions3 = "";
+        $recuperation3 = "";
+        $poids4 = "";
+        $series4 = "";
+        $repetitions4 = "";
+        $recuperation4 = "";
+
+        // Si la ligne existe en BDD.
+        if(!empty($requestMuscu) && count($requestMuscu) >= 0 && count($requestMuscu) > $requestIndex && intval($requestMuscu[$requestIndex]->getIdMusculation()) === $cptIdMuscu) {
+          $line = $requestMuscu[$requestIndex];
+
+/*           $idMuscu = $line->getIdMusculation();
+          $idForm = $clientId."-".$idMuscu;
+ */          
+          $idClientMuscu = $line->getId();
+          $poids1 = $line->getPoids1();
+          $series1 = $line->getSeries1();
+          $repetitions1 = $line->getRepetitions1();
+          $recuperation1 = $line->getRecuperation1();
+          $poids2 = $line->getPoids2();
+          $series2 = $line->getSeries2();
+          $repetitions2 = $line->getRepetitions2();
+          $recuperation2 = $line->getRecuperation2();
+          $poids3 = $line->getPoids3();
+          $series3 = $line->getSeries3();
+          $repetitions3 = $line->getRepetitions3();
+          $recuperation3 = $line->getRecuperation3();
+          $poids4 = $line->getPoids4();
+          $series4 = $line->getSeries4();
+          $repetitions4 = $line->getRepetitions4();
+          $recuperation4 = $line->getRecuperation4();
+          
+          $requestIndex++;
+        }
+
+        $numeroAppareil = intval($requestMusculations[$cptLine]->getNumeroAppareil()) <> 0 ? '<br>N°'.$requestMusculations[$cptLine]->getNumeroAppareil() : '';
+        // Colonne TITRES
+        $resultHTMLMuscu .= "<div class='cardio-big-line'>";
+        $resultHTMLMuscu .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
+        $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."'>";
+        $resultHTMLMuscu .= "</div><div class='cardio-nom'>".$requestMusculations[$cptLine]->getNom().$numeroAppareil."</div></div>";
+        $resultHTMLMuscu .= "<div class='cardio-parametres'><div>Poids</div><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>R&eacute;cup&eacute;ration</div></div>";
+        $cptLine++;
+        
+        // Colonne SEANCE 1
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$poids1."</div>";
+        $resultHTMLMuscu .= "<div>".$series1."</div>";
+        $resultHTMLMuscu .= "<div>".$repetitions1."</div>";
+        $resultHTMLMuscu .= "<div>".$recuperation1."</div></div>";
+
+        // Colonne SEANCE 2 
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$poids2."</div>";
+        $resultHTMLMuscu .= "<div>".$series2."</div>";
+        $resultHTMLMuscu .= "<div>".$repetitions2."</div>";
+        $resultHTMLMuscu .= "<div>".$recuperation2."</div></div>";
+
+        // Colonne SEANCE 3
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$poids3."</div>";
+        $resultHTMLMuscu .= "<div>".$series3."</div>";
+        $resultHTMLMuscu .= "<div>".$repetitions3."</div>";
+        $resultHTMLMuscu .= "<div>".$recuperation3."</div></div>";
+
+        // Colonne SEANCE 4
+        $resultHTMLMuscu .= "<div class='cardio-seance'><div>".$poids4."</div>";
+        $resultHTMLMuscu .= "<div>".$series4."</div>";
+        $resultHTMLMuscu .= "<div>".$repetitions4."</div>";
+        $resultHTMLMuscu .= "<div>".$recuperation4."</div></div>";
+        
         $resultHTMLMuscu .= "</div>";
+
+        $cptIdMuscu++;
+
+
       }
-      $cptCol = ($cptCol + 1) % 4;
-    };
+
   }  
 }
 

@@ -82,6 +82,11 @@
 }
 
 /* - - - - P R O G R A M - D E T A I L (T A B L E) - - - - */
+#mon-program-title {
+  text-align: center;
+  text-decoration: none;
+}
+
 #div-display-programs > div {
   margin-top: 20px;
 
@@ -139,6 +144,12 @@
 .program-subtitle > div:not(first-child) {
   width: 13%;
   border: 1px solid black;
+}
+
+.program-subtitle-732,
+.program-subtitle-560,
+.cardio-parametres-560 {
+  display: none;
 }
 
 .cardio-big-line {
@@ -376,4 +387,144 @@
   text-decoration: underline;
   text-decoration-color: black;
   -moz-text-decoration-color: black;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * MAX 732 px * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * */
+
+@media screen and (max-width: 732px) {
+  .program-subtitle {
+    display: none;
+  }
+
+  .program-subtitle-732 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .program-subtitle-732 > div {
+    width: 20%;
+    text-align: center;
+    border: 1px solid black;
+  }
+
+  .cardio-nom-machines,
+  .cardio-parametres {
+    font-size: 12px;
+  }
+
+  .cardio-big-line {
+    flex-wrap: wrap;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .cardio-nom-machines {
+    width: 100%;
+  }
+
+  .cardio-parametres {
+    width: 20%;
+  }
+
+  .cardio-seance {
+    width: 20%;
+  }
+
+  .cardio-img {
+    border-right: 1px solid lightgray;
+  }
+
+  .cardio-nom {
+    border-left: 1px solid lightgray;
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * MAX 560 px * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * */
+
+@media screen and (max-width: 560px) {
+  .program-subtitle-732 {
+    display: none;
+  }
+
+  .program-subtitle-560 {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    border: 1px solid black;
+    padding-top: 10px;
+  }
+
+  .cardio-parametres {
+    display: none;
+  }
+
+  .cardio-parametres-560 {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    border: 1px solid black;
+  }
+
+  .cardio-seance {
+    width: 65%;
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * MAX 400 px * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * */
+
+@media screen and (max-width: 320px) {
+  .cardio-parametres-560 {
+    font-size: 12px;
+  }
+}
+
+/* - - - - - - PRINT PROGRAM - - - - - - - */
+@media print {
+  * {
+    /* margin: 0;
+    padding: 0; */
+  }
+
+  body {
+    font-family: verdana, arial;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    border-box: none;
+    border: 0;
+  }
+
+  .cardio-nom,
+  .cardio-parametres,
+  .cardio-seance {
+    font-size: 10px;
+  }
+
+  .cardio-nom {
+    word-wrap: normal;
+    overflow-wrap: break-word;
+  }
+
+  #mon-program-title {
+    padding-bottom: 20px;
+    line-height: 30px;
+  }
+
+  h1,
+  button,
+  nav,
+  header,
+  footer,
+  #info-connected,
+  #dashboard-tabs {
+    display: none;
+  }
 }

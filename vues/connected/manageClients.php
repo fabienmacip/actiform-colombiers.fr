@@ -59,6 +59,7 @@
         </th>
       </tr>
     <?php 
+      
       foreach($clients as $client) {
     ?>
       <tr id="cli-<?= $client->getId() ?>">

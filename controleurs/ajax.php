@@ -43,6 +43,10 @@ class ControleurAjax {
     return $administrateurs->checkTokenExists($token);
   }
 
+  public function getRoleFromToken($token) {
+    $administrateurs = new Administrateurs($this->pdo);
+    return $administrateurs->getRoleFromToken($token);
+  }
 
 
 
@@ -192,7 +196,7 @@ if(isset($_GET['table']) && $_GET['table'] === 'client' && isset($_GET['search']
 if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['clientid']) && $controllerAjax->checkTokenExists($_GET['token'])) {
   // Role par défaut, ADMIN = 1. !!! A modifier lors de la création de l'accès par un CLIENT.
   // Ou bien, charger un autre controller-non-admin
-  $role = 1;
+  $role = intval($controllerAjax->getRoleFromToken($_GET['token']));
   $clientId = $_GET['clientid'];
   
   $token = $_GET['token'];

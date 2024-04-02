@@ -2,7 +2,10 @@ let dashboardTabPrograms = $("#dashboard-tab-programs");
 let dashboardTabClients = $("#dashboard-tab-clients");
 let dashboardTabPassword = $("#dashboard-tab-password");
 
-function displayPrograms() {
+function displayPrograms(clientid = "", token = "") {
+  if (clientid != "" && token != "") {
+    ajaxClientProgram(clientid, token);
+  }
   $("#dashboard-tab-programs").show();
   $("#dashboard-link-programs").addClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").hide();
@@ -32,10 +35,11 @@ function displayPasswordUpdate() {
 
 /* - - - - P R O G R A M S - t a b - - - - */
 let menuContainer;
-
-window.addEventListener("click", () => {
-  menuContainer.innerHTML = "";
-});
+if (menuContainer) {
+  window.addEventListener("click", () => {
+    menuContainer.innerHTML = "";
+  });
+}
 
 function searchClientListener() {
   let searchInput = document.querySelector("#client-search");
@@ -137,12 +141,17 @@ function eventListenerClientCardioForm() {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
 window.addEventListener("DOMContentLoaded", () => {
-  menuContainer = document.querySelector("#search-menu-container");
-  menuContainer.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+  if ($("#search-menu-container").length) {
+    menuContainer = document.querySelector("#search-menu-container");
+    menuContainer.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
 
-  searchClientListener();
+    searchClientListener();
+  } else {
+    $("#dashboard-link-programs").trigger("click");
+  }
+
   //updateProgramFormsListener();
 });
 
