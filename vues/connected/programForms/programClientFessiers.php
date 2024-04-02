@@ -10,6 +10,9 @@ if(!empty($requestFessierss)) {
   $cptLine = 0;
   $cptCol = 0;
   
+  $divCardioParams560 = "<div class='cardio-parametres-560'><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>Charge</div></div>";
+  $divProgramSubtitle732 = "<div class='program-subtitle-732'><div>S&eacute;ance n°</div><div>1</div><div>2</div><div>3</div><div>4</div></div>";
+
   // Si connecté en ADMIN, les champs sont des INPUTS
   if($role === 1){
     $inputMaxLength = 20;  
@@ -70,25 +73,34 @@ if(!empty($requestFessierss)) {
         $resultHTMLFessiers .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLFessiers .= "<img src='img/program/".$requestFessierss[$cptLine]->getImg()."' onclick=updateFessiersCells('".$IdFessiers."')>";
         $resultHTMLFessiers .= "</div><div class='cardio-nom'>".$requestFessierss[$cptLine]->getNom()."</div></div>";
+        $resultHTMLFessiers .= $divProgramSubtitle732;
         $resultHTMLFessiers .= "<div class='cardio-parametres'><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>Charge</div></div>";
         $cptLine++;
         
         // Colonne SEANCE 1
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°1</div>";
+        $resultHTMLFessiers .= $divCardioParams560;
         $resultHTMLFessiers .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-series1-".$idClientFessiers."' name='fessiers-series1' value='".$series1."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-repetitions1-".$idClientFessiers."' name='fessiers-repetitions1' value='".$repetitions1."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-charge1-".$idClientFessiers."' name='fessiers-charge1' value='".$charge1."'></div></div>";
 
         // Colonne SEANCE 2 
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°2</div>";
+        $resultHTMLFessiers .= $divCardioParams560;
         $resultHTMLFessiers .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-series2-".$idClientFessiers."' name='fessiers-series2' value='".$series2."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-repetitions2-".$idClientFessiers."' name='fessiers-repetitions2' value='".$repetitions2."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-charge2' name='fessiers-charge2' value='".$charge2."'></div></div>";
 
         // Colonne SEANCE 3
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°3</div>";
+        $resultHTMLFessiers .= $divCardioParams560;
         $resultHTMLFessiers .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-series3-".$idClientFessiers."' name='fessiers-series3' value='".$series3."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-repetitions3-".$idClientFessiers."' name='fessiers-repetitions3' value='".$repetitions3."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-charge3-".$idClientFessiers."' name='fessiers-charge3' value='".$charge3."'></div></div>";
 
         // Colonne SEANCE 4
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°4</div>";
+        $resultHTMLFessiers .= $divCardioParams560;
         $resultHTMLFessiers .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-series4-".$idClientFessiers."' name='fessiers-series4' value='".$series4."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-repetitions4-".$idClientFessiers."' name='fessiers-repetitions4' value='".$repetitions4."'></div>";
         $resultHTMLFessiers .= "<div><input type='text' maxlength='".$inputMaxLength."' id='fessiers-charge4' name='fessiers-charge4' value='".$charge4."'></div></div>";
@@ -162,26 +174,35 @@ if(!empty($requestFessierss)) {
         $resultHTMLFessiers .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLFessiers .= "<img src='img/program/".$requestFessierss[$cptLine]->getImg()."'>";
         $resultHTMLFessiers .= "</div><div class='cardio-nom'>".$requestFessierss[$cptLine]->getNom()."</div></div>";
+        $resultHTMLFessiers .= $divProgramSubtitle732;
         $resultHTMLFessiers .= "<div class='cardio-parametres'><div>S&eacute;ries</div><div>R&eacute;p&eacute;titions</div><div>Charge</div></div>";
         $cptLine++;
         
         // Colonne SEANCE 1
-        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series1."</div>";
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°1</div>";
+        $resultHTMLFessiers .= $divCardioParams560;
+        $resultHTMLFessiers .= "<div class='cardio-seance s1'><div>".$series1."</div>";
         $resultHTMLFessiers .= "<div>".$repetitions1."</div>";
         $resultHTMLFessiers .= "<div>".$charge1."</div></div>";
 
         // Colonne SEANCE 2 
-        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series2."</div>";
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°2</div>";
+        $resultHTMLFessiers .= $divCardioParams560;        
+        $resultHTMLFessiers .= "<div class='cardio-seance s2'><div>".$series2."</div>";
         $resultHTMLFessiers .= "<div>".$repetitions2."</div>";
         $resultHTMLFessiers .= "<div>".$charge2."</div></div>";
 
         // Colonne SEANCE 3
-        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series3."</div>";
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°3</div>";
+        $resultHTMLFessiers .= $divCardioParams560;        
+        $resultHTMLFessiers .= "<div class='cardio-seance s3'><div>".$series3."</div>";
         $resultHTMLFessiers .= "<div>".$repetitions3."</div>";
         $resultHTMLFessiers .= "<div>".$charge3."</div></div>";
 
         // Colonne SEANCE 4
-        $resultHTMLFessiers .= "<div class='cardio-seance'><div>".$series4."</div>";
+        $resultHTMLFessiers .= "<div class='program-subtitle-560'>S&eacute;ance n°4</div>";
+        $resultHTMLFessiers .= $divCardioParams560;        
+        $resultHTMLFessiers .= "<div class='cardio-seance s4'><div>".$series4."</div>";
         $resultHTMLFessiers .= "<div>".$repetitions4."</div>";
         $resultHTMLFessiers .= "<div>".$charge4."</div></div>";
         

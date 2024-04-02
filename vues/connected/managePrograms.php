@@ -14,8 +14,17 @@
 <?php } ?>
 
 <?php if($_SESSION['role'] == 2) {?>
+  <div id="program-prenom-nom" class="tc box"><?= $_SESSION['prenom']; ?> <?= $_SESSION['nom']; ?></div>
+  <div id="btn-1seance-only">
+    <button onclick="displayOnly1Seance('1')">S&eacute;ance 1</button>
+    <button onclick="displayOnly1Seance('2')">S&eacute;ance 2</button>
+    <button onclick="displayOnly1Seance('3')">S&eacute;ance 3</button>
+    <button onclick="displayOnly1Seance('4')">S&eacute;ance 4</button>
+    <button onclick="displayOnly1Seance('0')">Tout</button>
+  </div>
 <?php } ?>
 <div id="div-display-programs">
+  
   <div id="div-program-cardio">
 
   </div>

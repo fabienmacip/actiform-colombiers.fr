@@ -11,6 +11,9 @@ $resultHTML .= "</div>";
     $cptLine = 0;
     $cptCol = 0;
     
+    $divCardioParams560 = "<div class='cardio-parametres-560'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
+    $divProgramSubtitle732 = "<div class='program-subtitle-732'><div>S&eacute;ance n°</div><div>1</div><div>2</div><div>3</div><div>4</div></div>";
+  
     // Si connecté en ADMIN, les champs sont des INPUTS
     if($role === 1){
       $inputMaxLength = 20;  
@@ -71,25 +74,34 @@ $resultHTML .= "</div>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
           $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."' onclick=updateCardioCells('".$idCardio."')>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
+          $resultHTML .= $divProgramSubtitle732;
           $resultHTML .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
           $cptLine++;
           
           // Colonne SEANCE 1
+          $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°1</div>";
+          $resultHTML .= $divCardioParams560;
           $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps1-".$idClientCardio."' name='cardio-temps1' value='".$temps1."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau1-".$idClientCardio."' name='cardio-niveau1' value='".$niveau1."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance1-".$idClientCardio."' name='cardio-resistance1' value='".$resistance1."'></div></div>";
 
           // Colonne SEANCE 2 
+          $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°2</div>";
+          $resultHTML .= $divCardioParams560;
           $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps2' name='cardio-temps2' value='".$temps2."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau2-".$idClientCardio."' name='cardio-niveau2' value='".$niveau2."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance2-".$idClientCardio."' name='cardio-resistance2' value='".$resistance2."'></div></div>";
   
           // Colonne SEANCE 3
+          $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°3</div>";
+          $resultHTML .= $divCardioParams560;
           $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps3' name='cardio-temps3' value='".$temps3."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau3-".$idClientCardio."' name='cardio-niveau3' value='".$niveau3."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance3-".$idClientCardio."' name='cardio-resistance3' value='".$resistance3."'></div></div>";
   
           // Colonne SEANCE 4
+          $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°4</div>";
+          $resultHTML .= $divCardioParams560;
           $resultHTML .= "<div class='cardio-seance'><div><input type='text' maxlength='".$inputMaxLength."' id='cardio-temps4' name='cardio-temps4' value='".$temps4."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-niveau4-".$idClientCardio."' name='cardio-niveau4' value='".$niveau4."'></div>";
           $resultHTML .= "<div><input type='text' maxlength='".$inputMaxLength."' id='cardio-resistance4-".$idClientCardio."' name='cardio-resistance4' value='".$resistance4."'></div></div>";
@@ -166,35 +178,35 @@ $resultHTML .= "</div>";
           $resultHTML .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
           $resultHTML .= "<img src='img/program/".$requestCardios[$cptLine]->getImg()."'>";
           $resultHTML .= "</div><div class='cardio-nom'>".$requestCardios[$cptLine]->getNom()."</div></div>";
-          $resultHTML .= "<div class='program-subtitle-732'><div>S&eacute;ance n°</div><div>1</div><div>2</div><div>3</div><div>4</div></div>";
+          $resultHTML .= $divProgramSubtitle732;
           $resultHTML .= "<div class='cardio-parametres'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
           $cptLine++;
           
           // Colonne SEANCE 1
           $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°1</div>";
-          $resultHTML .= "<div class='cardio-parametres-560'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-          $resultHTML .= "<div class='cardio-seance'><div>".$temps1."</div>";
+          $resultHTML .= $divCardioParams560;
+          $resultHTML .= "<div class='cardio-seance s1'><div>".$temps1."</div>";
           $resultHTML .= "<div>".$niveau1."</div>";
           $resultHTML .= "<div>".$resistance1."</div></div>";
 
           // Colonne SEANCE 2 
           $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°2</div>";
-          $resultHTML .= "<div class='cardio-parametres-560'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-          $resultHTML .= "<div class='cardio-seance'><div>".$temps2."</div>";
+          $resultHTML .= $divCardioParams560;
+          $resultHTML .= "<div class='cardio-seance s2'><div>".$temps2."</div>";
           $resultHTML .= "<div>".$niveau2."</div>";
           $resultHTML .= "<div>".$resistance2."</div></div>";
   
           // Colonne SEANCE 3
           $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°3</div>";
-          $resultHTML .= "<div class='cardio-parametres-560'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-          $resultHTML .= "<div class='cardio-seance'><div>".$temps3."</div>";
+          $resultHTML .= $divCardioParams560;
+          $resultHTML .= "<div class='cardio-seance s3'><div>".$temps3."</div>";
           $resultHTML .= "<div>".$niveau3."</div>";
           $resultHTML .= "<div>".$resistance3."</div></div>";
   
           // Colonne SEANCE 4
           $resultHTML .= "<div class='program-subtitle-560'>S&eacute;ance n°4</div>";
-          $resultHTML .= "<div class='cardio-parametres-560'><div>Temps</div><div>Niveau</div><div>R&eacute;sistance</div></div>";
-          $resultHTML .= "<div class='cardio-seance'><div>".$temps4."</div>";
+          $resultHTML .= $divCardioParams560;
+          $resultHTML .= "<div class='cardio-seance s4'><div>".$temps4."</div>";
           $resultHTML .= "<div>".$niveau4."</div>";
           $resultHTML .= "<div>".$resistance4."</div></div>";
   

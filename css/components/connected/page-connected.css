@@ -85,6 +85,34 @@
 #mon-program-title {
   text-align: center;
   text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+#program-print-btn {
+  text-align: center;
+  width: 200px;
+  max-width: 95%;
+  margin: 0 auto;
+  background-color: var(--main-color-green);
+  border: 1px solid var(--main-color-green);
+  color: white;
+}
+
+#program-print-btn:hover {
+  background-color: white;
+  color: var(--main-color-green);
+}
+
+#program-prenom-nom {
+  font-size: 18px;
+  background-color: #eee;
+  width: 400px;
+  max-width: 96%;
+  margin: 0 auto;
+}
+
+#btn-1seance-only {
+  display: none;
 }
 
 #div-display-programs > div {
@@ -199,11 +227,14 @@
 
 .cardio-parametres {
   width: 13%;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardio-parametres > div {
   border: 1px solid black;
   padding: 2px;
+  flex: 1;
 }
 
 .cardio-seance {
@@ -394,7 +425,12 @@
 * * * * * * * * * * * * * * * * * * * * * */
 
 @media screen and (max-width: 732px) {
-  .program-subtitle {
+  #program-prenom-nom {
+    font-size: 16px;
+  }
+
+  .program-subtitle,
+  #program-print-btn {
     display: none;
   }
 
@@ -448,6 +484,10 @@
 * * * * * * * * * * * * * * * * * * * * * */
 
 @media screen and (max-width: 560px) {
+  #program-prenom-nom {
+    font-size: 14px;
+  }
+
   .program-subtitle-732 {
     display: none;
   }
@@ -474,6 +514,22 @@
   .cardio-seance {
     width: 65%;
   }
+
+  #btn-1seance-only {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px auto 0 auto;
+    flex-wrap: wrap;
+  }
+
+  #btn-1seance-only > button {
+    background-color: var(--main-color-green);
+    color: white;
+    font-size: 11px;
+    padding: 2px 3px;
+    text-transform: capitalize;
+  }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -483,6 +539,12 @@
 @media screen and (max-width: 320px) {
   .cardio-parametres-560 {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 282px) {
+  #btn-1seance-only > button {
+    width: 45%;
   }
 }
 
@@ -500,6 +562,16 @@
     padding: 0;
     border-box: none;
     border: 0;
+  }
+
+  #div-program-musculation,
+  #div-program-abdos,
+  #div-program-fessiers {
+    page-break-before: always;
+  }
+
+  .page-jump {
+    page-break-after: always;
   }
 
   .cardio-nom,
@@ -524,7 +596,14 @@
   header,
   footer,
   #info-connected,
-  #dashboard-tabs {
+  #dashboard-tabs,
+  #btn-1seance-only,
+  #div-choose-clients {
     display: none;
+  }
+
+  #infos-client {
+    display: block;
+    text-align: center;
   }
 }

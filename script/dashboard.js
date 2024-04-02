@@ -6,6 +6,7 @@ function displayPrograms(clientid = "", token = "") {
   if (clientid != "" && token != "") {
     ajaxClientProgram(clientid, token);
   }
+  //$("#program-print-btn").show();
   $("#dashboard-tab-programs").show();
   $("#dashboard-link-programs").addClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").hide();
@@ -15,6 +16,7 @@ function displayPrograms(clientid = "", token = "") {
 }
 
 function displayClients() {
+  //$("#program-print-btn").hide();
   $("#dashboard-tab-programs").hide();
   $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").show();
@@ -25,6 +27,7 @@ function displayClients() {
 }
 
 function displayPasswordUpdate() {
+  //$("#program-print-btn").hide();
   $("#dashboard-tab-programs").hide();
   $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
   $("#dashboard-tab-clients").hide();
@@ -164,6 +167,11 @@ function ajaxClientProgram(clientId, token) {
         token
     )
     .then((res) => {
+      if (!$("#program-print-btn").length) {
+        const printButton =
+          "<div><button id='program-print-btn' onclick='window.print()'>Imprimer</button></div>";
+        $("#div-display-programs").prepend(printButton);
+      }
       $("#div-program-cardio").html(res.data.result);
       $("#div-program-musculation").html(res.data.resultMuscu);
       $("#div-program-abdos").html(res.data.resultAbdos);
@@ -247,7 +255,7 @@ function updateCardioCells(id) {
         inputToUpdate.forEach((el) => {
           $(el).removeClass("input-to-update");
         });
-        console.log(inputToUpdate);
+        //console.log(inputToUpdate);
       }
     })
     .catch(function (err) {
@@ -372,6 +380,47 @@ function updateFessiersCells(id) {
     .catch(function (err) {
       console.log(err);
     });
+}
+
+function displayOnly1Seance(numSeance) {
+  /*
+  cardio-big-line
+    program-subtitle-560
+    cardio-parametres-560
+    cardio-seance
+  */
+
+  numSeance = parseInt(numSeance);
+
+  if (numSeance === 0) {
+    let programSubtitle560 = $(".program-subtitle-560");
+    programSubtitle560.show();
+
+    let cardioParametres560 = $(".cardio-parametres-560");
+    cardioParametres560.show();
+
+    let cardioSeance = $(".cardio-seance");
+    cardioSeance.show();
+  } else {
+    let programSubtitle560 = $(".program-subtitle-560");
+    programSubtitle560.hide();
+
+    let cardioParametres560 = $(".cardio-parametres-560");
+    cardioParametres560.hide();
+
+    let cardioSeance = $(".cardio-seance");
+    cardioSeance.hide();
+
+    let programSubtitle560ToShow = $(".s" + numSeance)
+      .prev()
+      .prev();
+    let cardioParametres560ToShow = $(".s" + numSeance).prev();
+    let cardioSeanceToShow = $(".s" + numSeance);
+
+    programSubtitle560ToShow.show();
+    cardioParametres560ToShow.show();
+    cardioSeanceToShow.show();
+  }
 }
 
 /* - - - - C L I E N T S - t a b - - - - */
