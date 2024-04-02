@@ -73,6 +73,7 @@ if(!empty($requestMusculations)) {
         // Colonne TITRES
         $resultHTMLMuscu .= "<div class='cardio-big-line'>";
         $resultHTMLMuscu .= "<form action='' method='post' id='form-musculation-".$idMuscu."' class='form-musculation'>";
+        $resultHTMLMuscu .= "<input type='hidden' name='token' id='token' value='".$token."'>";
         $resultHTMLMuscu .= "<input type='hidden' id='id-client-musculation' name='id-client-musculation' value='".$idClientMuscu."'>";
         $resultHTMLMuscu .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLMuscu .= "<img src='img/program/".$requestMusculations[$cptLine]->getImg()."' onclick=updateMusculationCells('".$idMuscu."')>";

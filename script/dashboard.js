@@ -39,6 +39,7 @@ window.addEventListener("click", () => {
 
 function searchClientListener() {
   let searchInput = document.querySelector("#client-search");
+
   let ref;
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value;
@@ -145,9 +146,14 @@ window.addEventListener("DOMContentLoaded", () => {
   //updateProgramFormsListener();
 });
 
-function ajaxClientProgram(clientId) {
+function ajaxClientProgram(clientId, token) {
   axios
-    .get("controleurs/ajax.php?table=program-client&clientid=" + clientId)
+    .get(
+      "controleurs/ajax.php?table=program-client&clientid=" +
+        clientId +
+        "&token=" +
+        token
+    )
     .then((res) => {
       $("#div-program-cardio").html(res.data.result);
       $("#div-program-musculation").html(res.data.resultMuscu);
@@ -162,9 +168,11 @@ function ajaxClientProgram(clientId) {
 
 function clientChosenForProgram(id, prenom, nom, mail) {
   $("#search-menu").remove();
+  const token = $("#client-search-token").val();
 
   const divInfosClient = `<div id="infos-client">
                           <input type="hidden" id="id-client" name="id-client" value="${id}">
+                          <input type="hidden" id="token" name="token" value="${token}">
                             ${prenom} ${nom} - ${mail}
                           </div>`;
 
@@ -174,7 +182,7 @@ function clientChosenForProgram(id, prenom, nom, mail) {
     $("#div-choose-clients").after(divInfosClient);
   }
 
-  ajaxClientProgram(id);
+  ajaxClientProgram(id, token);
   /*   $(document).ready(function () {
     updateProgramFormsListener();
   }); */
@@ -385,10 +393,13 @@ function emptyClientId() {
 
 function askConfirmDeleteClient(id, prenom, nom) {
   if (confirm("Supprimer le client " + prenom + " " + nom + " ?\n" + id)) {
+    const token = $("#token").val();
+    console.log(token);
     axios
       .post("controleurs/ajax.php", {
         id: id,
         req: "delete",
+        token: token,
         table: "client",
       })
       .then(function (res) {
@@ -477,6 +488,7 @@ function confirmClientUpdate() {
     const prenom = $("#prenom").val();
     const nom = $("#nom").val();
     const mail = $("#mail").val();
+    const token = $("#token").val();
 
     axios
       .post("controleurs/ajax.php", {
@@ -485,6 +497,7 @@ function confirmClientUpdate() {
         nom: nom,
         mail: mail,
         req: reqType,
+        token: token,
         table: "client",
       })
       .then(function (res) {

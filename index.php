@@ -13,6 +13,7 @@ $controleur = new Controleur($pdo);
 if(isset($_POST['action']) && 'connexion' === $_POST['action']) {
     ob_start();
     $controleur->verifConnexion($_POST['connect-email'], $_POST['connect-passw']);
+    //$controleur->updateToken($_SESSION['userid'], $_SESSION['token']);
     $contenu = ob_get_clean();
     require_once('vues/layout.php');
 }  

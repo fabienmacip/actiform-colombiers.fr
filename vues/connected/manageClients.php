@@ -23,6 +23,7 @@
         onblur="checkClientFormFields()" oninput="checkClientFormFields()">
         <span id="mail-error-message" class="client-form-error-message"><br>Merci de fournir une adresse mail valide</span>
       </div>
+      <input type="hidden" name="token" id="token" value="<?= $_SESSION['token']; ?>">
       <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['userid']; ?>">
       <input type="hidden" name="action" id="action" value="clientUpdate">
       <input type="hidden" name="clientid" id="clientid" value="">

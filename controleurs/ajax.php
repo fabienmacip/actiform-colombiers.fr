@@ -10,6 +10,8 @@ $data['success'] = true;
 
 require_once(dirname(__FILE__,2).'/modeles/ConnectMe.php');
 require_once(dirname(__FILE__,2).'/modeles/Modele.php');
+require_once(dirname(__FILE__,2).'/services/checkToken.php');
+
 require_once(dirname(__FILE__,2).'/modeles/Administrateur.php');
 require_once(dirname(__FILE__,2).'/modeles/Administrateurs.php');
 
@@ -36,22 +38,19 @@ require_once(dirname(__FILE__,2).'/modeles/ProgramClientFessierss.php');
 class ControleurAjax {
   use Modele;
 
+  public function checkTokenExists($token) {
+    $administrateurs = new Administrateurs($this->pdo);
+    return $administrateurs->checkTokenExists($token);
+  }
+
+
+
+
   public function createClient($prenom, $nom, $mail, $pwd = 'totototo') {
     $administrateurs = new Administrateurs($this->pdo);
     return $administrateurs->create($nom, $prenom, $mail, $pwd);
   }
 
-/*   public function createClientProgramEmpty($clientId) {
-    $programClientCardios = new ProgramClientCardios($this->pdo);
-    $checkCardio = $programClientCardios->createAllEmpty($clientId);
-
-    $programClientMusculations = new ProgramClientMusculations($this->pdo);
-    $checkMusculation = $programClientMusculations->createAllEmpty($clientId);
-
-    return $checkCardio && $checkMusculation;
-
-  }
- */
   public function updateClient($id, $nom, $prenom, $mail) {
     $administrateurs = new Administrateurs($this->pdo);
     return $administrateurs->update($id, $nom, $prenom, $mail);
@@ -141,7 +140,7 @@ class ControleurAjax {
 $controllerAjax = new ControleurAjax($pdo);
 
 // CREATE CLIENT
-if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client') {
+if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client' && $controllerAjax->checkTokenExists($data['token'])) {
   $data['success'] = $controllerAjax->createClient($data['prenom'],$data['nom'],$data['mail']);
 
   echo json_encode($data);
@@ -149,14 +148,14 @@ if(isset($data['req']) && $data['req'] === 'add' && $data['table'] === 'client')
 }
 
 // UPDATE CLIENT
-if(isset($data['req']) && $data['req'] === 'update' && $data['table'] === 'client') {
+if(isset($data['req']) && $data['req'] === 'update' && $data['table'] === 'client' && $controllerAjax->checkTokenExists($data['token'])) {
   $data['success'] = $controllerAjax->updateClient(intval($data['id']),$data['nom'],$data['prenom'],$data['mail']);
   echo json_encode($data);
   return;
 }
 
 // DELETE CLIENT
-if(isset($data['req']) && $data['req'] === 'delete' && $data['table'] === 'client' && $data['id'] !== '' && intval($data['id']) > 0) {
+if(isset($data['req']) && $data['req'] === 'delete' && $data['table'] === 'client' && $data['id'] !== '' && intval($data['id']) > 0 && $controllerAjax->checkTokenExists($data['token'])) {
   $data['success'] = $controllerAjax->deleteClient(intval($data['id']));
   echo json_encode($data);
   return;
@@ -190,12 +189,14 @@ if(isset($_GET['table']) && $_GET['table'] === 'client' && isset($_GET['search']
 }
 
 // LISTER PROGRAM-CLIENT
-if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['clientid'])) {
+if(isset($_GET['table']) && $_GET['table'] === 'program-client' && isset($_GET['clientid']) && $controllerAjax->checkTokenExists($_GET['token'])) {
   // Role par défaut, ADMIN = 1. !!! A modifier lors de la création de l'accès par un CLIENT.
   // Ou bien, charger un autre controller-non-admin
   $role = 1;
   $clientId = $_GET['clientid'];
   
+  $token = $_GET['token'];
+
   // PROGRAMME CLIENT CARDIO
   $request = $controllerAjax->programClientCardioRead($_GET['clientid']);
   $requestCardios = $controllerAjax->readAllCardios();

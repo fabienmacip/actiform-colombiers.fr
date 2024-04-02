@@ -24,7 +24,7 @@
 
             <?php $titi = $_SESSION['admin'];
              ?>
-
+            <input type="hidden" name="token" id="token" value="<?= $_SESSION['token']; ?>">
             <input type="hidden" name="userid" id="userid" value="<?= $_SESSION['userid']; ?>">
             <input type="hidden" name="action" id="action" value="passwordUpdate">
             

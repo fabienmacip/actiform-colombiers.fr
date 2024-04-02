@@ -10,6 +10,7 @@ class Administrateur
     private $mail;
     private $date_creation;
     private $mot_de_passe;
+    private $token;
     //private $partenaire;
     private $isadmin; // si NOT isAdmin, alors c'est un "partenaire"
     
@@ -57,6 +58,11 @@ class Administrateur
     public function getMotDePasse()
     {
         return $this->mot_de_passe;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
     }
 
 /*     public function getPartenaire()

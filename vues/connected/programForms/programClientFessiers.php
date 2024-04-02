@@ -65,6 +65,7 @@ if(!empty($requestFessierss)) {
         // Colonne TITRES
         $resultHTMLFessiers .= "<div class='cardio-big-line'>";
         $resultHTMLFessiers .= "<form action='' method='post' id='form-fessiers-".$IdFessiers."' class='form-fessiers'>";
+        $resultHTMLFessiers .= "<input type='hidden' name='token' id='token' value='<?= $token ?>'>";
         $resultHTMLFessiers .= "<input type='hidden' id='id-client-fessiers' name='id-client-fessiers' value='".$idClientFessiers."'>";
         $resultHTMLFessiers .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLFessiers .= "<img src='img/program/".$requestFessierss[$cptLine]->getImg()."' onclick=updateFessiersCells('".$IdFessiers."')>";

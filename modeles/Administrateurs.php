@@ -133,6 +133,63 @@ class Administrateurs
         return $tupleUpdated;
     }
 
+    // UPDATE-TOKEN-ONLY
+    public function updateToken($id,$token) {
+        if (!is_null($this->pdo)) {
+            try {
+                    
+                    $sql = "UPDATE actiform_administrateur SET token = (:token) WHERE id = (:id)";
+                    $res = $this->pdo->prepare($sql);
+                    $exec = $res->execute(array(":token"=>$token, ":id"=>$id));
+                if($exec){
+                    $tupleUpdated = true;
+                }
+            }
+            catch(Exception $e) {
+                $tupleUpdated = false;
+            }
+        }
+        
+        return $tupleUpdated;
+    }
+
+    function getTokenFormUserId($id){
+        $id = intval($id);
+        if (!is_null($this->pdo)) {
+            //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
+            $sql = 'SELECT token FROM actiform_administrateur WHERE id = :id';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['id' => $id]);
+        }
+        $liste = [];
+        while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
+            $liste[] = $element;
+        }
+        $stmt->closeCursor();
+        echo "LISTE : ".$liste[0]." : FIN LISTE";
+        return $liste[0];
+
+    }
+
+    function checkTokenExists($token){
+        
+        if (!is_null($this->pdo)) {
+            //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
+            $sql = 'SELECT token FROM actiform_administrateur WHERE token = :token';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(['token' => $token]);
+        }
+        $liste = [];
+        while ($element = $stmt->fetchObject('Administrateur',[$this->pdo])) {
+            $liste[] = $element;
+        }
+        $stmt->closeCursor();
+        
+        return is_array($liste) && count($liste) > 0;
+
+    }
+
+
     // UPDATE PASSWORD
     public function updatePassword($id, $mot_de_passe) {
         if (!is_null($this->pdo)) {
@@ -210,6 +267,11 @@ class Administrateurs
         
         //return ($reponse && password_verify($password, $reponse->getMotDePasse()));
         if(($reponse && password_verify($password, $reponse->getMotDePasse()))){
+            unset($_SESSION['token']);
+            if(!isset($_SESSION['token'])) {
+                $_SESSION['token'] = md5(time()*rand(1,666));
+            }
+
             //$_SESSION['partenaire'] = $reponse->getPartenaire();
             $_SESSION['datepartenaire'] = $reponse->getDateCreation();
             $_SESSION['role'] = $reponse->getRole();
@@ -227,6 +289,8 @@ class Administrateurs
         
     }
 }
+
+
 
 
 // Anciennement dans VerifConnexion

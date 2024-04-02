@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(__FILE__,2).'/modeles/Modele.php');
+require_once(dirname(__FILE__,2).'/services/checkToken.php');
 class Controleur {
      use Modele; 
 
@@ -18,6 +19,7 @@ class Controleur {
 
     public function deconnexion() {
         // Procédure de deconnexion
+        unset($_SESSION['token']);
         $_SESSION['admin'] = 0;
         $_SESSION['role'] = 0;
         $_SESSION['partenaire'] = -1;
@@ -37,6 +39,7 @@ class Controleur {
         //if($admin->verifConnexion($mail,$password)) {
             if($admin->verifConnexion($mail,$password) > 0) {
             $_SESSION['admin'] = 1;
+            $admin->updateToken($_SESSION['userid'], $_SESSION['token']);
             $this->pageConnected();
         } else {
             session_destroy();
@@ -68,6 +71,8 @@ class Controleur {
 
     public function updatePassword($id,$pass)
     {
+        checkToken();
+        
         $administrateurs = new Administrateurs($this->pdo);
         $administrateurToUpdate = $administrateurs->updatePassword($id,$pass);
         require_once('vues/connected/page-connected.php');

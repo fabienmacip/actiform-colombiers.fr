@@ -73,6 +73,7 @@ if(!empty($requestAbdoss)) {
         // Colonne TITRES
         $resultHTMLAbdos .= "<div class='cardio-big-line'>";
         $resultHTMLAbdos .= "<form action='' method='post' id='form-abdos-".$idAbdos."' class='form-abdos'>";
+        $resultHTMLAbdos .= "<input type='hidden' name='token' id='token' value='<?= $token ?>'>";
         $resultHTMLAbdos .= "<input type='hidden' id='id-client-abdos' name='id-client-abdos' value='".$idClientAbdos."'>";
         $resultHTMLAbdos .= "<div class='cardio-nom-machines'><div class='cardio-img'>";
         $resultHTMLAbdos .= "<img src='img/program/".$requestAbdoss[$cptLine]->getImg()."' onclick=updateAbdosCells('".$idAbdos."')>";
