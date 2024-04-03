@@ -340,7 +340,7 @@ function emptyClientId() {
 function askConfirmDeleteClient(id, prenom, nom) {
   if (confirm("Supprimer le client " + prenom + " " + nom + " ?\n" + id)) {
     const token = $("#token").val();
-    console.log(token);
+    //console.log(token);
     axios
       .post("controleurs/ajax.php", {
         id: id,
@@ -383,10 +383,16 @@ function addLineInClientsTable(id, prenom, nom, mail) {
                       ${mail}
                     </td>
                     <td>
-                      <button onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">Mod.</button>
+                    <img src="img/icones/modifier.png" 
+                         alt="Modifier"
+                         class="manage-client-icon" 
+                         onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">
                     </td>
                     <td>
-                      <button onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">Sup.</button>
+                      <img src="img/icones/supprimer.png" 
+                           alt="Supprimer"
+                           class="manage-client-icon" 
+                           onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">
                     </td>
                   </tr>`;
 

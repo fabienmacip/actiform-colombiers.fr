@@ -88,16 +88,17 @@ class Administrateurs
                 // Requête mysql pour insérer des données
                 $today = date("Y-m-d");
                 $pass = password_hash($mot_de_passe, PASSWORD_DEFAULT);
-
-                $sql = "INSERT INTO actiform_administrateur (nom, prenom, mail, date_creation, mot_de_passe, isadmin) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe, :isadmin)";
+                $token = '';
+                $sql = "INSERT INTO actiform_administrateur (nom, prenom, mail, date_creation, mot_de_passe, token, isadmin) VALUES (:nom, :prenom, :mail, :date_creation, :mot_de_passe, :token, :isadmin)";
                 $res = $this->pdo->prepare($sql);
-                $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":date_creation"=>$today, "mot_de_passe"=>$pass, "isadmin"=>$isadmin));
+                $exec = $res->execute(array(":nom"=>$nom, ":prenom"=>$prenom, ":mail"=>$mail, ":date_creation"=>$today, "mot_de_passe"=>$pass, "token"=>$token, "isadmin"=>$isadmin));
                 if($exec){
                     $lastid = $this->pdo->lastInsertId();
                     $tupleCreated = $lastid ?? true;
                 }
             }
             catch(Exception $e) {
+                echo($e);
                 $tupleCreated = false;
             }
         }
@@ -126,6 +127,7 @@ class Administrateurs
                 }
             }
             catch(Exception $e) {
+                echo($e);
                 $tupleUpdated = false;
             }
         }

@@ -48,15 +48,35 @@ class ControleurAjax {
     return $administrateurs->getRoleFromToken($token);
   }
 
-
+  public function genereatePassword(){
+    $passList = ['Fitness','Muscu','Abdos','Actiform','Janvier','Mars','Avril','Mai','Juin','Juillet','Septembre','Octobre','Novembre','Presse','Curl','Legs','Extension','Flexion'];
+    $word1 = $passList[rand(0,count($passList)-1)];
+    $word2 = $passList[rand(0,count($passList)-1)];
+    $word3 = rand(10,99);
+    return $word1.$word2.$word3;
+  }
 
   public function createClient($prenom, $nom, $mail, $pwd = 'totototo') {
+    if($pwd === '' || $pwd === 'totototo') {
+      $pwd = $this->genereatePassword();
+    }
+
     $administrateurs = new Administrateurs($this->pdo);
-    return $administrateurs->create($nom, $prenom, $mail, $pwd);
+    $adminCreatedOK = $administrateurs->create($nom, $prenom, $mail, $pwd);
+
+    /* echo("CREATE CLIENT Controleur : ".$nom." ".$prenom." ".$mail);
+    echo($adminCreatedOK); */
+
+    if($adminCreatedOK) {
+      require_once(dirname(__FILE__,2).'/services/sendMailAccountCreated.php');
+    }
+
+    return $adminCreatedOK;
   }
 
   public function updateClient($id, $nom, $prenom, $mail) {
     $administrateurs = new Administrateurs($this->pdo);
+    //echo("Update Client Controleur:  ".$id." ".$nom." ".$prenom." ".$mail);
     return $administrateurs->update($id, $nom, $prenom, $mail);
   }
 
