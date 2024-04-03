@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php
+    $titre = "Actiform";
     require_once("head.php");
 ?>
 <body id="body">

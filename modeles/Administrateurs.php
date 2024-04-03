@@ -177,7 +177,7 @@ class Administrateurs
         
         if (!is_null($this->pdo)) {
             //$stmt = $this->pdo->query('SELECT * FROM administrateur WHERE id = :id');
-            $sql = 'SELECT token FROM actiform_administrateur WHERE token = :token AND isadmin = 1';
+            $sql = 'SELECT token FROM actiform_administrateur WHERE token = :token';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['token' => $token]);
         }

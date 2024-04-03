@@ -50,7 +50,7 @@ class ProgramClientCardios
                         }
                 }
                 catch(Exception $e) {
-                    var_dump($e);
+                    //var_dump($e);
                     $tupleUpdated = false;
                 }
             }
@@ -76,7 +76,7 @@ class ProgramClientCardios
                     $tupleUpdated = $exec;
                 }
                 catch(Exception $e) {
-                    var_dump($e);
+                    //var_dump($e);
                     $tupleUpdated = false;
                 }
             }

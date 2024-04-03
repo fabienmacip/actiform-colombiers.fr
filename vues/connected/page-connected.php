@@ -42,9 +42,11 @@
   <div class="dashboard-tab-content dashboard-tab-content-active" id="dashboard-tab-programs">
     <?php require_once('managePrograms.php'); ?>
   </div>
+  <?php if($_SESSION['role'] == 1) {?>
   <div class="dashboard-tab-content dashboard-tab-content-inactive" id="dashboard-tab-clients">
     <?php require_once('manageClients.php'); ?>
   </div>
+  <?php } ?>
   <div class="dashboard-tab-content dashboard-tab-content-inactive" id="dashboard-tab-password">
     <?php require_once('passwordModify.php'); ?>
   </div>
