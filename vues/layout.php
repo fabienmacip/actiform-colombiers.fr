@@ -17,7 +17,11 @@
 
 <?php 
     if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
-        echo "<div id='info-connected'>Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom'].", vous êtes connecté(e).</div>";
+        if(isset($_SESSION['role']) && $_SESSION['role'] == 1) {
+            echo "<div id='info-connected' class='bg-red'>Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom'].", vous êtes connecté(e) en tant qu'<u>administrateur</u>.</div>";
+        } else {
+            echo "<div id='info-connected' class='bg-green'>Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom'].", vous êtes connecté(e).</div>";
+        }
     }    
 ?>
 

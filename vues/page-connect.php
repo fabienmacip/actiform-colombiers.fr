@@ -23,9 +23,13 @@
               </div>
 
               <div class="mb-4">
-                  <label for="password" class="form-label">Mot de passe</label><br>
-                  <input type="text" name="connect-passw" minlength="8" maxlength="40" id="connect-passw" placeholder="Saisissez votre mot de passe" tabindex="2"
-                  onblur="checkConnexionFormField('connect-passw')" oninput="checkConnexionFormField('connect-passw')"><br>
+                <div id="connect-password">
+                    <label for="password" class="form-label">Mot de passe</label><br>
+                    <input type="password" name="connect-passw" minlength="8" maxlength="40" id="connect-passw" placeholder="Saisissez votre mot de passe" tabindex="2"
+                    onblur="checkConnexionFormField('connect-passw')" oninput="checkConnexionFormField('connect-passw')">
+                    <img src="img/icones/eye.png" alt="voir" id="toggle-display-password" style="width:25px; cursor:pointer;" onclick="toggleDisplayPassword()">
+                    <br>
+                </div>
                   <span id="passwordHelpInline" class="form-text">Entre 8 et 40 caractères.</span>
                   <div id="error-connect-passw" class="connexion-form-error">Minimum 8 caractères</div>
               </div>

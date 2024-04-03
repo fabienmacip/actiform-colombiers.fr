@@ -1,53 +1,19 @@
+//let dashboardTabPrograms = $("#dashboard-tab-programs");
+//let dashboardTabClients = $("#dashboard-tab-clients");
+//let dashboardTabPassword = $("#dashboard-tab-password");
+
 /* @Copyright : Fabien Macip - Mars 2024
 fabien.macip@gmail.com */
 
-let dashboardTabPrograms = $("#dashboard-tab-programs");
-let dashboardTabClients = $("#dashboard-tab-clients");
-let dashboardTabPassword = $("#dashboard-tab-password");
-
-function displayPrograms(clientid = "", token = "") {
-  if (clientid != "" && token != "") {
-    ajaxClientProgram(clientid, token);
-  }
-  //$("#program-print-btn").show();
-  $("#dashboard-tab-programs").show();
-  $("#dashboard-link-programs").addClass("dashboard-tab-title-active");
-  $("#dashboard-tab-clients").hide();
-  $("#dashboard-link-clients").removeClass("dashboard-tab-title-active");
-  $("#dashboard-tab-password").hide();
-  $("#dashboard-link-password").removeClass("dashboard-tab-title-active");
-}
-
-function displayClients() {
-  //$("#program-print-btn").hide();
-  $("#dashboard-tab-programs").hide();
-  $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
-  $("#dashboard-tab-clients").show();
-  $("#dashboard-link-clients").addClass("dashboard-tab-title-active");
-  $("#dashboard-tab-password").hide();
-  $("#dashboard-link-password").removeClass("dashboard-tab-title-active");
-  $("#clientid").val(null);
-}
-
-function displayPasswordUpdate() {
-  //$("#program-print-btn").hide();
-  $("#dashboard-tab-programs").hide();
-  $("#dashboard-link-programs").removeClass("dashboard-tab-title-active");
-  $("#dashboard-tab-clients").hide();
-  $("#dashboard-link-clients").removeClass("dashboard-tab-title-active");
-  $("#dashboard-tab-password").show();
-  $("#dashboard-link-password").addClass("dashboard-tab-title-active");
-}
-
 /* - - - - P R O G R A M S - t a b - - - - */
-/* let menuContainer;
+let menuContainer;
 if (menuContainer) {
   window.addEventListener("click", () => {
     menuContainer.innerHTML = "";
   });
-} */
+}
 
-/* function searchClientListener() {
+function searchClientListener() {
   let searchInput = document.querySelector("#client-search");
 
   let ref;
@@ -68,7 +34,7 @@ if (menuContainer) {
         });
     }, 1000);
   });
-} */
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
@@ -76,9 +42,9 @@ if (menuContainer) {
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
-//const TIME_BEFORE_UPDATE_BDD = 3000; // Temps (millisecondes) avant mise à jour BDD automatique
+const TIME_BEFORE_UPDATE_BDD = 3000; // Temps (millisecondes) avant mise à jour BDD automatique
 
-/* function eventListenerClientCardioForm() {
+function eventListenerClientCardioForm() {
   let allForms = [];
   allForms = Array.from(document.getElementsByClassName("form-cardio"));
   allForms = allForms.concat(
@@ -136,7 +102,7 @@ if (menuContainer) {
       }
     });
   }
-} */
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
@@ -146,51 +112,7 @@ if (menuContainer) {
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  */
 
-window.addEventListener("DOMContentLoaded", () => {
-  if ($("#search-menu-container").length) {
-    menuContainer = document.querySelector("#search-menu-container");
-    menuContainer.addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
-
-    searchClientListener();
-  } else {
-    $("#dashboard-link-programs").trigger("click");
-  }
-
-  //updateProgramFormsListener();
-});
-
-function ajaxClientProgram(clientId, token) {
-  axios
-    .get(
-      "controleurs/ajax.php?table=program-client&clientid=" +
-        clientId +
-        "&token=" +
-        token
-    )
-    .then((res) => {
-      if (!$("#program-print-btn").length) {
-        const printButton =
-          "<div><button id='program-print-btn' onclick='window.print()'>Imprimer</button></div>";
-        $("#div-display-programs").prepend(printButton);
-      }
-      $("#div-program-cardio").html(res.data.result);
-      $("#div-program-musculation").html(res.data.resultMuscu);
-      $("#div-program-abdos").html(res.data.resultAbdos);
-      $("#div-program-fessiers").html(res.data.resultFessiers);
-
-      // Si on est connecté en ADMIN
-      if ($("#dashboard-link-clients").length) {
-        eventListenerClientCardioForm();
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-/* function clientChosenForProgram(id, prenom, nom, mail) {
+function clientChosenForProgram(id, prenom, nom, mail) {
   $("#search-menu").remove();
   const token = $("#client-search-token").val();
 
@@ -207,11 +129,14 @@ function ajaxClientProgram(clientId, token) {
   }
 
   ajaxClientProgram(id, token);
-} */
+  /*   $(document).ready(function () {
+    updateProgramFormsListener();
+  }); */
+}
 
 /* - - - - SOUMISSION Formulaire CARDIO - - - - */
 // The jQuery function for converting the form input values into a json object.
-/* $.fn.serializeObject = function () {
+$.fn.serializeObject = function () {
   var o = {};
   var a = this.serializeArray();
   $.each(a, function () {
@@ -226,9 +151,8 @@ function ajaxClientProgram(clientId, token) {
   });
   return o;
 };
- */
 
-/* function updateCardioCells(id) {
+function updateCardioCells(id) {
   const form = $("#form-cardio-" + id);
 
   const action = "updateClientCardio";
@@ -267,8 +191,8 @@ function ajaxClientProgram(clientId, token) {
       console.log(err);
     });
 }
- */
-/* function updateMusculationCells(id) {
+
+function updateMusculationCells(id) {
   const form = $("#form-musculation-" + id);
 
   const action = "updateClientMusculation";
@@ -309,8 +233,8 @@ function ajaxClientProgram(clientId, token) {
       console.log(err);
     });
 }
- */
-/* function updateAbdosCells(id) {
+
+function updateAbdosCells(id) {
   const form = $("#form-abdos-" + id);
 
   const action = "updateClientAbdos";
@@ -347,9 +271,7 @@ function ajaxClientProgram(clientId, token) {
       console.log(err);
     });
 }
- */
-
-/* function updateFessiersCells(id) {
+function updateFessiersCells(id) {
   const form = $("#form-fessiers-" + id);
 
   const action = "updateClientFessiers";
@@ -388,53 +310,11 @@ function ajaxClientProgram(clientId, token) {
       console.log(err);
     });
 }
- */
-
-function displayOnly1Seance(numSeance) {
-  /*
-  cardio-big-line
-    program-subtitle-560
-    cardio-parametres-560
-    cardio-seance
-  */
-
-  numSeance = parseInt(numSeance);
-
-  if (numSeance === 0) {
-    let programSubtitle560 = $(".program-subtitle-560");
-    programSubtitle560.show();
-
-    let cardioParametres560 = $(".cardio-parametres-560");
-    cardioParametres560.show();
-
-    let cardioSeance = $(".cardio-seance");
-    cardioSeance.show();
-  } else {
-    let programSubtitle560 = $(".program-subtitle-560");
-    programSubtitle560.hide();
-
-    let cardioParametres560 = $(".cardio-parametres-560");
-    cardioParametres560.hide();
-
-    let cardioSeance = $(".cardio-seance");
-    cardioSeance.hide();
-
-    let programSubtitle560ToShow = $(".s" + numSeance)
-      .prev()
-      .prev();
-    let cardioParametres560ToShow = $(".s" + numSeance).prev();
-    let cardioSeanceToShow = $(".s" + numSeance);
-
-    programSubtitle560ToShow.show();
-    cardioParametres560ToShow.show();
-    cardioSeanceToShow.show();
-  }
-}
 
 /* - - - - C L I E N T S - t a b - - - - */
 
-/* function preFillClientForm(id, prenom, nom, mail) {
-  console.log(id + " " + prenom + " " + nom + " " + mail);
+function preFillClientForm(id, prenom, nom, mail) {
+  //console.log(id + " " + prenom + " " + nom + " " + mail);
 
   $("#form-add-client-subtitle").text("MODIFIER CLIENT");
   $("#form-add-client").addClass("form-add-client-update");
@@ -449,17 +329,15 @@ function displayOnly1Seance(numSeance) {
   checkClientFormFields();
   checkClientFormFields();
 }
- */
 
-/* function emptyClientId() {
+function emptyClientId() {
   $("#form-add-client-subtitle").text("NOUVEAU CLIENT");
   $("#form-add-client").removeClass("form-add-client-update");
   $("#form-add-client").addClass("form-add-client-new");
   $("#clientid").val(null);
 }
- */
 
-/* function askConfirmDeleteClient(id, prenom, nom) {
+function askConfirmDeleteClient(id, prenom, nom) {
   if (confirm("Supprimer le client " + prenom + " " + nom + " ?\n" + id)) {
     const token = $("#token").val();
     console.log(token);
@@ -489,9 +367,8 @@ function displayOnly1Seance(numSeance) {
       });
   }
 }
- */
 
-/* function addLineInClientsTable(id, prenom, nom, mail) {
+function addLineInClientsTable(id, prenom, nom, mail) {
   const newLine = `<tr id="cli-${id}">
                     <td>
                       ${id}
@@ -516,9 +393,8 @@ function displayOnly1Seance(numSeance) {
   //$("#clients-list-table").prepend(newLine);
   $("#clients-list-table-first-row").after(newLine);
 }
- */
 
-/* function updateLineInClientsTable(id, prenom, nom, mail) {
+function updateLineInClientsTable(id, prenom, nom, mail) {
   const updatedLine = `<tr id="cli-${id}">
                     <td>
                       ${id}
@@ -533,18 +409,24 @@ function displayOnly1Seance(numSeance) {
                       ${mail}
                     </td>
                     <td>
-                      <button onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">Mod.</button>
+                    <img src="img/icones/modifier.png" 
+                         alt="Modifier"
+                         class="manage-client-icon" 
+                         onclick="preFillClientForm('${id}', '${prenom}', '${nom}', '${mail}')">
                     </td>
                     <td>
-                      <button onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">Sup.</button>
+                      <img src="img/icones/supprimer.png" 
+                           alt="Supprimer"
+                           class="manage-client-icon" 
+                           onclick="askConfirmDeleteClient('${id}', '${prenom}', '${nom}')">
                     </td>
                   </tr>`;
 
   $("#cli-" + id).replaceWith(updatedLine);
 }
- */
+
 // AJAX CLIENT Add or Update
-/* function confirmClientUpdate() {
+function confirmClientUpdate() {
   let reqType = "";
 
   if (confirm("Enregistrer ?")) {
@@ -602,8 +484,8 @@ function displayOnly1Seance(numSeance) {
     console.log("cancelled");
   }
 }
- */
-/* function checkClientFormFields() {
+
+function checkClientFormFields() {
   const regexEmail = /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/;
 
   let checkMail = false;
@@ -641,6 +523,5 @@ function displayOnly1Seance(numSeance) {
     $("#btn-client-update").addClass("btn-inactive");
   }
 }
- */
+
 /* - - - - P A S S W O R D - t a b - - - - */
-function closeDashboardMessage() {}

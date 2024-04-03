@@ -76,10 +76,18 @@
           <?= $client->getMail() ?>
         </td>
         <td>
-          <button onclick="preFillClientForm('<?= $client->getId() ?>', '<?= $client->getPrenom() ?>', '<?= $client->getNom() ?>', '<?= $client->getMail() ?>')">Mod.</button>
+          <img img src="img/icones/modifier.png" 
+               alt="Modifier"
+               class="manage-client-icon"
+               onclick="preFillClientForm('<?= $client->getId() ?>', '<?= $client->getPrenom() ?>', '<?= $client->getNom() ?>', '<?= $client->getMail() ?>')"
+          >
         </td>
         <td>
-          <button onclick="askConfirmDeleteClient('<?= $client->getId() ?>', '<?= $client->getPrenom() ?>', '<?= $client->getNom() ?>')">Sup.</button>
+          <img src="img/icones/supprimer.png" 
+               alt="Supprimer"
+               class="manage-client-icon"
+               onclick="askConfirmDeleteClient('<?= $client->getId() ?>', '<?= $client->getPrenom() ?>', '<?= $client->getNom() ?>')"
+          >
         </td>
       </tr>
     <?php

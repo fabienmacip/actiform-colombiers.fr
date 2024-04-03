@@ -19,6 +19,9 @@ class Controleur {
 
     public function deconnexion() {
         // Procédure de deconnexion
+        $admin = new Administrateurs($this->pdo);
+        $admin->updateToken($_SESSION['userid'],"");
+
         unset($_SESSION['token']);
         $_SESSION['admin'] = 0;
         $_SESSION['role'] = 0;
@@ -30,6 +33,7 @@ class Controleur {
         $_SESSION['userid'] = '';
         session_destroy();
         
+
         $this->accueil();
     }
 
@@ -75,6 +79,7 @@ class Controleur {
         
         $administrateurs = new Administrateurs($this->pdo);
         $administrateurToUpdate = $administrateurs->updatePassword($id,$pass);
+        $clients = $administrateurs->listerClients();
         require_once('vues/connected/page-connected.php');
         //$this->accueil('', $administrateurToUpdate);
     }

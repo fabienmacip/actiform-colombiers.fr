@@ -22,6 +22,16 @@ window.addEventListener("load", function () {
    */
 });
 
+function toggleDisplayPassword() {
+  if ($("#connect-passw").attr("type") === "text") {
+    $("#toggle-display-password").attr("src", "img/icones/eye.png");
+    $("#connect-passw").attr("type", "password");
+  } else {
+    $("#toggle-display-password").attr("src", "img/icones/hide.png");
+    $("#connect-passw").attr("type", "text");
+  }
+}
+
 function checkConnexionFormField(field) {
   let error = false;
 

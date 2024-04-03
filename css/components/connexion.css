@@ -28,6 +28,10 @@
   font-weight: bold;
 }
 
+#connect-passw {
+  width: 18rem;
+}
+
 #emailHelpInline,
 #passwordHelpInline {
   color: var(--main-color-black);
@@ -70,4 +74,26 @@
   padding: 1.2rem 0;
   margin-bottom: 3rem;
   background-color: var(--main-color-accent);
+}
+
+.connexion-form-error {
+  display: none;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* * * * * * * MAX 480 px * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * */
+
+@media screen and (max-width: 480px) {
+  #connexion-form {
+    padding: 2px;
+  }
+
+  #connect-email {
+    width: 100%;
+  }
+
+  #connect-passw {
+    width: 80%;
+  }
 }

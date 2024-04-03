@@ -23,7 +23,12 @@
       if(isset($_SESSION['userid']) && $_SESSION['userid'] > 0) {
     ?>
         <script type="text/javascript" src="script/dashboard.js"></script>
-    <?php
+      <?php
+        if($_SESSION['role'] == 1) { 
+      ?>
+          <script type="text/javascript" src="script/dashboardAdmin.js"></script>
+      <?php 
+      }
     }
     ?>
 

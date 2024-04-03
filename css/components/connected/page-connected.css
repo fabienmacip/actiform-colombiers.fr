@@ -1,5 +1,4 @@
 #info-connected {
-  background-color: var(--main-color-green);
   color: var(--main-color-white);
   text-align: center;
 }
@@ -319,6 +318,25 @@
 #client-form-buttons {
   display: flex;
   justify-content: flex-end;
+}
+
+.manage-client-icon {
+  width: 25px;
+  margin: 3px 6px;
+  cursor: pointer;
+  border: 2px solid white;
+  padding: 3px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.manage-client-icon:hover {
+  border: 2px solid var(--main-color-red);
+  background-color: var(--main-color-red);
+  padding: 0;
 }
 
 /* - - - - P A S S W O R D - - - -  */
