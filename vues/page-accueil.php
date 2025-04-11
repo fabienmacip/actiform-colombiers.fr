@@ -9,7 +9,7 @@
 
 <div class="m-0 max-width-100vw">
   <div id="div-image-accueil" class="box">
-      Le sport plaisir
+      
   </div>
 
   <div class="row max-width-100percent jcc wrap" id="accueil-text-boxes">
@@ -132,7 +132,7 @@
             </div>
           </div>
 
-          <div class="activite-card">
+          <!--<div class="activite-card">
             <div style="background-image: url('img/activites/actiform-plaisir.jpg');" class="activite-img">Cross Training HIIT</div>
             <div class="activite-card-text">
               Le <b>Cross Training HIIT</b> fusionne <u>l'intensité du High Intensity Interval Training</u> avec la 
@@ -140,9 +140,9 @@
               optimisant la combustion des calories et le renforcement musculaire. 
               Prêt(e) à relever le <b>défi du Cross Training HIIT pour des résultats explosifs</b> ?
             </div>
-          </div>
+          </div>-->
 
-          <div class="activite-card">
+          <!--<div class="activite-card">
             <div style="background-image: url('img/activites/actiform-full-body.jpg');" class="activite-img">Full Body</div>
             <div class="activite-card-text">
               L'activité <b>Full Body</b> révolutionne l'entraînement en <u>ciblant tous les groupes musculaires 
@@ -150,15 +150,25 @@
               musculaire global et une efficacité maximale. 
               Le Full Body offre une solution complète pour <b>sculpter et tonifier votre corps en un temps record</b>.
             </div>
-          </div>
+          </div>-->
 
-          <div class="activite-card">
+          <!--<div class="activite-card">
             <div style="background-image: url('img/activites/actiform-caf-ancien.jpg');" class="activite-img">Gym Douce</div>
             <div class="activite-card-text">
               La <b>Gym Douce</b> privilégie une <u>approche en douceur</u> pour améliorer la condition physique. 
               Axée sur la souplesse, le renforcement musculaire léger et la relaxation, cette activité 
               favorise le bien-être physique et mental. Parfaite pour tous les niveaux, 
               la Gym Douce offre une <b>expérience apaisante tout en maintenant la forme</b>.
+            </div>
+          </div>-->
+
+          <div class="activite-card">
+            <div style="background-image: url('img/activites/actiform-gym-tonic.jpg');" class="activite-img">Gym Tonic</div>
+            <div class="activite-card-text">
+            La <b>Gym Tonic</b> allie dynamisme et bonne humeur pour <b>sculpter le corps</b> tout en s’amusant. 
+            Grâce à des mouvements rythmés et variés, elle <u>tonifie les muscles</u>, <u>améliore la 
+            coordination</u> et <u>booste l’énergie</u>. Accessible à tous, c’est une activité idéale 
+            pour <b>rester en forme toute l’année</b>.
             </div>
           </div>
 
@@ -174,12 +184,32 @@
           </div>
 
           <div class="activite-card">
+            <div style="background-image: url('img/activites/actiform-mma.jpg');" class="activite-img">MMA</div>
+            <div class="activite-card-text">
+            Le <b>MMA</b> <i>(Mixed Martial Arts)</i> est une discipline complète mêlant <b>boxe, lutte et techniques au sol</b>. 
+            Il développe <u>force, agilité, endurance et confiance en soi</u>. Accessible même aux débutants, le 
+            MMA propose un entraînement intense, idéal pour <b>repousser ses limites</b> dans un cadre 
+            sécurisé et structuré.
+            </div>
+          </div>
+
+          <div class="activite-card">
             <div style="background-image: url('img/activites/actiform-stretch-pilates.jpg');" class="activite-img">Pilates</div>
             <div class="activite-card-text">
               <b>Pilates</b> est une discipline axée sur la <u>force</u>, la <u>flexibilité</u> et le <u>contrôle corporel</u>. 
               En se concentrant sur la respiration et des mouvements précis, cette pratique renforce 
               les muscles profonds, améliore la posture et favorise la stabilité. 
               Le Pilates offre une approche holistique pour <b>un corps fort et équilibré</b>.
+            </div>
+          </div>
+
+          <div class="activite-card">
+            <div style="background-image: url('img/activites/actiform-plaisir.jpg');" class="activite-img">Pound</div>
+            <div class="activite-card-text">
+            Le <b>POUND</b> transforme le fitness en <u>véritable concert</u> ! Inspiré par le rythme de la batterie, 
+            ce cours cardio <b>renforce tout le corps</b> en musique. Avec des baguettes spécialement conçues, 
+            on brûle des calories tout en s’amusant. <b>Ludique</b>, <b>énergisant</b>, et parfait 
+            pour <b>évacuer le stress</b>.
             </div>
           </div>
 

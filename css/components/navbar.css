@@ -5,7 +5,15 @@
 /* * * * * * NAVBAR * * * * * */
 
 nav {
-  background-color: var(--main-color-dark);
+  background: linear-gradient(150deg,
+  #000 0%, 
+  #000 20%, 
+  #ff1617 80%, 
+  #ff1617 100%
+);
+
+  /* background-color: var(--main-color-dark); */
+  
   color: var(--main-color-white) !important;
   position: sticky !important;
   top: 0 !important;
@@ -62,6 +70,7 @@ nav a:hover {
 }
 
 #nav-ul {
+  font-family: 'Anton', sans-serif;
   margin: 0 auto;
 }
 

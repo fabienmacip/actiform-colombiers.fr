@@ -8,6 +8,7 @@
                 alt="Actiform Colombiers - Logo"
             >
         </a>
+        <!--src="img/logo/actiform_logo_1276x800.jpg"-->
     </div>
     <div class="contacts flex-2 flex">
         <div class="flex flex-column gap-15 aic">
@@ -23,7 +24,7 @@
                     </a>
                 </div>
                 <div>
-                  <a href="tel:0467214893" alt="telephoner fixe">&nbsp;04 67 21 48 93</a> ou 
+                  <a href="tel:0467214893" alt="telephoner fixe">&nbsp;04 67 21 48 93</a> <span style="color: var(--main-color-white);">ou</span> 
                 </div>
                 <div>
                   <a href="tel:0769428066" alt="telephoner mobile">&nbsp;07 69 42 80 66</a>

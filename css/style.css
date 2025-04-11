@@ -10,6 +10,10 @@ h2 {
   margin-bottom: 2.5rem;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Anton', sans-serif;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="number"],
@@ -130,7 +134,8 @@ select {
 }
 
 a {
-  color: var(--main-color-black);
+  /*color: var(--main-color-black);*/
+  color: var(--main-color-white);
 }
 
 a:hover {
@@ -279,12 +284,14 @@ header {
   justify-content: space-between;
   padding: 0 12%;
   /* background: linear-gradient(to right, #A6A6A6, #A6A6A6 25%, #fff 35%, #fff); */
-  background: var(--main-color-white);
+  /*background: var(--main-color-white);*/
+  background: var(--main-color-black-total);
 }
 
 header .logo {
   /*   background: linear-gradient(to right, #A6A6A6, #A6A6A6 80%, #fff 80%, #fff); */
-  background: var(--main-color-white);
+  /*background: var(--main-color-white);*/
+  background: var(--main-color-black-total);
 }
 
 #logo {
@@ -315,7 +322,7 @@ header .logo {
   font-size: 6rem;
 
   min-height: 400px;
-  background-image: url("../img/activites/actiform-plaisir.jpg");
+  background-image: url("../img/activites/actiform-plaisir-new.jpg");
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -364,6 +371,7 @@ header .logo {
 }
 
 #image-accueil-text {
+  font-family: 'Anton', sans-serif;
   font-size: 1.5rem;
 }
 
@@ -609,12 +617,14 @@ header .logo {
 @media screen and (max-width: 1400px) {
   header {
     padding: 0;
-    background: #fff;
+    /*background: #fff;*/
+    background: var(--main-color-black-total);
   }
 
   header .logo {
     /* background: linear-gradient(to right, #A6A6A6, #A6A6A6 40%, #fff 60%, #fff); */
-    background: var(--main-color-white);
+    /*background: var(--main-color-white);*/
+    background: var(--main-color-black-total);
   }
 
   #div-image-accueil {
@@ -631,12 +641,13 @@ header .logo {
     flex-direction: column;
     margin-top: 0;
     margin-bottom: 1rem;
-    background: #fff;
+    /*background: #fff;*/
+    background: var(--main-color-black-total);
   }
 
   header .logo {
     /* background: linear-gradient(to right, #A6A6A6, #A6A6A6 40%, #fff 60%, #fff); */
-    background: var(--main-color-white);
+    background: var(--main-color-black-total);
   }
 
   #accueil-text-boxes {
