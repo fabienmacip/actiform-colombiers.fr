@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <?php
-    $titre = "Actiform";
+$titre = "Actiform";
     require_once("head.php");
 ?>
 <body id="body">
 
 <?php
+ 
     require_once("header.php");
 ?>
 

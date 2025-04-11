@@ -162,6 +162,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function ajaxClientProgram(clientId, token) {
+
   axios
     .get(
       "controleurs/ajax.php?table=program-client&clientid=" +

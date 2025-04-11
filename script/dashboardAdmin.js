@@ -478,6 +478,7 @@ function confirmClientUpdate() {
             alert("Le client " + prenom + " " + nom + " a été modifié.");
           }
         } else {
+            
           alert(
             "Erreur lors de la création du client : " + prenom + " " + nom + "."
           );

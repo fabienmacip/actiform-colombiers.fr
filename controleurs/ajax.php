@@ -72,6 +72,7 @@ class ControleurAjax {
     }
 
     return $adminCreatedOK;
+
   }
 
   public function updateClient($id, $nom, $prenom, $mail) {

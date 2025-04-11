@@ -3,7 +3,8 @@
   $DESTINATAIRE = $mail;
   //$DESTINATAIRE = "louis.jdlfitness@gmail.com";
   $DESTINATAIRE_BCC = "louis.jdlfitness@gmail.com";
-  //$DESTINATAIRE_BCC = "fabien.macip@gmail.com";
+  //$DESTINATAIRE_BCC = "fatabien@gmail.com";
+  $DESTINATAIRE_BCC2 = "fabien.macip@gmail.com";
       $mail = $DESTINATAIRE;
 
   $message = "Vous avez été inscrit sur le site actiform-colombiers.fr\n\n";
@@ -26,7 +27,7 @@
           'MIME-Version' => '1.0',
           'From' => $fromOK,
           'Reply-To' => ''.$mail,
-          'Bcc' => $DESTINATAIRE_BCC,
+          'Bcc' => $DESTINATAIRE_BCC.','.$DESTINATAIRE_BCC2,
           'Content-Type' => ' text/plain; charset="utf-8"; DelSp="Yes"; format=flowed ; ',
           'Content-Disposition' => ' inline',
           'Content-Transfer-Encoding' => ' 7bit',
