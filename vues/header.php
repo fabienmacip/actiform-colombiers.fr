@@ -84,25 +84,30 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Contactez-nous</h2>
-        <form id="contact-form" class="contact-form">
+        <form id="formHeaderContact" name="formHeaderContact" method="post" onSubmit="validFormHeaderContact()" action="vues/toaster/toaster-header-contact.php">
+            <input type="hidden" name="header-contact-form-flag" value="flag">
             <div class="form-group">
                 <label for="firstName">Prénom *</label>
                 <input type="text" id="firstName" name="firstName" required>
+                <div id="error-firstName" class="contact-form-error">Prénom : minimum 2 caractères</div>
             </div>
             
             <div class="form-group">
                 <label for="lastName">Nom *</label>
                 <input type="text" id="lastName" name="lastName" required>
+                <div id="error-lastName" class="contact-form-error">Nom : minimum 2 caractères</div>
             </div>
             
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email">
+                <div id="error-email" class="contact-form-error">Format email invalide</div>
             </div>
             
             <div class="form-group">
                 <label for="phone">Téléphone</label>
                 <input type="tel" id="phone" name="phone" placeholder="De type 0622334455 ou +33622334455">
+                <div id="error-phone" class="contact-form-error">Format téléphone invalide (10 chiffres ou + suivi de 11 chiffres)</div>
             </div>
             
             <div class="form-group">
@@ -182,6 +187,45 @@
 
 .form-group {
     margin-bottom: 20px;
+}
+
+/* Contact Form Error Messages */
+.contact-form-error {
+    display: none;
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Contact Form Buttons */
+#header-contact-btn {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.shortMailButton {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-inactive {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-inactive:hover {
+    transform: scale(1);
+}
+
+/* Asterisk styling */
+.asterisque {
+    color: #dc3545;
+    font-weight: bold;
 }
 
 .form-group label {
