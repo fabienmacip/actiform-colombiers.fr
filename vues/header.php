@@ -102,7 +102,7 @@
             
             <div class="form-group">
                 <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" name="phone">
+                <input type="tel" id="phone" name="phone" placeholder="De type 0622334455 ou +33622334455">
             </div>
             
             <div class="form-group">
@@ -120,22 +120,21 @@
 }
 
 .je-me-lance-btn {
-    background: linear-gradient(135deg, #007bff, #0056b3);
+    background-color: var(--main-color-red);
+    border: 2px solid var(--main-color-red);
     color: white;
-    border: none;
     padding: 12px 24px;
-    border-radius: 25px;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    text-align: center;
 }
 
 .je-me-lance-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: scale(1.05);
+    opacity: 0.7;
 }
 
 /* Modal Styles */
