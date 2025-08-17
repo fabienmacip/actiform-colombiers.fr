@@ -88,30 +88,38 @@
             <input type="hidden" name="header-contact-form-flag" value="flag">
             <div class="form-group">
                 <label for="firstName">Prénom *</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="firstName" maxlength="60" required
+                    onblur="checkHeaderContactFormField('firstName')" oninput="checkHeaderContactFormField('firstName')"
+                >
                 <div id="error-firstName" class="contact-form-error">Prénom : minimum 2 caractères</div>
             </div>
             
             <div class="form-group">
                 <label for="lastName">Nom *</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="lastName" maxlength="60" required
+                    onblur="checkHeaderContactFormField('lastName')" oninput="checkHeaderContactFormField('lastName')"
+                >
                 <div id="error-lastName" class="contact-form-error">Nom : minimum 2 caractères</div>
             </div>
             
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" maxlength="60"
+                    onblur="checkHeaderContactFormField('email')" oninput="checkHeaderContactFormField('email')"
+                >
                 <div id="error-email" class="contact-form-error">Format email invalide</div>
             </div>
             
             <div class="form-group">
                 <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" name="phone" placeholder="De type 0622334455 ou +33622334455">
+                <input type="tel" id="phone" name="phone" placeholder="De type 0622334455 ou +33622334455"
+                    onblur="checkHeaderContactFormField('phone')" oninput="checkHeaderContactFormField('phone')"
+                >
                 <div id="error-phone" class="contact-form-error">Format téléphone invalide (10 chiffres ou + suivi de 11 chiffres)</div>
             </div>
             
             <div class="form-group">
-                <button type="submit" class="submit-btn">Envoyer</button>
+                <button id="btn-envoyer-header-contact" type="submit" class="submit-btn">Envoyer</button>
             </div>
         </form>
     </div>

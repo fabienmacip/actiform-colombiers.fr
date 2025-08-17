@@ -47,7 +47,7 @@ function submitFormViaAjax(firstName, lastName, email, phone) {
     })
     .then(response => response.text())
     .then(data => {
-        console.log('Form submitted successfully');
+        //console.log('Form submitted successfully');
         
         // Show success message
         showSuccessMessage();
@@ -141,6 +141,7 @@ function validFormHeaderContact() {
 
 // Check individual form field - same approach as decouverte form
 function checkHeaderContactFormField(fieldId) {
+    //console.log("CHECK HEADER CONTACT FORM FIELD : " + fieldId);
     const field = document.getElementById(fieldId);
     const errorDiv = document.getElementById('error-' + fieldId);
     
@@ -197,7 +198,7 @@ function checkHeaderContactFormField(fieldId) {
         showHeaderContactError(fieldId, errorMessage);
         field.style.borderColor = '#dc3545';
     }
-    
+    updateHeaderContactSubmitButton();
     return isValid;
 }
 
