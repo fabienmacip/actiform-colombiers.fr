@@ -117,6 +117,19 @@
                 >
                 <div id="error-phone" class="contact-form-error">Format téléphone invalide (10 chiffres ou + suivi de 11 chiffres)</div>
             </div>
+
+            <div class="form-group">
+                <div class="form-group-checkbox">
+                    <div>
+                            <input type="checkbox" name="conditions" id="conditions" tabindex="3"
+                            onclick="checkHeaderContactFormField('conditions')">    
+                    </div>
+                    <div>
+                        Mentions l&eacute;gales lues et accept&eacute;es. <span class="asterisque">*</span>
+                    </div>
+                </div>
+            </div>
+
             
             <div class="form-group">
                 <button id="btn-envoyer-header-contact" type="submit" class="submit-btn">Envoyer</button>
@@ -264,6 +277,12 @@
 
 .form-group input.success {
     border-color: #28a745;
+}
+
+.form-group-checkbox {
+    display: flex;
+    justify-content: start;
+    column-gap: 10px;
 }
 
 .validation-message {

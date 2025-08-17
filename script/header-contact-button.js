@@ -141,55 +141,64 @@ function validFormHeaderContact() {
 
 // Check individual form field - same approach as decouverte form
 function checkHeaderContactFormField(fieldId) {
+    
     //console.log("CHECK HEADER CONTACT FORM FIELD : " + fieldId);
-    const field = document.getElementById(fieldId);
-    const errorDiv = document.getElementById('error-' + fieldId);
     
-    if (!field || !errorDiv) return false;
-    
-    const value = field.value.trim();
     let isValid = true;
+    const field = document.getElementById(fieldId);
     let errorMessage = '';
-    
-    switch (fieldId) {
-        case 'firstName':
-            if (value.length < 2) {
-                isValid = false;
-                errorMessage = 'Prénom : minimum 2 caractères';
-            } else if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(value)) {
-                isValid = false;
-                errorMessage = 'Lettres et espaces uniquement';
-            }
-            break;
-            
-        case 'lastName':
-            if (value.length < 2) {
-                isValid = false;
-                errorMessage = 'Nom : minimum 2 caractères';
-            } else if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(value)) {
-                isValid = false;
-                errorMessage = 'Lettres et espaces uniquement';
-            }
-            break;
-            
-        case 'email':
-            if (value !== '') {
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                    isValid = false;
-                    errorMessage = 'Format email invalide';
-                }
-            }
-            break;
-            
-        case 'phone':
-            if (value !== '') {
-                if (!(/^[0-9]{10}$/.test(value) || /^\+[0-9]{11}$/.test(value))) {
-                    isValid = false;
-                    errorMessage = 'Format téléphone invalide (10 chiffres ou + suivi de 11 chiffres)';
-                }
-            }
-            break;
+
+    if(fieldId === "conditions") {
+        isValid = ($('#conditions').prop('checked'));
     }
+    else {
+        const errorDiv = document.getElementById('error-' + fieldId);
+
+        if (!field || !errorDiv) return false;
+        const value = field.value.trim();
+        
+        switch (fieldId) {
+            case 'firstName':
+                if (value.length < 2) {
+                    isValid = false;
+                    errorMessage = 'Prénom : minimum 2 caractères';
+                } else if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Lettres et espaces uniquement';
+                }
+                break;
+                
+            case 'lastName':
+                if (value.length < 2) {
+                    isValid = false;
+                    errorMessage = 'Nom : minimum 2 caractères';
+                } else if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Lettres et espaces uniquement';
+                }
+                break;
+                
+            case 'email':
+                if (value !== '') {
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Format email invalide';
+                    }
+                }
+                break;
+                
+            case 'phone':
+                if (value !== '') {
+                    if (!(/^[0-9]{10}$/.test(value) || /^\+[0-9]{11}$/.test(value))) {
+                        isValid = false;
+                        errorMessage = 'Format téléphone invalide (10 chiffres ou + suivi de 11 chiffres)';
+                    }
+                }
+                break;
+        } // END SWITCH
+    } // END ELSE
+
+
     
     if (isValid) {
         hideHeaderContactError(fieldId);
@@ -228,15 +237,17 @@ function updateHeaderContactSubmitButton() {
     const lastName = document.getElementById('lastName').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const conditions = document.getElementById('conditions').checked;
     
     // Check if required fields are filled and at least one contact method is provided
     const isFirstNameValid = firstName.length >= 2 && /^[a-zA-ZÀ-ÿ\s]+$/.test(firstName);
     const isLastNameValid = lastName.length >= 2 && /^[a-zA-ZÀ-ÿ\s]+$/.test(lastName);
     const isEmailValid = email === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const isPhoneValid = phone === '' || (/^[0-9]{10}$/.test(phone) || /^\+[0-9]{11}$/.test(phone));
+    const isConditionsValid = conditions;
     const hasContactMethod = email !== '' || phone !== '';
     
-    const isValid = isFirstNameValid && isLastNameValid && hasContactMethod && isEmailValid && isPhoneValid;
+    const isValid = isFirstNameValid && isLastNameValid && hasContactMethod && isEmailValid && isPhoneValid && isConditionsValid;
     
     if (isValid) {
         submitBtn.disabled = false;
