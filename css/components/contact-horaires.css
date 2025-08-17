@@ -36,10 +36,23 @@
   margin-bottom: 2.5rem;
 }
 
-#facebook-iframe {
+#facebook-iframe,
+#insta-blockquote
+{
   max-width: 96%;
 }
 
+#insta-block{
+  width: 500px;
+  max-width: 98%;
+  margin: auto;
+
+}
+
+#contact-reseaux-sociaux{
+  display: flex;
+  flex-direction: column;
+}
 #instagram-widget {
   width: 705px;
   max-width: 95%;
