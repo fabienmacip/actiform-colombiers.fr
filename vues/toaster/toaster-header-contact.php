@@ -20,8 +20,8 @@
 		echo 'flag: "' . ($_POST['header-contact-form-flag'] ?? 'NON DÉFINI') . '"<br>';
 		echo '</div>';
 		
-		$DESTINATAIRE = "fabien.macip@gmail.com";
-		//$DESTINATAIRE = "louis.jdlfitness@gmail.com";
+		//$DESTINATAIRE = "fabien.macip@gmail.com";
+		$DESTINATAIRE = "louis.jdlfitness@gmail.com";
 		$DESTINATAIRE_BCC = "fabien.macip@gmail.com";
         $mail = $DESTINATAIRE;
 		
