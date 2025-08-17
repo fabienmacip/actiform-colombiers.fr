@@ -30,6 +30,74 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Function to submit form via AJAX
+function submitFormViaAjax(firstName, lastName, email, phone) {
+    // Create form data
+    const formData = new FormData();
+    formData.append('header-contact-form-flag', 'flag');
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    
+    // Submit via AJAX
+    fetch('vues/toaster/toaster-header-contact.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Form submitted successfully');
+        
+        // Show success message
+        showSuccessMessage();
+        
+        // Close the contact modal
+        const modal = document.getElementById('contact-modal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+        
+        // Reset the form
+        const form = document.getElementById('formHeaderContact');
+        if (form) {
+            form.reset();
+            updateHeaderContactSubmitButton();
+        }
+    })
+    .catch(error => {
+        console.error('Error submitting form:', error);
+        alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+    });
+}
+
+// Show success message
+function showSuccessMessage() {
+    // Create and show the success dialog box
+    const successDialog = document.createElement('div');
+    successDialog.className = 'modal success-dialog';
+    successDialog.style.display = 'block';
+    
+    successDialog.innerHTML = `
+        <div class="modal-content success-dialog-content">
+            <div class="success-icon">✓</div>
+            <h2>Message envoyé !</h2>
+            <p>Merci pour votre message ! Nous vous contacterons bientôt.</p>
+            <button class="success-close-btn" onclick="this.parentElement.parentElement.remove()">Fermer</button>
+        </div>
+    `;
+    
+    // Add success dialog to page
+    document.body.appendChild(successDialog);
+    
+    // Close success dialog when clicking outside
+    successDialog.onclick = function(event) {
+        if (event.target === successDialog) {
+            successDialog.remove();
+        }
+    };
+}
+
 // Form validation function - same approach as decouverte form
 function validFormHeaderContact() {
     let isValid = true;

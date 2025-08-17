@@ -331,13 +331,75 @@
     background: linear-gradient(135deg, #28a745, #20c997);
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 15px 40px;
+    border-radius: 30px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.success-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    background: linear-gradient(135deg, #20c997, #17a2b8);
+}
+
+/* Success Dialog Box Styles */
+.success-dialog {
+    z-index: 1002;
+}
+
+.success-dialog-content {
+    text-align: center;
+    max-width: 450px;
+    padding: 40px 30px;
+}
+
+.success-dialog-content .success-icon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 25px;
+    background: #d4edda;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    border: 4px solid #28a745;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+.success-dialog-content h2 {
+    color: #28a745;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.success-dialog-content p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.success-close-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 }
 
 .success-close-btn:hover {
