@@ -30,6 +30,182 @@
         }
     ?>
     <div id="temoignages-section">
+
+    <div class="avis-google"> 
+            <div>
+                <div>
+                    <img 
+                            class="avis-img" 
+                            alt="avatar-avis" 
+                            src="img/temoignages/07.png"
+                    >
+                </div>    
+                <div>
+                    <span class="avis-auteur">Puls'Art Piercing Iris Tattoo</span>
+                    <span class="avis-nb">15 avis</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                </div>
+                <div>
+                    il y a <?= calculAnterioriteAvis("2025-04-15") ?>
+                </div>
+            </div>
+            <div>
+                <div>
+                Super salle, bonne ambiance je recommande vivement
+                </div>
+                <div>
+                    Visit&eacute; en avril 2025
+                </div>
+            </div>
+        </div>
+        <div class="avis-google"> 
+            <div>
+                <div>
+                    <img 
+                            class="avis-img" 
+                            alt="avatar-avis" 
+                            src="img/temoignages/08.png"
+                    >
+                </div>    
+                <div>
+                    <span class="avis-auteur">Marilyn MOURNET</span>
+                    <span class="avis-nb">1 avis</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                </div>
+                <div>
+                    il y a <?= calculAnterioriteAvis("2024-11-10") ?>
+                </div>
+            </div>
+            <div>
+                <div>
+                    Salle de sport très conviviale et décontractée. Je suis inscrite depuis bientot 2 ans. Rien à voir avec les grosses chaînes de salle de sport.<br>
+                    Louis nous accueille toujours avec le sourire et reste disponible pour nous accompagner.<br>
+                    Matériel bien entretenu et de qualité.<br>
+                    Pour ma part je ne vais pas aux cours collectifs mais j'ai eu de bons retours.
+                </div>
+                <div>
+                    Visit&eacute; en novembre 2024
+                </div>
+            </div>
+        </div>
+        <div class="avis-google"> 
+            <div>
+                <div>
+                    <img 
+                            class="avis-img" 
+                            alt="avatar-avis" 
+                            src="img/temoignages/09.png"
+                    >
+                </div>    
+                <div>
+                    <span class="avis-auteur">Martine Cabie</span>
+                    <span class="avis-nb">12 avis</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                    <img
+                        class="avis-etoile"
+                        alt="etoile"
+                        src="img/icones/etoile-ok.png"
+                    >
+                </div>
+                <div>
+                    il y a <?= calculAnterioriteAvis("2024-04-25") ?>
+                </div>
+            </div>
+            <div>
+                <div>
+                Salle de sport pro, conviviale et cours hypers variés.<br>
+                Les coachs sont efficaces, rigoureux et très sympas.<br>
+                Concernant le patron, il est doté d'une humeur incroyable. 
+                Toujours le sourire et le peps. Mais ne vous y méprenez pas, 
+                c'est pas parce que l'ambiance est décontractée, qu'on oublie de bosser. Tout au contraire !<br>
+                Venez essayer, vous verrez par vous même. 😜
+                </div>
+                <div>
+                    Visit&eacute; en avril 2024
+                </div>
+            </div>
+        </div>
+
+
         <div class="avis-google"> 
             <div>
                 <div>
