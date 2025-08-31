@@ -53,6 +53,10 @@
   min-height: 180px;
 }
 
+.tarif-card-liste-petit {
+  font-size: 1.4rem;
+}
+
 .tarif-card-price {
   font-size: 3rem;
   font-weight: bold;

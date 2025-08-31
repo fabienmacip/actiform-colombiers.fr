@@ -1,7 +1,7 @@
 <div id="planning-reservations-div" class="tc">
     
     <h1>PLANNING & RESERVATIONS</h1>
-    <a id="cgu-pdf" href="assets/doc/actiform-planning-2024-2025.pdf" target="_blank" class="link-to-pdf">
+    <a id="cgu-pdf" href="assets/doc/actiform-planning-2025-2026.pdf" target="_blank" class="link-to-pdf">
         T&eacute;l&eacute;charger au format PDF (2024-2025)
     </a>
 

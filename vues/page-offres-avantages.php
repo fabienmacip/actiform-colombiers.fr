@@ -4,7 +4,7 @@
 
     <div id="div-grille-tarifaire" class="tc">
         <h2>Grille Tarifaire</h2>
-        <a id="cgu-pdf" href="assets/doc/actiform-tarifs-2023-2024.pdf" target="_blank" class="link-to-pdf">
+        <a id="cgu-pdf" href="assets/doc/actiform-tarifs-2025-2026.pdf" target="_blank" class="link-to-pdf">
           T&eacute;l&eacute;charger au format PDF
         </a>
 
@@ -19,7 +19,7 @@
                     CROSS TRAINING
                 </div>
                 <div class="tarif-card-price">
-                  29,90 €
+                  29,90 € / MOIS
                 </div>
             </div>
 
@@ -28,13 +28,16 @@
                     PRIME FORM
                 </div>
                 <div class="tarif-card-liste">
-                    CDI<br>
+                    6 MOIS MINIMUM<br>
                     COURS COLLECTIFS<br>
                     MUSCU/CARDIO<br>
-                    CROSS TRAINING
+                    CROSS TRAINING<br>
+                    ACC&Egrave;S DUO <span style="color:red;">*</span><br>
+                    <i><span style="color:red;">*</span> tous les vendredis</i><br><br>
+                    
                 </div>
                 <div class="tarif-card-price">
-                34,90 €
+                39,90 € / MOIS
                 </div>
             </div>
 
@@ -48,8 +51,13 @@
                     MUSCU/CARDIO<br>
                     CROSS TRAINING
                 </div>
+                <div class="tarif-card-liste tarif-card-liste-petit">
+                    OPTION COURS<br>
+                    COLLECTIF ET ACC&Egrave;S<br>
+                    DUO (+10 €)
+                </div>
                 <div class="tarif-card-price">
-                25 €
+                25 € / MOIS
                 </div>
             </div>
 
@@ -58,7 +66,7 @@
                     OPTION
                 </div>
                 <div class="tarif-card-liste">
-                    PROGRAMME PERSONNALISE
+                    PROGRAMME PERSONNALIS&Eacute;
                 </div>
                 <div class="tarif-card-price">
                 5 € / MOIS
@@ -70,10 +78,10 @@
                     OPTION
                 </div>
                 <div class="tarif-card-liste">
-                    FORMULE COACHING PERSONNALISE
+                    CARNET COACHING PERSONNALIS&Eacute;
                 </div>
-                <div class="tarif-card-price">
-                55 € / MOIS
+                <div class="tarif-card-price" style="display:none;">
+                &nbsp;
                 </div>
             </div>
 
