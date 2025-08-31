@@ -1,29 +1,121 @@
-<div id="planning-reservations-div" class="tc">
-    
-    <h1>PLANNING & RESERVATIONS</h1>
-    <a id="cgu-pdf" href="assets/doc/actiform-planning-2024-2025.pdf" target="_blank" class="link-to-pdf">
-        T&eacute;l&eacute;charger au format PDF (2024-2025)
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning</title>
 
-    <div id="resamania">
-        R&eacute;servez votre cours avec RESAMANIA.<br>
-        Cliquez sur le logo ci-dessous.<br><br>
-        <div class="box">
-            <a href="https://api.resamania.com/oauth/login/actiform?client_id=26_2532ba2d23446346e4f83dda1570fdd224ce70c546251c4ce84bd734e0e18811&redirect_uri=https://member.resamania.com/actiform/&response_type=code&back_username=1" 
-               target="_blank"
-            >
-                <img src="img/reserver/resalogo.png" alt="logo resamania">
-            </a>
-        </div>
-     
-    </div>
+<style>
+    :root {
 
-<!-- **************************************************************************************
-**************************************************************************************
-************************************* P L A N N I N G ********************************
-**************************************************************************************
-************************************************************************************** -->
-<div id="planning-2025-2026">
+        --main-color: black;
+        --main-color-dark: black;
+        --main-color-light: #c7c7c7;
+        --main-color-red: #ff1617;
+        --main-color-white: white;
+    }
+
+
+    #planning-2025-2026 {
+        font-family: 'Anton', sans-serif;
+        text-shadow: 5px 6px 6px #CEC8C6;
+        padding: 12px;
+        background-color: var(--main-color-dark);
+        font-weight: bold;
+
+        display: grid;
+        margin: 0 auto;
+        gap: 10px;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(1, 700px);        
+    }
+
+    #planning-2025-2026 > div {
+        padding: 12px;
+        background-color: var(--main-color-white);
+        border-radius: 50px;
+        width: 200px;
+        max-width: 94%;
+        font-size: 1.2rem;
+    }
+
+    #planning-lundi {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    #planning-mardi {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    #planning-mercredi {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+
+    #planning-jeudi {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+    }
+
+    #planning-vendredi {
+        grid-column: 5 / 6;
+        grid-row: 1 / 2;
+    }
+
+    #planning-dimanche {
+        grid-column: 6 / 7;
+        grid-row: 1 / 2;
+    }
+
+
+    #planning-2025-2026 > div > h3 {
+        color: var(--main-color-red);
+        text-align: center;
+        font-size: 1.7rem;
+        font-style: italic;
+    }
+
+    .activity-name {
+
+    }
+
+    .activity-time {
+        color: var(--main-color-red);
+        margin-bottom: 12px;
+    }
+
+
+    /* On passe sur 2 fois 3 jours */
+    @media screen and (max-width: 1250px) {
+        #planning-2025-2026 {
+            flex-wrap: wrap;
+        }
+
+        #planning-2025-2026 > div {
+            flex: 25%;
+            margin: 0 1rem;
+        }
+    }
+
+    /* On passe sur 6 fois 1 jour */
+    @media screen and (max-width: 580px) {
+
+        #planning-2025-2026 > div {
+            flex: 90%;
+            margin: 0 10px;
+        }
+    }
+
+
+</style>
+
+</head>
+<body>
+    <div id="planning-2025-2026">
         <div id="planning-lundi">
             <h3>LUNDI</h3>
             <div class="activity-name">SWISS BALL</div>
@@ -129,5 +221,5 @@
             <div class="activity-time">12 H - 12 H 30</div>
         </div>                                        
     </div>
-
-</div>
+</body>
+</html>
